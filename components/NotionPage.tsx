@@ -29,7 +29,6 @@ import { PageHead } from './PageHead'
 import { PageAside } from './PageAside'
 import { Footer } from './Footer'
 import { NotionPageHeader } from './NotionPageHeader'
-import { GitHubShareButton } from './GitHubShareButton'
 
 import styles from './styles.module.css'
 
@@ -71,7 +70,7 @@ const Code = dynamic(() =>
       import('prismjs/components/prism-stylus.js'),
       import('prismjs/components/prism-swift.js'),
       import('prismjs/components/prism-wasm.js'),
-      import('prismjs/components/prism-yaml.js')
+      import('prismjs/components/prism-yaml.js'),
     ])
     return m.Code
   })
@@ -88,7 +87,7 @@ const Equation = dynamic(() =>
 const Pdf = dynamic(
   () => import('react-notion-x/build/third-party/pdf').then((m) => m.Pdf),
   {
-    ssr: false
+    ssr: false,
   }
 )
 const Modal = dynamic(
@@ -98,7 +97,7 @@ const Modal = dynamic(
       return m.Modal
     }),
   {
-    ssr: false
+    ssr: false,
   }
 )
 
@@ -112,7 +111,7 @@ const propertyLastEditedTimeValue = (
 ) => {
   if (pageHeader && block?.last_edited_time) {
     return `Last updated ${formatDate(block?.last_edited_time, {
-      month: 'long'
+      month: 'long',
     })}`
   }
 
@@ -128,7 +127,7 @@ const propertyDateValue = (
 
     if (publishDate) {
       return `Published ${formatDate(publishDate, {
-        month: 'long'
+        month: 'long',
       })}`
     }
   }
@@ -151,7 +150,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
   site,
   recordMap,
   error,
-  pageId
+  pageId,
 }) => {
   const router = useRouter()
   const lite = useSearchParam('lite')
@@ -169,7 +168,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
       Header: NotionPageHeader,
       propertyLastEditedTimeValue,
       propertyTextValue,
-      propertyDateValue
+      propertyDateValue,
     }),
     []
   )
@@ -222,7 +221,7 @@ export const NotionPage: React.FC<types.PageProps> = ({
     title,
     pageId,
     rootNotionPageId: site.rootNotionPageId,
-    recordMap
+    recordMap,
   })
 
   if (!config.isServer) {
@@ -258,8 +257,8 @@ export const NotionPage: React.FC<types.PageProps> = ({
         url={canonicalPageUrl}
       />
 
-      {isLiteMode && <BodyClassName className='notion-lite' />}
-      {isDarkMode && <BodyClassName className='dark-mode' />}
+      {isLiteMode && <BodyClassName className="notion-lite" />}
+      {isDarkMode && <BodyClassName className="dark-mode" />}
 
       <NotionRenderer
         bodyClassName={cs(
@@ -285,8 +284,6 @@ export const NotionPage: React.FC<types.PageProps> = ({
         pageAside={pageAside}
         footer={footer}
       />
-
-      <GitHubShareButton />
     </>
   )
 }
