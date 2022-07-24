@@ -14,7 +14,7 @@ export default siteConfig({
   author: 'Thomas Forbes',
 
   // open graph metadata (optional)
-  description: 'Example Next.js Notion Starter Kit Site',
+  description: 'I am an aspiring full stack entrepreneur.',
 
   // social usernames (optional)
   twitter: 'foldedcode',
@@ -49,7 +49,7 @@ export default siteConfig({
 
   // whether to use the default notion navigation style or a custom one with links to
   // important pages
-  navigationStyle: 'default',
+  navigationStyle: 'default'
   // navigationStyle: 'custom',
   // navigationLinks: [
   //   {
