@@ -18,9 +18,14 @@
   --bg-color-1: #14191f;
   --bg-color-2: #49505a;
 }
+
+body {
+  background-color: var(--bg-color);
+}
+
 .notion-collection {
   padding: 10px;
-  border-radius: 1%;
+  border-radius: 12px;
 }
 
 .dark-mode .notion-collection {
