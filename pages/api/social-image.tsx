@@ -1,19 +1,18 @@
-import * as React from 'react'
 import { withOGImage } from 'next-api-og-image'
 
+import { PageBlock } from 'notion-types'
 import {
-  getBlockTitle,
   getBlockIcon,
+  getBlockTitle,
   getPageProperty,
   isUrl,
   parsePageId
 } from 'notion-utils'
-import { PageBlock } from 'notion-types'
 
-import { notion } from 'lib/notion-api'
-import { mapImageUrl } from 'lib/map-image-url'
-import { interRegular } from 'lib/fonts'
 import * as config from 'lib/config'
+import { interRegular } from 'lib/fonts'
+import { mapImageUrl } from 'lib/map-image-url'
+import { notion } from 'lib/notion-api'
 
 /**
  * Social image generation via headless chrome.
@@ -203,7 +202,7 @@ body {
 .rhs {
   width: 35%;
   height: 100%;
-  border-radius: 4px;
+  border-radius: 10px;
   object-fit: cover;
 }
 
@@ -235,6 +234,7 @@ body {
   max-height: 20vmin;
   border-radius: 50%;
   border: 1.5vmin solid #fff;
+  background-position: center center;
 }
 
 .metadata-rhs {
