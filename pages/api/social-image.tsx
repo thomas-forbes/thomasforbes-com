@@ -1,4 +1,5 @@
 import { withOGImage } from 'next-api-og-image'
+import * as React from 'react'
 
 import { PageBlock } from 'notion-types'
 import {
@@ -27,6 +28,8 @@ const debugInspectHtml = false
 export default withOGImage<'query', 'id'>({
   template: {
     react: async ({ id }) => {
+      // to make the package not disappear
+      React
       const pageId = parsePageId(id)
 
       if (!pageId) {
