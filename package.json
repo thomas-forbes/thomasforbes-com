@@ -6,9 +6,6 @@
   "author": "Travis Fischer <travis@transitivebullsh.it>",
   "repository": "transitive-bullshit/nextjs-notion-starter-kit",
   "license": "MIT",
-  "engines": {
-    "node": "14.x"
-  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -29,6 +26,7 @@
     "@keyvhq/core": "^1.6.9",
     "@keyvhq/redis": "^1.6.10",
     "@react-icons/all-files": "^4.1.0",
+    "@splitbee/web": "^0.3.0",
     "classnames": "^2.3.1",
     "date-fns": "^2.28.0",
     "expiry-map": "^2.0.0",
