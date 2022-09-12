@@ -1,6 +1,7 @@
 import { siteConfig } from './lib/site-config'
 
 export default siteConfig({
+  isSearchEnabled: false,
   // the site's root Notion page (required)
   rootNotionPageId: 'eae77bb3435d4fcdbe8b0de72f653958',
 
