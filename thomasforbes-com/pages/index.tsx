@@ -1,8 +1,26 @@
 import Link from 'next/link'
+import { ReactNode } from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 
-export default function Home() {
+const ToolTip = ({
+  children,
+  toolText,
+  text,
+}: {
+  children?: ReactNode
+  toolText?: string
+  text: string
+}) => (
+  <span className="has-tooltip relative border-b border-slate-400 border-dashed">
+    <span className="tooltip left-1/2 text-sm whitespace-pre -translate-x-1/2 rounded-xl shadow-lg px-3 py-1 bg-slate-800 -mt-7 duration-200">
+      {children ? children : toolText}
+    </span>
+    {text}
+  </span>
+)
+
+export default function Home(props: any) {
   const iconProps = { size: 22, className: 'text-slate-300' } //hover:scale-105 duration-75' }
   return (
     <div className="w-full h-full flex flex-col justify-between pt-16 pb-5 px-2 dark">
@@ -13,8 +31,12 @@ export default function Home() {
           Thomas Forbes
         </h1>
         <p className="text-slate-300">
-          I am an Irish secondary school student trying to be a full-stack
-          entrepreneur.
+          I am an Irish secondary school student trying to be a full stack
+          entrepreneur
+          {/* <ToolTip
+            text="full stack entrepreneur"
+            toolText="Being pro at all roles"
+          /> */}
         </p>
         {/* ABOUT ME */}
         <div className="flex flex-row justify-between">
@@ -29,18 +51,42 @@ export default function Home() {
                       Date.now() - new Date(2005, 8, 10).getTime()
                     ).getUTCFullYear() - 1970
                   )} years old`,
+                  toolTip: (
+                    <div className="flex flex-row items-center space-x-1">
+                      Alive
+                      <div className="w-2 h-2 rounded-xl block bg-green-600 animate-pulse ml-1" />
+                    </div>
+                  ),
                 },
-                { emoji: '🇮🇪', text: 'Living in Ireland' },
+                {
+                  emoji: String.fromCodePoint(
+                    ...props.location.country
+                      .toUpperCase()
+                      .split('')
+                      .map((char: string) => 127397 + char.charCodeAt(0))
+                  ),
+                  text: `Currently in ${props.location.city}, ${props.location.country}`,
+                  toolTip: (
+                    <div className="flex flex-row items-center space-x-1">
+                      <a
+                        href="https://nomadlist.com/@thomasforbes"
+                        target="_blank"
+                        className="underline"
+                      >
+                        Nomad List
+                      </a>
+                      <div className="w-2 h-2 rounded-xl block bg-green-600 animate-pulse ml-1" />
+                    </div>
+                  ),
+                },
                 { emoji: '👨‍💻', text: 'Indie Hacker' },
               ].map((item) => (
                 <li className="text-slate-300 flex flex-row items-center">
                   <span className="mr-2">{item.emoji}</span>
-                  {item.text}
-                  {item.text.includes('years old') && (
-                    <div
-                      className="w-2 h-2 rounded-xl block bg-green-600 animate-pulse
-                  ml-1"
-                    ></div>
+                  {item?.toolTip ? (
+                    <ToolTip text={item.text}>{item.toolTip}</ToolTip>
+                  ) : (
+                    <span>{item.text}</span>
                   )}
                 </li>
               ))}
@@ -51,7 +97,7 @@ export default function Home() {
         <div className="border border-solid border-slate-200 border-opacity-10 bg-slate-800 highlight-white/5 shadow-lg rounded-xl p-6 md:p-8 space-y-6">
           {/* TOP LINK */}
           <Link href="/">
-            <h4 className="text-slate-500 uppercase hover:text-white duration-200">
+            <h4 className="text-slate-500 uppercase hover:text-white duration-300">
               Writing &rarr;
             </h4>
           </Link>
@@ -88,7 +134,7 @@ export default function Home() {
               <a
                 href={link.href}
                 target="_blank"
-                className="hover:scale-125 hover:brightness-125 duration-150 p-6"
+                className="hover:scale-105 hover:brightness-125 duration-200 p-6"
               >
                 {link.icon}
                 {/* {link.text} */}
@@ -99,4 +145,23 @@ export default function Home() {
       </footer>
     </div>
   )
+}
+
+export const getStaticProps = async () => {
+  const locData = await (
+    await fetch('https://nomadlist.com/@thomasforbes.json')
+  ).json()
+  const loc = {
+    city: locData.location.now.city || 'Earth',
+    country:
+      locData.location.now.country_code === 'UK'
+        ? 'GB'
+        : locData.location.now.country_code,
+  }
+
+  return {
+    props: {
+      location: loc,
+    },
+  }
 }
