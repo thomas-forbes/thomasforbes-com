@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ReactNode } from 'react'
+import { ReactNode, useEffect, useState } from 'react'
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { IoMdMail } from 'react-icons/io'
 
@@ -22,6 +22,14 @@ const ToolTip = ({
 
 export default function Home(props: any) {
   const iconProps = { size: 22, className: 'text-slate-300' } //hover:scale-105 duration-75' }
+
+  // Requires js to show email -> less spam
+  const [mailLink, setMailLink] = useState(
+    'mailto:enablejavascript@example.com'
+  )
+  useEffect(() => {
+    setMailLink(`mailto:${window.atob('dGhvbWFzQHRob21hc2ZvcmJlcy5jb20=')}`)
+  }, [])
   return (
     <div className="w-full h-full flex flex-col justify-between pt-16 pb-5 px-2 dark">
       {/* MAIN CONTENT */}
@@ -30,7 +38,7 @@ export default function Home(props: any) {
         <h1 className="text-6xl font-bold text-center hover:scale-125 duration-150">
           Thomas Forbes
         </h1>
-        <p className="text-slate-300">
+        <p className="text-slate-300 text-center">
           I am an Irish secondary school student trying to be a full stack
           entrepreneur
           {/* <ToolTip
@@ -38,10 +46,31 @@ export default function Home(props: any) {
             toolText="Being pro at all roles"
           /> */}
         </p>
-        {/* ABOUT ME */}
-        <div className="flex flex-row justify-between">
-          <section>
-            <h2 className="text-2xl font-semibold my-3">About Me</h2>
+        <div className="flex flex-row justify-between"></div>
+        {/* MAIN CONTENT */}
+        <div className="flex flex-row max-w-4xl w-full space-x-5">
+          {/* WRITING */}
+          <div className="flex-1 border border-solid border-slate-200 border-opacity-10 bg-slate-800 highlight-white/5 shadow-lg rounded-xl p-6 md:p-8 space-y-6">
+            {/* TOP LINK */}
+            <Link href="/">
+              <h4 className="text-slate-500 uppercase hover:text-white duration-300">
+                Writing &rarr;
+              </h4>
+            </Link>
+            {/* ARTICLES */}
+            <div className="flex flex-col space-y-5">
+              <div className="space-y-2">
+                <h3 className="text-2xl font-bold">Ur momma so fat</h3>
+                <p className="text-slate-400">
+                  The story of the heaviest object in the world...
+                </p>
+                <p className="text-slate-600">February 20, 2069</p>
+              </div>
+            </div>
+          </div>
+          {/* ABOUT ME */}
+          <div className="border border-slate-700 shadow-lg rounded-xl p-6 space-y-3">
+            <h2 className="text-2xl font-semibold">About Me</h2>
             <ul>
               {[
                 {
@@ -81,7 +110,10 @@ export default function Home(props: any) {
                 },
                 { emoji: '👨‍💻', text: 'Indie Hacker' },
               ].map((item) => (
-                <li className="text-slate-300 flex flex-row items-center">
+                <li
+                  className="text-slate-300 flex flex-row items-center"
+                  key={item.text}
+                >
                   <span className="mr-2">{item.emoji}</span>
                   {item?.toolTip ? (
                     <ToolTip text={item.text}>{item.toolTip}</ToolTip>
@@ -91,17 +123,7 @@ export default function Home(props: any) {
                 </li>
               ))}
             </ul>
-          </section>
-        </div>
-        {/* WRITING */}
-        <div className="border border-solid border-slate-200 border-opacity-10 bg-slate-800 highlight-white/5 shadow-lg rounded-xl p-6 md:p-8 space-y-6">
-          {/* TOP LINK */}
-          <Link href="/">
-            <h4 className="text-slate-500 uppercase hover:text-white duration-300">
-              Writing &rarr;
-            </h4>
-          </Link>
-          {/* ARTICLES */}
+          </div>
         </div>
       </div>
       {/* FOOTER */}
@@ -110,7 +132,7 @@ export default function Home(props: any) {
           {[
             {
               text: 'Email',
-              href: 'mailto:thomas@thomasforbes.com',
+              href: mailLink,
               icon: <IoMdMail {...iconProps} />,
             },
             {
