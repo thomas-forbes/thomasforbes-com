@@ -39,7 +39,11 @@ export default function Writing() {
         ]
           .slice(0, 3)
           .map((article, idx) => (
-            <ArticleLink article={article} divider={idx > 0} />
+            <ArticleLink
+              article={article}
+              divider={idx > 0}
+              key={article.title}
+            />
           ))}
       </Card>
     </BaseScreen>

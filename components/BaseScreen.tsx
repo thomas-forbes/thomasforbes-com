@@ -18,7 +18,7 @@ export default function BaseScreen({
     setMailLink(`mailto:${window.atob('dGhvbWFzQHRob21hc2ZvcmJlcy5jb20=')}`)
   }, [])
   return (
-    <div className="flex-1 w-full pt-16 px-6 dark flex flex-col justify-between">
+    <div className="flex-1 w-full pt-16 px-8 dark flex flex-col justify-between">
       <div className={className}>{children}</div>
       {/* FOOTER */}
       <footer className="self-center py-3 flex flex-row items-center">
@@ -30,7 +30,7 @@ export default function BaseScreen({
           },
           {
             text: 'Twitter',
-            href: 'https://twitter.com/FoldedCode',
+            href: 'https://twitter.com/ThomasForbesy',
             icon: <FaTwitter {...iconProps} />,
           },
           {
@@ -48,6 +48,7 @@ export default function BaseScreen({
             {/* {idx > 0 && ' · '} */}
             <a
               href={link.href}
+              rel="noreferrer"
               target="_blank"
               className="hover:scale-105 hover:brightness-125 duration-200 p-6"
             >
