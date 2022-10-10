@@ -39,7 +39,7 @@ export default function Home(props: any) {
       {/* MAIN CONTENT */}
       <div className="flex flex-col max-w-4xl w-full lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
         {/* COL 1 */}
-        <div className="basis-4/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
+        <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
           {/* ABOUT ME */}
           <div className="flex-1 flex flex-col items-center border border-slate-700 shadow-lg rounded-xl p-6 md:p-8 space-y-3 lg:h-fit">
             <h2 className="text-2xl font-semibold">About Me</h2>
@@ -111,8 +111,9 @@ export default function Home(props: any) {
                 placeholder="example@example.com"
                 className="min-w-0 flex-auto appearance-none rounded-md border px-3 py-2 shadow-md shadow-zinc-800/5 focus:outline-none focus:ring-4 border-zinc-700 bg-zinc-700/[0.15] text-zinc-200 placeholder:text-zinc-500 focus:border-cyan-600 focus:ring-cyan-600/10 sm:text-sm duration-300"
               />
+              {/* Would be cool to when submitted change color to green and make text a check mark */}
               <button
-                className="rounded-md py-2 px-3 text-sm outline-offset-2 font-semibold bg-cyan-800 hover:bg-cyan-700 active:bg-cyan-800 active:text-white/70 duration-150 hover:border-cyan-600 hover:ring-cyan-600/10 hover:ring-4"
+                className="rounded-md py-2 px-3 text-sm outline-offset-2 font-semibold bg-cyan-800 hover:bg-cyan-700 active:bg-cyan-800 active:text-white/70 duration-200 hover:ring-cyan-600/10 hover:ring-4"
                 type="submit"
               >
                 Join
@@ -121,8 +122,7 @@ export default function Home(props: any) {
           </div>
         </div>
         {/* COL 2 */}
-        {/* WRITING */}
-        <div className="basis-8/12">
+        <div className="basis-10/12">
           <Card className="space-y-6">
             {/* TOP LINK */}
             <Link href="/writing">

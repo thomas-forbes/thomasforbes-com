@@ -1,0 +1,35 @@
+import ArticleLayout from '../../components/ArticleLayout'
+
+export const meta = {
+  title: 'Markdown/MDX with Next.js',
+  description: 'This is a description',
+  createdAt: new Date(),
+}
+
+# H1
+
+stuff
+
+## H2
+
+stuff
+
+### H3
+
+stuff
+
+another paragraph
+
+another paragraph
+
+I **love** using [Next.js](https://nextjs.org/)
+
+```js
+console.log('hello world')
+```
+
+test `code` test
+
+export default ({ children }) => (
+  <ArticleLayout meta={meta}>{children}</ArticleLayout>
+)

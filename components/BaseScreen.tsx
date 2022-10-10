@@ -44,18 +44,16 @@ export default function BaseScreen({
             icon: <FaLinkedin {...iconProps} />,
           },
         ].map((link, idx) => (
-          <>
-            {/* {idx > 0 && ' · '} */}
-            <a
-              href={link.href}
-              rel="noreferrer"
-              target="_blank"
-              className="hover:scale-105 hover:brightness-125 duration-200 p-6"
-            >
-              {link.icon}
-              {/* {link.text} */}
-            </a>
-          </>
+          <a
+            href={link.href}
+            rel="noreferrer"
+            target="_blank"
+            className="hover:scale-105 hover:brightness-125 duration-200 p-6"
+            key={link.href}
+          >
+            {link.icon}
+            {/* {link.text} */}
+          </a>
         ))}
       </footer>
     </div>

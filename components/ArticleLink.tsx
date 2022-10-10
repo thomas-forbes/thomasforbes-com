@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { dispDate } from '../utils/funcs'
 import { Article } from '../utils/types'
 
 export default function ArticleLink({
@@ -20,11 +21,7 @@ export default function ArticleLink({
         </h3>
       </Link>
       <p className="text-slate-500">{article.description}</p>
-      <p className="text-gray-500 font-mono">
-        {((d) => {
-          return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
-        })(article.createdAt)}
-      </p>
+      <p className="text-gray-500 font-mono">{dispDate(article.createdAt)}</p>
     </div>
   )
 }
