@@ -1,10 +1,15 @@
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
-    remarkPlugins: [],
+    remarkPlugins: [
+      require('remark-prism'),
+      {
+        transformInlineCode: true,
+      },
+    ],
     rehypePlugins: [],
     // If you use `MDXProvider`, uncomment the following line.
-    // providerImportSource: "@mdx-js/react",
+    providerImportSource: '@mdx-js/react',
   },
 })
 
