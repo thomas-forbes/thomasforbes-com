@@ -91,7 +91,7 @@ export default function Home({ location, articles }: props) {
                 { emoji: '👨‍💻', text: 'Indie Hacker' },
               ].map((item) => (
                 <li
-                  className="text-slate-300 flex flex-row items-center"
+                  className="text-slate-400 flex flex-row items-center"
                   key={item.text}
                 >
                   <span className="mr-2">{item.emoji}</span>
