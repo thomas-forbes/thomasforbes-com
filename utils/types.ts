@@ -2,5 +2,5 @@ export interface Article {
   title: string
   description: string
   link: string
-  createdAt: Date
+  createdAt: number // unix timestamp ms
 }

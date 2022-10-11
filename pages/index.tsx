@@ -1,8 +1,10 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import ArticleLink from '../components/ArticleLink'
+import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
 import Card from '../components/Card'
+import getArticles from '../utils/getArticles'
+import { Article } from '../utils/types'
 
 const ToolTip = ({
   children,
@@ -21,7 +23,12 @@ const ToolTip = ({
   </span>
 )
 
-export default function Home(props: any) {
+interface props {
+  articles: Article[]
+  location: { city: string; country: string }
+}
+
+export default function Home({ location, articles }: props) {
   return (
     <BaseScreen className="flex flex-col items-center space-y-6">
       {/* TOP INFO */}
@@ -39,7 +46,7 @@ export default function Home(props: any) {
       {/* MAIN CONTENT */}
       <div className="flex flex-col max-w-4xl w-full lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
         {/* COL 1 */}
-        <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
+        <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full h-fit">
           {/* ABOUT ME */}
           <div className="flex-1 flex flex-col items-center border border-slate-700 shadow-lg rounded-xl p-6 md:p-8 space-y-3 lg:h-fit">
             <h2 className="text-2xl font-semibold">About Me</h2>
@@ -61,12 +68,12 @@ export default function Home(props: any) {
                 },
                 {
                   emoji: String.fromCodePoint(
-                    ...props.location.country
+                    ...location.country
                       .toUpperCase()
                       .split('')
                       .map((char: string) => 127397 + char.charCodeAt(0))
                   ),
-                  text: `Currently in ${props.location.city}, ${props.location.country}`,
+                  text: `Currently in ${location.city}, ${location.country}`,
                   toolTip: (
                     <div className="flex flex-row items-center space-x-1">
                       <a
@@ -131,29 +138,7 @@ export default function Home(props: any) {
               </h2>
             </Link>
             {/* ARTICLES */}
-            <div className="flex flex-col space-y-5">
-              {[
-                {
-                  title: 'Ur momma soooo fat',
-                  description:
-                    'The legendary story of the heaviest object in the universe',
-                  link: '/writing/ur-momma-so-fat',
-                  createdAt: new Date('2069-04-20'),
-                },
-                {
-                  title: 'test',
-                  description: 'test',
-                  link: '/test',
-                  createdAt: new Date(),
-                },
-              ].map((article, idx) => (
-                <ArticleLink
-                  article={article}
-                  divider={idx > 0}
-                  key={article.title}
-                />
-              ))}
-            </div>
+            <ArticleList articles={articles} />
           </Card>
         </div>
       </div>
@@ -177,6 +162,7 @@ export const getStaticProps = async () => {
   return {
     props: {
       location: loc,
+      articles: await getArticles(),
     },
   }
 }

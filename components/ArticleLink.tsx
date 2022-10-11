@@ -15,7 +15,7 @@ export default function ArticleLink({
         // Make sure the mb here + space-y here = the space-y for the article view
         <div className="border-b-2 opacity-50 w-11/12 self-center h-[1px] border-gray-700 mb-3" />
       )}
-      <Link href={article.link}>
+      <Link href={article.link || ''}>
         <h3 className="text-2xl font-bold text-slate-300 hover:text-slate-500 duration-200 cursor-pointer">
           {article.title}
         </h3>

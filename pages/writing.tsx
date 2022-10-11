@@ -1,9 +1,15 @@
-import ArticleLink from '../components/ArticleLink'
+import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
 import Card from '../components/Card'
 import NavBar from '../components/NavBar'
+import getArticles from '../utils/getArticles'
+import { Article } from '../utils/types'
 
-export default function Writing() {
+interface props {
+  articles: Article[]
+}
+
+export default function Writing({ articles }: props) {
   return (
     <BaseScreen className="flex flex-col items-center">
       <div className="flex flex-col items-center max-w-2xl space-y-6 w-full">
@@ -13,43 +19,15 @@ export default function Writing() {
         </h1>
         <p className="text-slate-300 text-center">Some of my thoughts</p>
         {/* ARTICLES */}
-        <Card className="max-w-2xl w-full space-y-5">
-          {[
-            {
-              title: '1',
-              description: 'test',
-              link: '/writing/test',
-              createdAt: new Date(),
-            },
-            {
-              title: '2',
-              description: 'test',
-              link: '/test',
-              createdAt: new Date(),
-            },
-            {
-              title: '3',
-              description: 'test',
-              link: '/test',
-              createdAt: new Date(),
-            },
-            {
-              title: 'more than 3',
-              description: 'test',
-              link: '/test',
-              createdAt: new Date(),
-            },
-          ]
-            .slice(0, 3)
-            .map((article, idx) => (
-              <ArticleLink
-                article={article}
-                divider={idx > 0}
-                key={article.title}
-              />
-            ))}
+        <Card className="max-w-2xl w-full">
+          <ArticleList articles={articles} />
         </Card>
       </div>
     </BaseScreen>
   )
+}
+
+export async function getStaticProps() {
+  const articles = await getArticles()
+  return { props: { articles } }
 }

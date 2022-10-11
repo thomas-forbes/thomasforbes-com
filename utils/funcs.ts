@@ -1,2 +1,4 @@
-export const dispDate = (d: Date) =>
-  `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+export const dispDate = (num: number) => {
+  const d = new Date(num)
+  return `${d.getFullYear()}-${d.getMonth() + 1}-${d.getDate()}`
+}
