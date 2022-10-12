@@ -89,9 +89,11 @@ export default function Home({ location, articles }: props) {
                   ),
                 },
                 { emoji: '👨‍💻', text: 'Indie Hacker' },
-              ].map((item) => (
+              ].map((item, idx) => (
                 <li
-                  className="text-slate-400 flex flex-row items-center"
+                  className={`text-slate-400 flex flex-row items-center ${
+                    idx == 0 && 'z-10'
+                  }`}
                   key={item.text}
                 >
                   <span className="mr-2">{item.emoji}</span>
@@ -138,7 +140,17 @@ export default function Home({ location, articles }: props) {
               </h2>
             </Link>
             {/* ARTICLES */}
-            <ArticleList articles={articles} />
+            <ArticleList articles={articles} len={3} />
+            {articles.length > 3 && (
+              <div className="flex flex-col space-y-2">
+                <div className="border-b-2 opacity-50 w-11/12 self-center h-[1px] border-gray-700 mb-3" />
+                <Link href="/writing">
+                  <h2 className="font-semibold text-slate-300 hover:text-slate-500 duration-300 cursor-pointer">
+                    Read More &rarr;
+                  </h2>
+                </Link>
+              </div>
+            )}
           </Card>
         </div>
       </div>
