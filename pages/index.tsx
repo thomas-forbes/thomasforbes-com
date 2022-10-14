@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
 import ArticleList from '../components/ArticleList'
@@ -43,6 +44,7 @@ export default function Home({ location, articles }: props) {
             toolText="Being pro at all roles"
           /> */}
       </p>
+      {/* MAIN STUFF */}
       <div className="flex flex-col space-y-6 max-w-4xl w-full">
         {/* ABOUT / EMAIL / WRITING */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
@@ -150,13 +152,36 @@ export default function Home({ location, articles }: props) {
           </div>
         </div>
         {/* WORK */}
-        <Card>
+        <Card className="space-y-6">
           {/* TOP LINK */}
           <Link href="/work">
             <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
               My Work &rarr;
             </h2>
           </Link>
+          {/* GOOD COLOURS: https://tailwindcss.com/docs/background-image#linear-gradients */}
+          {/* PROJECTS */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Bubble
+              className="flex flex-col items-center bg-gradient-to-b from-sky-500 to-indigo-500 p-0 overflow-hidden hover:scale-100 duration-300 group cursor-pointer"
+              onClick={() => console.log('aa')}
+            >
+              {/* TEXT */}
+              <div className="p-6 pb-4 space-y-3 text-center">
+                <h3 className="text-2xl font-bold">This Site</h3>
+                <p className="text-sky-200">
+                  An epic masterpiece of tailwind and nextjs
+                </p>
+              </div>
+              {/* IMAGE */}
+              <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-2xl shadow-black mt-5 -mb-5 group-hover:mt-0 group-hover:mb-0 duration-300 bg-[#141414]">
+                <Image
+                  src={require('../public/site.png')}
+                  layout="responsive"
+                />
+              </div>
+            </Bubble>
+          </div>
         </Card>
       </div>
     </BaseScreen>
