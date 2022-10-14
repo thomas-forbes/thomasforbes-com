@@ -13,11 +13,7 @@ export default function ArticleList({ articles, len }: props) {
         ?.sort((a, b) => b.createdAt - a.createdAt)
         ?.slice(0, len || articles.length)
         ?.map((article, idx) => (
-          <ArticleLink
-            article={article}
-            divider={idx > 0}
-            key={article.title}
-          />
+          <ArticleLink article={article} key={article.title} />
         ))}
     </div>
   )

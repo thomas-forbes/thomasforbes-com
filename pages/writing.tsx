@@ -1,7 +1,7 @@
 import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
-import Card from '../components/Card'
 import NavBar from '../components/NavBar'
+import { Card } from '../components/Simple'
 import getArticles from '../utils/getArticles'
 import { Article } from '../utils/types'
 

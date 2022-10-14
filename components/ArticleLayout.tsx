@@ -4,8 +4,8 @@ import { ReactNode } from 'react'
 import { dispDate } from '../utils/funcs'
 import { Article } from '../utils/types'
 import BaseScreen from './BaseScreen'
-import Card from './Card'
 import NavBar from './NavBar'
+import { Card } from './Simple'
 
 const components = {
   p: (props: any) => <p {...props} className="text-md" />,

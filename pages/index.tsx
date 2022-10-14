@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
-import Card from '../components/Card'
+import { Bubble, Card } from '../components/Simple'
 import getArticles from '../utils/getArticles'
 import { Article } from '../utils/types'
 
@@ -45,11 +45,11 @@ export default function Home({ location, articles }: props) {
       </p>
       <div className="flex flex-col space-y-6 max-w-4xl w-full">
         {/* ABOUT / EMAIL / WRITING */}
-        <div className="flex flex-col  lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
+        <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
           <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
             {/* ABOUT ME */}
-            <div className="flex-1 flex flex-col items-center border border-slate-700 shadow-lg rounded-xl p-6 md:p-8 space-y-3 lg:h-fit">
+            <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
               <h2 className="text-2xl font-semibold">About Me</h2>
               <ul className="flex flex-col w-fit space-y-1">
                 {[
@@ -101,9 +101,9 @@ export default function Home({ location, articles }: props) {
                   </li>
                 ))}
               </ul>
-            </div>
+            </Bubble>
             {/* EMAIL SIGN UP */}
-            <div className="flex-1 border border-slate-700 shadow-lg rounded-xl p-6 md:p-8 space-y-3 lg:h-fit">
+            <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
               <h2 className="text-xl font-semibold text-center">
                 Stay up to date
               </h2>
@@ -124,11 +124,11 @@ export default function Home({ location, articles }: props) {
                   Join
                 </button>
               </div>
-            </div>
+            </Bubble>
           </div>
           {/* COL 2 */}
-          <div className="basis-10/12">
-            <Card className="space-y-6 h-full">
+          <div className="basis-10/12 h-full">
+            <Card className="space-y-5">
               {/* TOP LINK */}
               <Link href="/writing">
                 <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
@@ -136,14 +136,13 @@ export default function Home({ location, articles }: props) {
                 </h2>
               </Link>
               {/* ARTICLES */}
-              <ArticleList articles={articles} len={3} />
-              {articles.length > 3 && (
+              <ArticleList articles={articles} len={2} />
+              {articles.length > 2 && (
                 <div className="flex flex-col space-y-2">
-                  <div className="border-b-2 opacity-50 w-11/12 self-center h-[1px] border-gray-700 mb-3" />
                   <Link href="/writing">
-                    <h2 className="font-semibold text-slate-300 hover:text-slate-500 duration-300 cursor-pointer">
-                      Read More &rarr;
-                    </h2>
+                    <p className="text-md text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+                      Read more...
+                    </p>
                   </Link>
                 </div>
               )}
