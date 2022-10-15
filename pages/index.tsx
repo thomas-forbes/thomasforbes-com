@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { twMerge } from 'tailwind-merge'
 import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
 import { Bubble, Card } from '../components/Simple'
@@ -31,12 +32,12 @@ interface props {
 
 export default function Home({ location, articles }: props) {
   return (
-    <BaseScreen className="flex flex-col items-center space-y-6">
+    <BaseScreen className="flex flex-col items-center space-y-10">
       {/* TOP INFO */}
       <h1 className="pt-8 text-6xl font-bold text-center hover:scale-125 duration-150">
         Thomas Forbes
       </h1>
-      <p className="text-slate-300 text-center">
+      <p className="text-lg text-slate-100 text-center">
         I am an Irish secondary school student trying to be a full stack
         entrepreneur
         {/* <ToolTip
@@ -112,7 +113,7 @@ export default function Home({ location, articles }: props) {
               <p className="text-slate-400 text-center">
                 Get notified when I do something interesting
               </p>
-              <div className="flex space-x-3">
+              <div className="w-full flex space-x-3">
                 <input
                   type="email"
                   placeholder="example@example.com"
@@ -162,31 +163,60 @@ export default function Home({ location, articles }: props) {
           {/* PROJECTS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* GOOD COLOURS: https://tailwindcss.com/docs/background-image#linear-gradients */}
-            <div
-              className="rounded-xl flex flex-col items-center bg-gradient-to-b from-sky-500 to-indigo-500 overflow-hidden duration-300 group cursor-pointer drop-shadow-md hover:drop-shadow-2xl shadow-[#141414]"
-              onClick={() => console.log('aa')}
-            >
-              {/* TEXT */}
-              <div className="p-6 pb-4 space-y-3 text-center">
-                <h3 className="text-2xl font-bold">This Site</h3>
-                <p className="text-sky-200">
-                  An epic masterpiece of tailwind and nextjs
-                </p>
-              </div>
-              {/* IMAGE */}
-              <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0  duration-300 bg-[#141414] group-hover:scale-105 ">
-                <Image
-                  src={require('../public/site.png')}
-                  layout="responsive"
-                />
-              </div>
-            </div>
+            {/* TODO: MAYBE DIFFERENT ANIMATION PARAMS */}
+            <Project
+              title="This Site"
+              description="My personal website, built with Next.js and Tailwind CSS."
+              image={require('../public/images/projects/site.png')}
+              className="from-sky-500 to-indigo-500"
+              descriptionClassName="text-sky-200"
+            />
+            <Project
+              title="Cerebyte"
+              description="AI Question Generator"
+              image={require('../public/images/projects/cerebyte.png')}
+              className="from-violet-500 to-fuchsia-500"
+              descriptionClassName="text-violet-200"
+            />
           </div>
         </Card>
       </div>
     </BaseScreen>
   )
 }
+
+const Project = ({
+  title = '',
+  description = '',
+  image,
+  className = '',
+  descriptionClassName = '',
+}: {
+  title?: string
+  description?: string
+  image: string
+  className?: string
+  descriptionClassName?: string
+}) => (
+  <Link href="/writing" passHref={true}>
+    <div
+      className={twMerge(
+        'rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer drop-shadow-md hover:drop-shadow-2xl shadow-[#141414]',
+        className
+      )}
+    >
+      {/* TEXT */}
+      <div className="p-6 pb-4 space-y-3 text-center">
+        <h3 className="text-2xl font-bold text-md">{title}</h3>
+        <p className={descriptionClassName}>{description}</p>
+      </div>
+      {/* IMAGE */}
+      <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0 duration-300 group-hover:scale-105 hover:bottom-0">
+        <Image src={image} layout="responsive" />
+      </div>
+    </div>
+  </Link>
+)
 
 export const getStaticProps = async () => {
   const env = process.env.NODE_ENV
