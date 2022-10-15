@@ -33,7 +33,7 @@ export default function Home({ location, articles }: props) {
   return (
     <BaseScreen className="flex flex-col items-center space-y-6">
       {/* TOP INFO */}
-      <h1 className="text-6xl font-bold text-center hover:scale-125 duration-150">
+      <h1 className="pt-8 text-6xl font-bold text-center hover:scale-125 duration-150">
         Thomas Forbes
       </h1>
       <p className="text-slate-300 text-center">
@@ -45,7 +45,7 @@ export default function Home({ location, articles }: props) {
           /> */}
       </p>
       {/* MAIN STUFF */}
-      <div className="flex flex-col space-y-6 max-w-4xl w-full">
+      <div className="flex flex-col space-y-6  max-w-4xl w-full">
         {/* ABOUT / EMAIL / WRITING */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
@@ -159,11 +159,11 @@ export default function Home({ location, articles }: props) {
               My Work &rarr;
             </h2>
           </Link>
-          {/* GOOD COLOURS: https://tailwindcss.com/docs/background-image#linear-gradients */}
           {/* PROJECTS */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <Bubble
-              className="flex flex-col items-center bg-gradient-to-b from-sky-500 to-indigo-500 p-0 overflow-hidden hover:scale-100 duration-300 group cursor-pointer"
+            {/* GOOD COLOURS: https://tailwindcss.com/docs/background-image#linear-gradients */}
+            <div
+              className="rounded-xl flex flex-col items-center bg-gradient-to-b from-sky-500 to-indigo-500 overflow-hidden duration-300 group cursor-pointer drop-shadow-md hover:drop-shadow-2xl shadow-[#141414]"
               onClick={() => console.log('aa')}
             >
               {/* TEXT */}
@@ -174,13 +174,13 @@ export default function Home({ location, articles }: props) {
                 </p>
               </div>
               {/* IMAGE */}
-              <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-2xl shadow-black mt-5 -mb-5 group-hover:mt-0 group-hover:mb-0 duration-300 bg-[#141414]">
+              <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0  duration-300 bg-[#141414] group-hover:scale-105 ">
                 <Image
                   src={require('../public/site.png')}
                   layout="responsive"
                 />
               </div>
-            </Bubble>
+            </div>
           </div>
         </Card>
       </div>

@@ -23,7 +23,7 @@ export default function NavBar({ className }: { className?: string }) {
         <div
           key={link.href}
           onClick={() => router.push(link.href)}
-          className={`cursor-pointer text-center flex justify-center items-center  border-slate-700 py-2 bg-slate-900 hover:bg-slate-800 duration-300 z-${
+          className={`cursor-pointer text-center flex justify-center items-center border-slate-700 py-2 bg-slate-800 hover:bg-slate-700 duration-300 z-${
             idx * 10
           } ${idx > 0 && '-ml-4'} ${
             idx == arr.length - 1

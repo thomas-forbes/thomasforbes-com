@@ -18,7 +18,7 @@ export default function BaseScreen({
     setMailLink(`mailto:${window.atob('dGhvbWFzQHRob21hc2ZvcmJlcy5jb20=')}`)
   }, [])
   return (
-    <div className="flex-1 w-full pt-16 px-8 dark flex flex-col justify-between">
+    <div className="flex-1 w-full pt-8 px-8 dark flex flex-col justify-between">
       <div className={className}>{children}</div>
       {/* FOOTER */}
       <footer className="self-center py-3 flex flex-row items-center">
