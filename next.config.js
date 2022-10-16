@@ -19,6 +19,9 @@ const nextConfig = withMDX({
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   reactStrictMode: true,
   swcMinify: true,
+  images: {
+    domains: ['allmycontact.info'],
+  },
 })
 
 module.exports = nextConfig

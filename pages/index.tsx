@@ -1,10 +1,9 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import { ReactNode } from 'react'
-import { twMerge } from 'tailwind-merge'
 import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
 import { Bubble, Card } from '../components/Simple'
+import TopProjects from '../components/TopProjects'
 import getArticles from '../utils/getArticles'
 import { Article } from '../utils/types'
 
@@ -34,7 +33,7 @@ export default function Home({ location, articles }: props) {
   return (
     <BaseScreen className="flex flex-col items-center space-y-10">
       {/* TOP INFO */}
-      <h1 className="pt-8 text-6xl font-bold text-center hover:scale-125 duration-150">
+      <h1 className="pt-8 text-6xl font-bold text-center hover:scale-125 duration-150 from-sky-400 to-violet-400 bg-clip-text !text-transparent !bg-gradient-to-r">
         Thomas Forbes
       </h1>
       <p className="text-lg text-slate-100 text-center">
@@ -46,7 +45,7 @@ export default function Home({ location, articles }: props) {
           /> */}
       </p>
       {/* MAIN STUFF */}
-      <div className="flex flex-col space-y-6  max-w-4xl w-full">
+      <div className="flex flex-col space-y-6 max-w-4xl w-full">
         {/* ABOUT / EMAIL / WRITING */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
@@ -107,7 +106,7 @@ export default function Home({ location, articles }: props) {
             </Bubble>
             {/* EMAIL SIGN UP */}
             <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
-              <h2 className="text-xl font-semibold text-center">
+              <h2 className="text-2xl font-semibold text-center">
                 Stay up to date
               </h2>
               <p className="text-slate-400 text-center">
@@ -117,11 +116,11 @@ export default function Home({ location, articles }: props) {
                 <input
                   type="email"
                   placeholder="example@example.com"
-                  className="min-w-0 flex-auto appearance-none rounded-md border px-3 py-2 shadow-md shadow-zinc-800/5 focus:outline-none focus:ring-4 border-zinc-700 bg-zinc-700/[0.15] text-zinc-200 placeholder:text-zinc-500 focus:border-cyan-600 focus:ring-cyan-600/10 sm:text-sm duration-300"
+                  className="min-w-0 flex-auto appearance-none rounded-md border px-3 py-2 shadow-md shadow-zinc-800/5 focus:outline-none focus:ring-4 border-zinc-700 bg-zinc-700/[0.15] text-zinc-200 placeholder:text-zinc-500 focus:border-sky-600 focus:ring-sky-600/10 sm:text-sm duration-300"
                 />
                 {/* Would be cool to when submitted change color to green and make text a check mark */}
                 <button
-                  className="rounded-md py-2 px-3 text-sm outline-offset-2 font-semibold bg-cyan-800 hover:bg-cyan-700 active:bg-cyan-800 active:text-white/70 duration-200 hover:ring-cyan-600/10 hover:ring-4"
+                  className="rounded-md py-2 px-3 text-sm outline-offset-2 font-semibold bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:text-white/70 duration-200 hover:ring-sky-600/10 hover:ring-4"
                   type="submit"
                 >
                   Join
@@ -143,8 +142,8 @@ export default function Home({ location, articles }: props) {
               {articles.length > 2 && (
                 <div className="flex flex-col space-y-2">
                   <Link href="/writing">
-                    <p className="text-md text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
-                      Read more...
+                    <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+                      Read More...
                     </p>
                   </Link>
                 </div>
@@ -153,7 +152,7 @@ export default function Home({ location, articles }: props) {
           </div>
         </div>
         {/* WORK */}
-        <Card className="space-y-6">
+        <Card className="space-y-6 px-4 md:px-8 flex flex-col">
           {/* TOP LINK */}
           <Link href="/work">
             <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
@@ -161,62 +160,18 @@ export default function Home({ location, articles }: props) {
             </h2>
           </Link>
           {/* PROJECTS */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* GOOD COLOURS: https://tailwindcss.com/docs/background-image#linear-gradients */}
-            {/* TODO: MAYBE DIFFERENT ANIMATION PARAMS */}
-            <Project
-              title="This Site"
-              description="My personal website, built with Next.js and Tailwind CSS."
-              image={require('../public/images/projects/site.png')}
-              className="from-sky-500 to-indigo-500"
-              descriptionClassName="text-sky-200"
-            />
-            <Project
-              title="Cerebyte"
-              description="AI Question Generator"
-              image={require('../public/images/projects/cerebyte.png')}
-              className="from-violet-500 to-fuchsia-500"
-              descriptionClassName="text-violet-200"
-            />
-          </div>
+          <TopProjects />
+          {/* MAYBE VIEW ALL */}
+          <Link href="/work">
+            <p className="text-md text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+              View All...
+            </p>
+          </Link>
         </Card>
       </div>
     </BaseScreen>
   )
 }
-
-const Project = ({
-  title = '',
-  description = '',
-  image,
-  className = '',
-  descriptionClassName = '',
-}: {
-  title?: string
-  description?: string
-  image: string
-  className?: string
-  descriptionClassName?: string
-}) => (
-  <Link href="/writing" passHref={true}>
-    <div
-      className={twMerge(
-        'rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer drop-shadow-md hover:drop-shadow-2xl shadow-[#141414]',
-        className
-      )}
-    >
-      {/* TEXT */}
-      <div className="p-6 pb-4 space-y-3 text-center">
-        <h3 className="text-2xl font-bold text-md">{title}</h3>
-        <p className={descriptionClassName}>{description}</p>
-      </div>
-      {/* IMAGE */}
-      <div className="relative rounded-t-xl overflow-hidden w-10/12 shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0 duration-300 group-hover:scale-105 hover:bottom-0">
-        <Image src={image} layout="responsive" />
-      </div>
-    </div>
-  </Link>
-)
 
 export const getStaticProps = async () => {
   const env = process.env.NODE_ENV
