@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import { useMedia } from 'react-use'
 import { ProjectType } from '../utils/types'
 import ProjectView from './ProjectView'
@@ -145,19 +146,25 @@ export default function TopProjects({ maxLen }: { maxLen?: number }) {
   const isLg = useMedia('(min-width: 1024px)')
   const isMd = useMedia('(min-width: 768px)')
 
-  // const nCols = () =>
-  //   grid.current?.classList?.contains('grid-cols-1')
-  //     ? 1
-  //     : grid.current?.classList?.contains('grid-cols-2')
-  //     ? 2
-  //     : 3
+  const lgColours = ['blue', 'red', 'purple']
+  const mdColours = ['blue', 'purple']
+  const [selColours, setSelColours] = useState<string[]>(lgColours)
+
+  useEffect(() => {
+    if (isLg) setSelColours(lgColours)
+    else if (isMd) setSelColours(mdColours)
+    else setSelColours(lgColours)
+  }, [isMd, isLg])
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {projects.slice(0, maxLen || projects.length).map((project, idx) => (
         <ProjectView
           key={project.title}
           {...project}
-          {...coloursN?.[Object.keys(coloursN)[idx % 3]]?.[Math.floor(idx / 3)]}
+          {...coloursN?.[selColours[idx % selColours.length]]?.[
+            Math.floor(idx / selColours.length)
+          ]}
         />
       ))}
     </div>
