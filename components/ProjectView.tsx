@@ -25,19 +25,19 @@ export default function Project({
       {/* MAYBE https://www.reddit.com/r/webdev/comments/xgotxb/i_created_a_smooth_expandable_card_demo_using/?utm_name=iossmf&utm_source=pocket_mylist for an expandable version */}
       <div
         className={twMerge(
-          `rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer drop-shadow-md hover:drop-shadow-2xl shadow-[#141414] h-full`,
+          `rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer shadow-lg hover:shadow-2xl shadow-gray-900 h-full hover:scale-105`,
           className
         )}
       >
         {/* TEXT */}
-        <div className="p-6 space-y-3 text-center items-center flex flex-col">
+        <div className="px-4 pt-6 pb-4 space-y-2 text-center items-center flex flex-col">
           <h3 className="text-2xl font-bold text-md">{title}</h3>
-          <p className={descClassName}>{description}</p>
+          <p className={twMerge('text-sm', descClassName)}>{description}</p>
           <div className="flex flex-row space-x-3">
             {tags.map((tag) => (
               <p
                 className={twMerge(
-                  `bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1`,
+                  `h-fit bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1`,
                   tagsClassName
                 )}
               >

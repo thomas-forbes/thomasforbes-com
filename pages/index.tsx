@@ -160,7 +160,7 @@ export default function Home({ location, articles }: props) {
             </h2>
           </Link>
           {/* PROJECTS */}
-          <TopProjects />
+          <TopProjects maxLen={3} />
           {/* MAYBE VIEW ALL */}
           <Link href="/work">
             <p className="text-md text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
