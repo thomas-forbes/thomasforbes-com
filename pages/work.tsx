@@ -8,7 +8,7 @@ const gradients = ['from-teal-500 to-sky-500']
 export default function Work() {
   return (
     <BaseScreen className="flex flex-col items-center">
-      <div className="flex flex-col items-center max-w-4xl space-y-6 w-full">
+      <div className="flex flex-col items-center max-w-5xl space-y-6 w-full">
         <NavBar className="self-start" />
         <h1 className="text-6xl pb-4 font-bold text-center hover:scale-125 duration-150">
           My Work

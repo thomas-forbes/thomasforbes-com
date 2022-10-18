@@ -9,6 +9,6 @@ export interface ProjectType {
   title: string
   description: string
   link: string
-  image: string
+  image?: string
   tags: string[]
 }

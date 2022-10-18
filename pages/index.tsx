@@ -33,10 +33,10 @@ export default function Home({ location, articles }: props) {
   return (
     <BaseScreen className="flex flex-col items-center space-y-10">
       {/* TOP INFO */}
-      <h1 className="pt-8 text-6xl font-bold text-center hover:scale-125 duration-150 from-sky-400 to-violet-400 bg-clip-text !text-transparent !bg-gradient-to-r">
+      <h1 className="pt-8 text-8xl font-bold text-center hover:scale-125 duration-200 from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
         Thomas Forbes
       </h1>
-      <p className="text-lg text-slate-100 text-center">
+      <p className="text-lg font-mono text-slate-300 text-center">
         I am an Irish secondary school student trying to be a full stack
         entrepreneur
         {/* <ToolTip
@@ -45,11 +45,11 @@ export default function Home({ location, articles }: props) {
           /> */}
       </p>
       {/* MAIN STUFF */}
-      <div className="flex flex-col space-y-6 max-w-4xl w-full">
+      <div className="flex flex-col space-y-6 max-w-5xl w-full">
         {/* ABOUT / EMAIL / WRITING */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
-          <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
+          <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full h-full">
             {/* ABOUT ME */}
             <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
               <h2 className="text-2xl font-semibold">About Me</h2>
@@ -129,27 +129,25 @@ export default function Home({ location, articles }: props) {
             </Bubble>
           </div>
           {/* COL 2 */}
-          <div className="basis-10/12 h-full">
-            <Card className="space-y-5">
-              {/* TOP LINK */}
-              <Link href="/writing">
-                <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
-                  Writing &rarr;
-                </h2>
-              </Link>
-              {/* ARTICLES */}
-              <ArticleList articles={articles} len={2} />
-              {articles.length > 2 && (
-                <div className="flex flex-col space-y-2">
-                  <Link href="/writing">
-                    <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
-                      Read More...
-                    </p>
-                  </Link>
-                </div>
-              )}
-            </Card>
-          </div>
+          <Card className="basis-10/12 space-y-5 flex flex-col justify-between">
+            {/* TOP LINK */}
+            <Link href="/writing">
+              <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
+                Writing &rarr;
+              </h2>
+            </Link>
+            {/* ARTICLES */}
+            <ArticleList articles={articles} len={2} />
+            {articles.length > 2 && (
+              <div className="flex flex-col space-y-2">
+                <Link href="/writing">
+                  <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+                    Read More...
+                  </p>
+                </Link>
+              </div>
+            )}
+          </Card>
         </div>
         {/* WORK */}
         <Card className="space-y-6 px-4 md:px-8 flex flex-col">
@@ -163,7 +161,7 @@ export default function Home({ location, articles }: props) {
           <TopProjects maxLen={3} />
           {/* MAYBE VIEW ALL */}
           <Link href="/work">
-            <p className="text-md text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+            <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">
               View All...
             </p>
           </Link>

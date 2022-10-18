@@ -9,7 +9,10 @@ export default function BaseScreen({
   children: ReactNode
   className?: string
 }) {
-  const iconProps = { size: 22, className: 'text-slate-300' } //hover:scale-105 duration-75' }
+  const iconProps = {
+    size: 24,
+    className: 'text-slate-400 group-hover:text-slate-300 duration-300',
+  } //hover:scale-105 duration-75' }
   // Requires js to show email -> less spam
   const [mailLink, setMailLink] = useState(
     'mailto:enablejavascript@example.com'
@@ -48,7 +51,7 @@ export default function BaseScreen({
             href={link.href}
             rel="noreferrer"
             target="_blank"
-            className="hover:scale-105 hover:brightness-125 duration-200 p-6"
+            className="hover:scale-110 duration-300 p-6 group"
             key={link.href}
           >
             {link.icon}

@@ -55,41 +55,54 @@ const colours = [
 const coloursN: { [key: string]: any } = {
   blue: [
     {
-      className: 'from-blue-500 to-sky-700',
+      className: 'from-blue-500 to-sky-700 hover:ring-blue-500/20',
       descClassName: 'text-blue-200',
       tagsClassName: 'bg-blue-400',
     },
-
     {
-      className: 'from-sky-500 to-cyan-700',
+      className: 'from-sky-500 to-cyan-700 hover:ring-sky-500/20',
       descClassName: 'text-sky-200',
       tagsClassName: 'bg-sky-400',
+    },
+    {
+      className: 'from-cyan-500 to-teal-700 hover:ring-cyan-500/20',
+      descClassName: 'text-cyan-200',
+      tagsClassName: 'bg-cyan-400',
     },
   ],
   purple: [
     {
-      className: 'from-fuchsia-500 to-purple-700',
+      className: 'from-fuchsia-500 to-purple-700 hover:ring-fuchsia-500/20',
       descClassName: 'text-fuchsia-200',
       tagsClassName: 'bg-fuchsia-400',
     },
-
     {
-      className: 'from-purple-500 to-violet-700',
+      className: 'from-purple-500 to-violet-700 hover:ring-purple-500/20',
       descClassName: 'text-purple-200',
       tagsClassName: 'bg-purple-400',
+    },
+    {
+      className: 'from-violet-500 to-blue-700 hover:ring-violet-500/20',
+      descClassName: 'text-violet-200',
+      tagsClassName: 'bg-violet-400',
     },
   ],
   red: [
     {
-      className: 'from-rose-500 to-pink-700',
+      className: 'from-rose-500 to-pink-700 hover:ring-rose-500/20',
       descClassName: 'text-rose-200',
       tagsClassName: 'bg-rose-400',
     },
 
     {
-      className: 'from-pink-500 to-red-700',
+      className: 'from-pink-500 to-red-700 hover:ring-pink-500/20',
       descClassName: 'text-pink-200',
       tagsClassName: 'bg-pink-400',
+    },
+    {
+      className: 'from-red-500 to-orange-700 hover:ring-red-500/20',
+      descClassName: 'text-red-200',
+      tagsClassName: 'bg-red-400',
     },
   ],
 }
@@ -100,7 +113,6 @@ const projects: ProjectType[] = [
     description: 'My home made personal website',
     image: require('../public/images/projects/site.png'),
     link: '/',
-    colourIdx: 0,
     tags: ['Next.js', 'Tailwind CSS', 'MDX'],
   },
   {
@@ -113,34 +125,32 @@ const projects: ProjectType[] = [
   {
     title: 'Dotheylike.me',
     description: 'Find out if someone likes you 😉',
-    image: require('../public/images/projects/cerebyte.png'),
+    image: require('../public/images/projects/dotheylike.me.png'),
     link: 'https://dotheylike.me',
     tags: ['Next.js', 'Tailwind CSS', 'GPT-3'],
   },
   {
     title: 'Good Cycling Days',
     description: 'Find the best days to cycle',
-    image: require('../public/images/projects/cerebyte.png'),
+    // image: require('../public/images/projects/gcd.png'),
     link: 'https://goodcyclingdays.com',
-    tags: ['React Native', 'Tailwind CSS'],
+    tags: ['React Native', 'Firebase', 'Tailwind CSS'],
   },
   {
     title: 'Allmycontact.info',
-    description: 'Find the best days to cycle',
-    image: require('../public/images/projects/cerebyte.png'),
+    description: 'Share contact information with QR codes',
+    // image: require('../public/images/projects/acmi.png'),
     link: 'https://allmycontact.info',
     tags: ['React Native', 'Tailwind CSS'],
   },
   {
     title: 'Examfinder.ie',
-    description: 'Find the best days to cycle',
-    image: require('../public/images/projects/cerebyte.png'),
+    description: 'Irish exam paper finder',
+    // image: require('../public/images/projects/cerebyte.png'),
     link: 'https://examfinder.ie',
     tags: ['Next.js', 'Material UI'],
   },
 ]
-
-// Have red, blue, and purple or smth like that for colours and a list for each. Then each column is one colour. Also change main 'Thomas Forbes' to be a gradient of the colours
 
 export default function TopProjects({ maxLen }: { maxLen?: number }) {
   const isLg = useMedia('(min-width: 1024px)')
