@@ -32,13 +32,14 @@ export default function Project({
         <div className="px-2 pt-6 pb-4 text-center items-center flex flex-col space-y-2 w-full">
           <h3 className="text-2xl font-bold text-md">{title}</h3>
           <p className={twMerge('text-sm', descClassName)}>{description}</p>
-          <div className="flex flex-row flex-wrap justify-center gap-3 group-hover:gap-4 duration-300">
+          <div className="flex flex-row flex-wrap justify-center gap-3 group-hover:gap-5 duration-300">
             {tags.map((tag) => (
               <p
                 className={twMerge(
                   `h-fit bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1`,
                   tagsClassName
                 )}
+                key={tag}
               >
                 {tag}
               </p>

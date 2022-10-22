@@ -10,9 +10,7 @@ export default function Work() {
     <BaseScreen className="flex flex-col items-center">
       <div className="flex flex-col items-center max-w-5xl space-y-6 w-full">
         <NavBar className="self-start" />
-        <h1 className="text-6xl pb-4 font-bold text-center hover:scale-125 duration-150">
-          My Work
-        </h1>
+        <h1 className="text-6xl pb-4 font-bold text-center">My Work</h1>
         {/* <p className="text-slate-300 text-center"></p> */}
         {/* BEST */}
         <Card className="w-full space-y-6 px-4 md:px-8 flex flex-col">

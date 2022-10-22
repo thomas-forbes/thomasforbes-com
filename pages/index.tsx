@@ -30,10 +30,11 @@ interface props {
 }
 
 export default function Home({ location, articles }: props) {
+  const subscribeEmail = 'https://tinyletter.com/abhisheksoni'
   return (
     <BaseScreen className="flex flex-col items-center space-y-10">
       {/* TOP INFO */}
-      <h1 className="pt-8 text-8xl font-bold text-center hover:scale-125 duration-200 from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
+      <h1 className="pt-8 text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
         Thomas Forbes
       </h1>
       <p className="text-lg font-mono text-slate-300 text-center">
@@ -46,7 +47,7 @@ export default function Home({ location, articles }: props) {
       </p>
       {/* MAIN STUFF */}
       <div className="flex flex-col space-y-6 max-w-5xl w-full">
-        {/* ABOUT / EMAIL / WRITING */}
+        {/* ABOUT / EMAIL / BLOG */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
           <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full h-full">
@@ -131,17 +132,17 @@ export default function Home({ location, articles }: props) {
           {/* COL 2 */}
           <Card className="basis-10/12 space-y-5 flex flex-col justify-between">
             {/* TOP LINK */}
-            <Link href="/writing">
+            <Link href="/blog">
               <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
-                Writing &rarr;
+                Blog &rarr;
               </h2>
             </Link>
             {/* ARTICLES */}
             <ArticleList articles={articles} len={2} />
             {articles.length > 2 && (
               <div className="flex flex-col space-y-2">
-                <Link href="/writing">
-                  <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 duration-300 cursor-pointer">
+                <Link href="/blog">
+                  <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">
                     Read More...
                   </p>
                 </Link>
