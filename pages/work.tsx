@@ -1,7 +1,7 @@
 import BaseScreen from '../components/BaseScreen'
 import NavBar from '../components/NavBar'
+import TopProjects from '../components/Projects'
 import { Card } from '../components/Simple'
-import TopProjects from '../components/TopProjects'
 
 const gradients = ['from-teal-500 to-sky-500']
 

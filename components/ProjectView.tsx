@@ -22,7 +22,6 @@ export default function Project({
 }) {
   return (
     <a href={link} target="_blank" rel="noreferrer">
-      {/* MAYBE https://www.reddit.com/r/webdev/comments/xgotxb/i_created_a_smooth_expandable_card_demo_using/?utm_name=iossmf&utm_source=pocket_mylist for an expandable version */}
       <div
         className={twMerge(
           `rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer shadow-lg hover:shadow-2xl shadow-gray-900 h-full hover:scale-105 hover:ring-4 ring-offset-2 ring-offset-slate-800`,
@@ -48,7 +47,7 @@ export default function Project({
         </div>
         {/* IMAGE */}
         {image && (
-          <div className="relative rounded-t-md overflow-hidden w-[80%] shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0 duration-300 group-hover:scale-105">
+          <div className="relative rounded-t-md overflow-hidden h-40 max-w-[80%] w-full shadow-xl group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)] shadow-[#141414] translate-y-8 group-hover:translate-y-0 duration-300 group-hover:scale-105">
             <Image src={image} layout="responsive" />
           </div>
         )}
