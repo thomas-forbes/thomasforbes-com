@@ -153,8 +153,8 @@ const projects: ProjectType[] = [
 ]
 
 export default function TopProjects({ maxLen }: { maxLen?: number }) {
-  const isLg = useMedia('(min-width: 1024px)')
-  const isMd = useMedia('(min-width: 768px)')
+  const isLg = useMedia('(min-width: 1024px)', true)
+  const isMd = useMedia('(min-width: 768px)', true)
 
   const lgColours = ['blue', 'red', 'purple']
   const mdColours = ['blue', 'purple']
@@ -175,6 +175,7 @@ export default function TopProjects({ maxLen }: { maxLen?: number }) {
           {...coloursN?.[selColours[idx % selColours.length]]?.[
             Math.floor(idx / selColours.length)
           ]}
+          containerClassName="snap-center"
         />
       ))}
     </div>

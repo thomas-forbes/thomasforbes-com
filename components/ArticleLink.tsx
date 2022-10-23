@@ -13,7 +13,11 @@ export default function ArticleLink({ article }: { article: Article }) {
           {article.title}
         </h3>
         <p className="text-slate-500">{article.description}</p>
-        <p className="text-gray-500 font-mono">{dispDate(article.createdAt)}</p>
+        {article.createdAt && (
+          <p className="text-gray-500 font-mono">
+            {dispDate(article.createdAt)}
+          </p>
+        )}
       </div>
     </Link>
   )

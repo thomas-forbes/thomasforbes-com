@@ -12,7 +12,7 @@ export default function BaseScreen({
   const iconProps = {
     size: 24,
     className: 'text-slate-400 group-hover:text-slate-300 duration-300',
-  } //hover:scale-105 duration-75' }
+  }
   // Requires js to show email -> less spam
   const [mailLink, setMailLink] = useState(
     'mailto:enablejavascript@example.com'
@@ -21,7 +21,7 @@ export default function BaseScreen({
     setMailLink(`mailto:${window.atob('dGhvbWFzQHRob21hc2ZvcmJlcy5jb20=')}`)
   }, [])
   return (
-    <div className="flex-1 w-full pt-8 px-4 sm:px-8 dark flex flex-col justify-between">
+    <div className="flex-1 w-full pt-8 px-4 sm:px-8 dark flex flex-col justify-between selection:bg-transparent selection:text-sky-400">
       <div className={className}>{children}</div>
       {/* FOOTER */}
       <footer className="self-center py-3 flex flex-row items-center">

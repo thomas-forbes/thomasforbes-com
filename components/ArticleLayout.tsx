@@ -40,7 +40,11 @@ export default function ArticleLayout({
           <p className="text-gray-300 text-center text-lg">
             {meta.description}
           </p>
-          <p className="text-gray-500 font-mono">{dispDate(meta.createdAt)}</p>
+          {meta.createdAt && (
+            <p className="text-gray-500 font-mono">
+              {dispDate(meta.createdAt)}
+            </p>
+          )}
         </div>
         {/* ARTICLE */}
         <Card className="w-full">

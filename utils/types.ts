@@ -3,6 +3,7 @@ export interface Article {
   description: string
   link: string
   createdAt: number // unix timestamp ms
+  priority?: number
 }
 
 export interface ProjectType {

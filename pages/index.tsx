@@ -1,7 +1,9 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+
 import ArticleList from '../components/ArticleList'
 import BaseScreen from '../components/BaseScreen'
+import EmailSignUp from '../components/index/emailSignUp'
 import TopProjects from '../components/Projects'
 import { Bubble, Card } from '../components/Simple'
 import getArticles from '../utils/getArticles'
@@ -27,10 +29,10 @@ const ToolTip = ({
 interface props {
   articles: Article[]
   location: { city: string; country: string; emoji: string }
+  subscribers: number
 }
 
-export default function Home({ location, articles }: props) {
-  const subscribeEmail = 'https://tinyletter.com/abhisheksoni'
+export default function Home({ location, articles, subscribers }: props) {
   return (
     <BaseScreen className="flex flex-col items-center space-y-10">
       {/* TOP INFO */}
@@ -106,31 +108,10 @@ export default function Home({ location, articles }: props) {
               </ul>
             </Bubble>
             {/* EMAIL SIGN UP */}
-            <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
-              <h2 className="text-2xl font-semibold text-center">
-                Stay up to date
-              </h2>
-              <p className="text-slate-400 text-center">
-                Get notified when I do something interesting
-              </p>
-              <div className="w-full flex space-x-3">
-                <input
-                  type="email"
-                  placeholder="example@example.com"
-                  className="min-w-0 flex-auto appearance-none rounded-md border px-3 py-2 shadow-md shadow-zinc-800/5 focus:outline-none focus:ring-4 border-zinc-700 bg-zinc-700/[0.15] text-zinc-200 placeholder:text-zinc-500 focus:border-sky-600 focus:ring-sky-600/10 sm:text-sm duration-300"
-                />
-                {/* Would be cool to when submitted change color to green and make text a check mark */}
-                <button
-                  className="rounded-md py-2 px-3 text-sm outline-offset-2 font-semibold bg-sky-500 hover:bg-sky-600 active:bg-sky-700 active:text-white/70 duration-200 hover:ring-sky-600/10 hover:ring-4"
-                  type="submit"
-                >
-                  Join
-                </button>
-              </div>
-            </Bubble>
+            <EmailSignUp subscribers={subscribers} />
           </div>
           {/* COL 2 */}
-          <Card className="basis-10/12 space-y-5 flex flex-col justify-between">
+          <Card className="basis-10/12 space-y-5 flex flex-col">
             {/* TOP LINK */}
             <Link href="/blog">
               <h2 className="text-2xl font-semibold hover:text-slate-500 duration-300 cursor-pointer">
@@ -139,15 +120,11 @@ export default function Home({ location, articles }: props) {
             </Link>
             {/* ARTICLES */}
             <ArticleList articles={articles} len={2} />
-            {articles.length > 2 && (
-              <div className="flex flex-col space-y-2">
-                <Link href="/blog">
-                  <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">
-                    Read More...
-                  </p>
-                </Link>
-              </div>
-            )}
+            <Link href="/blog">
+              <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">
+                Read More...
+              </p>
+            </Link>
           </Card>
         </div>
         {/* WORK */}
@@ -173,15 +150,14 @@ export default function Home({ location, articles }: props) {
 }
 
 export const getStaticProps = async () => {
-  const env = process.env.NODE_ENV
+  const isProd = () => process.env.NODE_ENV === 'production'
 
-  let loc = { city: 'Earth', country: 'MW', emoji: '🌍' }
   // Don't want to spam the API when developing
-  if (env == 'production') {
+  const getLoc = async () => {
     const locData = await (
       await fetch('https://nomadlist.com/@thomasforbes.json')
     ).json()
-    loc = {
+    return {
       city: locData.location.now.city || 'Earth',
       country: locData.location.now.country_code,
       emoji: String.fromCodePoint(
@@ -196,10 +172,24 @@ export const getStaticProps = async () => {
     }
   }
 
+  const getSubscribers = async () => {
+    const res = await fetch(
+      `https://api.convertkit.com/v3/forms/3398023/subscriptions?api_secret=${process.env.CONVERTKIT_API_SECRET}`,
+      {
+        method: 'GET',
+      }
+    )
+    return (await res.json())?.total_subscriptions || 0
+  }
+
   return {
     props: {
-      location: loc,
+      location: isProd()
+        ? await getLoc()
+        : { city: 'Earth', country: 'MW', emoji: '🌍' },
       articles: await getArticles(),
+      subscribers: isProd() ? await getSubscribers() : 69,
     },
+    revalidate: 86400,
   }
 }
