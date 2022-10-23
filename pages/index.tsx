@@ -2,7 +2,7 @@ import Link from 'next/link'
 import { ReactNode } from 'react'
 
 import ArticleList from '../components/ArticleList'
-import BaseScreen from '../components/BaseScreen'
+import BaseScreen, { useMailLink } from '../components/BaseScreen'
 import EmailSignUp from '../components/index/emailSignUp'
 import TopProjects from '../components/Projects'
 import { Bubble, Card } from '../components/Simple'
@@ -33,20 +33,32 @@ interface props {
 }
 
 export default function Home({ location, articles, subscribers }: props) {
+  const mailLink = useMailLink()
   return (
-    <BaseScreen className="flex flex-col items-center space-y-10">
+    <BaseScreen className="flex flex-col items-center space-y-14">
       {/* TOP INFO */}
-      <h1 className="pt-8 text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
-        Thomas Forbes
-      </h1>
-      <p className="text-lg font-mono text-slate-300 text-center">
-        I am an Irish secondary school student trying to be a full stack
-        entrepreneur
-        {/* <ToolTip
+      <div className="space-y-8">
+        <h1 className="pt-8 text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
+          Thomas Forbes
+        </h1>
+        <p className="text-lg font-mono text-slate-300 text-center">
+          I am an Irish secondary school student trying to be a full stack
+          entrepreneur
+          {/* <ToolTip
             text="full stack entrepreneur"
             toolText="Being pro at all roles"
           /> */}
-      </p>
+        </p>
+      </div>
+      {/* FREELANCE */}
+      <div className="flex flex-row justify-center items-center space-x-2">
+        <div className="w-[0.55rem] h-[0.55rem] rounded-xl block bg-green-600 animate-pulse" />
+        <a href={mailLink}>
+          <p className="text-slate-300 hover:text-slate-100 duration-200 font-mono text-lg cursor-pointer underline underline-offset-4 p-2">
+            Available for freelance work &rarr;
+          </p>
+        </a>
+      </div>
       {/* MAIN STUFF */}
       <div className="flex flex-col space-y-6 max-w-5xl w-full">
         {/* ABOUT / EMAIL / BLOG */}

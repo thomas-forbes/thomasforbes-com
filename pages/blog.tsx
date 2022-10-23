@@ -14,7 +14,7 @@ export default function Writing({ articles }: props) {
     <BaseScreen className="flex flex-col items-center">
       <div className="flex flex-col items-center max-w-2xl space-y-6 w-full">
         <NavBar className="self-start" />
-        <h1 className="text-6xl font-bold text-center">Writing</h1>
+        <h1 className="text-6xl font-bold text-center">Blog</h1>
         <p className="text-md font-mono text-slate-300 text-center">
           Some of my thoughts
         </p>
