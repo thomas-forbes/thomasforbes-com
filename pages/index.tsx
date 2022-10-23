@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ReactNode } from 'react'
+import { Twemoji } from 'react-emoji-render'
 
 import ArticleList from '../components/ArticleList'
 import BaseScreen, { useMailLink } from '../components/BaseScreen'
@@ -22,7 +23,9 @@ const ToolTip = ({
     <span className="tooltip left-1/2 text-sm whitespace-pre -translate-x-1/2 rounded-xl shadow-lg px-3 py-1 bg-slate-800 -mt-7 duration-300">
       {children ? children : toolText}
     </span>
-    <span className="decoration-dashed underline">{text}</span>
+    <span className="decoration-dashed underline underline-offset-4">
+      {text}
+    </span>
   </span>
 )
 
@@ -38,10 +41,10 @@ export default function Home({ location, articles, subscribers }: props) {
     <BaseScreen className="flex flex-col items-center space-y-14">
       {/* TOP INFO */}
       <div className="space-y-8">
-        <h1 className="pt-8 text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
+        <h1 className="pt-8 text-7xl sm:text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
           Thomas Forbes
         </h1>
-        <p className="text-lg font-mono text-slate-300 text-center">
+        <p className="sm:text-lg font-mono text-slate-300 text-center">
           I am an Irish secondary school student trying to be a full stack
           entrepreneur
           {/* <ToolTip
@@ -54,7 +57,7 @@ export default function Home({ location, articles, subscribers }: props) {
       <div className="flex flex-row justify-center items-center space-x-2">
         <div className="w-[0.55rem] h-[0.55rem] rounded-xl block bg-green-600 animate-pulse" />
         <a href={mailLink}>
-          <p className="text-slate-300 hover:text-slate-100 duration-200 font-mono text-lg cursor-pointer underline underline-offset-4 p-2">
+          <p className="text-base sm:text-lg text-slate-300 hover:text-slate-100 duration-200 font-mono cursor-pointer underline underline-offset-4 p-2 text-center">
             Available for freelance work &rarr;
           </p>
         </a>
@@ -109,7 +112,7 @@ export default function Home({ location, articles, subscribers }: props) {
                     }`}
                     key={item.text}
                   >
-                    <span className="mr-2">{item.emoji}</span>
+                    <Twemoji text={item.emoji} className="mr-2" />
                     {item?.toolTip ? (
                       <ToolTip text={item.text}>{item.toolTip}</ToolTip>
                     ) : (
