@@ -67,7 +67,7 @@ export default function Home({ location, articles, subscribers }: props) {
         {/* ABOUT / EMAIL / BLOG */}
         <div className="flex flex-col lg:flex-row lg:space-x-6 space-y-6 lg:space-y-0">
           {/* COL 1 */}
-          <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full h-full">
+          <div className="basis-2/12 flex flex-col sm:flex-row lg:flex-col sm:space-x-6 sm:space-y-0 space-y-6 lg:space-y-6 lg:space-x-0 space-x-0 w-full">
             {/* ABOUT ME */}
             <Bubble className="flex flex-col items-center justify-center flex-auto sm:flex-1 lg:flex-auto space-y-3 lg:h-fit">
               <h2 className="text-2xl font-semibold">About Me</h2>
