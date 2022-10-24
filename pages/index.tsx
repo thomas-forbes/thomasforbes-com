@@ -205,6 +205,6 @@ export const getStaticProps = async () => {
       articles: await getArticles(),
       subscribers: isProd() ? await getSubscribers() : 69,
     },
-    revalidate: 86400,
+    revalidate: 3600,
   }
 }
