@@ -134,7 +134,7 @@ export default function Home({ location, articles, subscribers }: props) {
               </h2>
             </Link>
             {/* ARTICLES */}
-            <ArticleList articles={articles} len={2} />
+            <ArticleList articles={articles} len={3} />
             <Link href="/blog">
               <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">
                 Read More...
