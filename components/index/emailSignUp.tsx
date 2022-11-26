@@ -9,7 +9,6 @@ export default function EmailSignUp({ subscribers }: { subscribers: number }) {
   const subscribeEmail = async () => {
     setEmailFeedback({ colour: '', text: '' })
     setLoading(true)
-    await new Promise((resolve) => setTimeout(resolve, 1000))
     const response = await fetch('/api/subscribe', {
       method: 'POST',
       body: JSON.stringify({ email }),
