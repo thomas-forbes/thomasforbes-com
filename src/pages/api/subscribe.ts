@@ -1,6 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export default async (req: NextApiRequest, res: NextApiResponse) => {
+export default async function subscribe(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   const { email } = JSON.parse(req.body)
 
   if (!email) {

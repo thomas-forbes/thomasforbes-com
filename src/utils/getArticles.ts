@@ -3,7 +3,7 @@ import path from 'path'
 import { Article } from './types'
 
 export default async function getArticles(): Promise<Article[]> {
-  const articleDirectory = path.join(process.cwd(), 'pages/blog')
+  const articleDirectory = path.join(process.cwd(), 'src/pages/blog')
   const articles = (
     await Promise.all(
       fs.readdirSync(articleDirectory).map(async (filePath) => ({

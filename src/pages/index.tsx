@@ -4,7 +4,7 @@ import { Twemoji } from 'react-emoji-render'
 
 import ArticleList from '../components/ArticleList'
 import BaseScreen, { useMailLink } from '../components/BaseScreen'
-import EmailSignUp from '../components/index/emailSignUp'
+import EmailSignUp from '../components/index/EmailSignUp'
 import ProjectGrid from '../components/ProjectGrid'
 import { Bubble, Card } from '../components/Simple'
 import getArticles from '../utils/getArticles'
