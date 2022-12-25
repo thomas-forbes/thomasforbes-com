@@ -5,7 +5,7 @@ import { Twemoji } from 'react-emoji-render'
 import ArticleList from '../components/ArticleList'
 import BaseScreen, { useMailLink } from '../components/BaseScreen'
 import EmailSignUp from '../components/index/emailSignUp'
-import TopProjects from '../components/Projects'
+import ProjectGrid from '../components/ProjectGrid'
 import { Bubble, Card } from '../components/Simple'
 import getArticles from '../utils/getArticles'
 import { Article } from '../utils/types'
@@ -52,15 +52,6 @@ export default function Home({ location, articles, subscribers }: props) {
             toolText="Being pro at all roles"
           /> */}
         </p>
-      </div>
-      {/* FREELANCE */}
-      <div className="flex flex-row justify-center items-center space-x-2">
-        <div className="w-[0.55rem] h-[0.55rem] rounded-xl block bg-green-600 animate-pulse" />
-        <a href={mailLink}>
-          <p className="text-base sm:text-lg text-slate-300 hover:text-slate-100 duration-200 font-mono cursor-pointer underline underline-offset-4 p-2 text-center">
-            Available for freelance work &rarr;
-          </p>
-        </a>
       </div>
       {/* MAIN STUFF */}
       <div className="flex flex-col space-y-6 max-w-5xl w-full">
@@ -151,7 +142,7 @@ export default function Home({ location, articles, subscribers }: props) {
             </h2>
           </Link>
           {/* PROJECTS */}
-          <TopProjects maxLen={3} />
+          <ProjectGrid />
           {/* MAYBE VIEW ALL */}
           <Link href="/work">
             <p className="text-lg text-center font-semibold text-zinc-400 hover:text-zinc-500 hover:scale-105 duration-300 cursor-pointer">

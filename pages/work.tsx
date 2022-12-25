@@ -1,6 +1,6 @@
 import BaseScreen from '../components/BaseScreen'
 import NavBar from '../components/NavBar'
-import TopProjects from '../components/Projects'
+import ProjectGrid from '../components/ProjectGrid'
 import { Card } from '../components/Simple'
 
 const gradients = ['from-teal-500 to-sky-500']
@@ -15,7 +15,7 @@ export default function Work() {
         {/* BEST */}
         <Card className="w-full space-y-6 px-4 md:px-8 flex flex-col">
           <h2 className="text-2xl font-semibold">My Favourite</h2>
-          <TopProjects />
+          <ProjectGrid />
         </Card>
         {/* OTHER */}
         {/* <Card className="w-full space-y-6 px-4 md:px-8 flex flex-col">

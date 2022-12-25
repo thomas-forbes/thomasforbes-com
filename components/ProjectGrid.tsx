@@ -116,11 +116,18 @@ const projects: ProjectType[] = [
     tags: ['Next.js', 'Tailwind CSS', 'MDX'],
   },
   {
-    title: 'Cerebyte',
+    title: 'Kreogh',
     description: 'AI Question Generator',
-    image: require('../public/images/projects/cerebyte.png'),
-    link: 'https://cerebyte.io',
+    image: require('../public/images/projects/kreoh.png'),
+    link: 'https://kreoh.com',
     tags: ['Next.js', 'Chakra UI', 'GPT-3'],
+  },
+  {
+    title: 'Examfinder.ie',
+    description: 'Irish exam paper finder',
+    image: require('../public/images/projects/examfinder.png'),
+    link: 'https://examfinder.ie',
+    tags: ['Next.js', 'Tailwind CSS', 'Material UI'],
   },
   {
     title: 'Dotheylike.me',
@@ -143,16 +150,9 @@ const projects: ProjectType[] = [
     link: 'https://allmycontact.info',
     tags: ['React Native', 'Tailwind CSS'],
   },
-  {
-    title: 'Examfinder.ie',
-    description: 'Irish exam paper finder',
-    image: require('../public/images/projects/examfinder.png'),
-    link: 'https://examfinder.ie',
-    tags: ['Next.js', 'Material UI'],
-  },
 ]
 
-export default function TopProjects({ maxLen }: { maxLen?: number }) {
+export default function ProjectGrid() {
   const isLg = useMedia('(min-width: 1024px)', true)
   const isMd = useMedia('(min-width: 768px)', true)
 
@@ -168,7 +168,7 @@ export default function TopProjects({ maxLen }: { maxLen?: number }) {
 
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.slice(0, maxLen || projects.length).map((project, idx) => (
+      {projects.map((project, idx) => (
         <ProjectView
           key={project.title}
           {...project}
