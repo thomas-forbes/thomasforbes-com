@@ -152,7 +152,7 @@ export default function Home({ location, articles, subscribers }: props) {
 }
 
 export const getStaticProps = async () => {
-  const isProd = () => process.env.NODE_ENV === 'production'
+  const isProd = () => process.env.NODE_ENV === 'production' || true
 
   // Don't want to spam the API when developing
   const getLoc = async () => {
@@ -161,16 +161,17 @@ export const getStaticProps = async () => {
     ).json()
     return {
       city: locData.location.now.city || 'Earth',
-      country: locData.location.now.country_code,
-      emoji: String.fromCodePoint(
-        ...(locData.location.now.country_code === 'UK'
-          ? 'GB'
-          : locData.location.now.country_code
-        )
-          .toUpperCase()
-          .split('')
-          .map((char: string) => 127397 + char.charCodeAt(0))
-      ),
+      country: locData.location.now.country_code || 'MW',
+      emoji: locData.location.now.country_code
+        ? String.fromCodePoint(
+            ...(locData.location.now.country_code === 'UK'
+              ? 'GB'
+              : locData.location.now.country_code
+            )
+              .split('')
+              .map((char: string) => 127397 + char.charCodeAt(0))
+          )
+        : '🌍',
     }
   }
 
