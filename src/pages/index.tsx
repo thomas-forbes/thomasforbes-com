@@ -44,14 +44,10 @@ export default function Home({ location, articles, subscribers }: props) {
         <h1 className="pt-8 text-7xl sm:text-8xl font-bold text-center from-sky-400 to-fuchsia-400 bg-clip-text !text-transparent !bg-gradient-to-r">
           Thomas Forbes
         </h1>
-        <p className="sm:text-lg font-mono text-slate-300 text-center">
+        {/* <p className="sm:text-lg font-mono text-slate-300 text-center">
           I am an Irish secondary school student trying to be a full stack
           entrepreneur
-          {/* <ToolTip
-            text="full stack entrepreneur"
-            toolText="Being pro at all roles"
-          /> */}
-        </p>
+        </p>  */}
       </div>
       {/* MAIN STUFF */}
       <div className="flex flex-col space-y-6 max-w-5xl w-full">

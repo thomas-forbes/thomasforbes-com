@@ -116,7 +116,7 @@ const projects: ProjectType[] = [
     tags: ['Next.js', 'Tailwind CSS', 'MDX'],
   },
   {
-    title: 'Kreogh',
+    title: 'Kreoh',
     description: 'AI Question Generator',
     image: require('../../public/images/projects/kreoh.png'),
     link: 'https://kreoh.com',
