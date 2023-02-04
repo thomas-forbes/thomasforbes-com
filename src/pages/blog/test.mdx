@@ -1,0 +1,13 @@
+import ArticleLayout from '../../components/ArticleLayout'
+
+export const meta = {
+  title: 'Test',
+  description: 'Need this to stop bugs',
+  createdAt: new Date('2022-10-24').getTime(),
+}
+
+coming soon...
+
+export default ({ children }) => (
+  <ArticleLayout meta={meta}>{children}</ArticleLayout>
+)

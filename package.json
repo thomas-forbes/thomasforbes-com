@@ -10,10 +10,11 @@
     "mdx": "node ./scripts/updateSlugs.js"
   },
   "dependencies": {
-    "@mdx-js/loader": "^2.1.4",
-    "@mdx-js/react": "^2.1.4",
-    "@next/mdx": "^12.3.1",
+    "@mdx-js/loader": "^2.2.1",
+    "@mdx-js/react": "^2.2.1",
+    "@next/mdx": "^13.1.6",
     "@splitbee/web": "^0.3.0",
+    "@types/mdx": "^2.0.3",
     "next": "^13.1.1",
     "path": "^0.12.7",
     "react": "^18.2.0",
