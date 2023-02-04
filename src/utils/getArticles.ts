@@ -7,7 +7,9 @@ export default async function getArticles(): Promise<Article[]> {
   const articles = (
     await Promise.all(
       fs.readdirSync(articleDirectory).map(async (filePath) => ({
-        module: await import(`../pages/blog/${filePath}`),
+        module: await import(
+          path.join(process.cwd(), `src/pages/blog/${filePath}`)
+        ),
         link: '/blog/' + filePath.replace('.mdx', ''),
       }))
     )
