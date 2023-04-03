@@ -92,7 +92,7 @@ export default function Home({ location, articles, subscribers }: props) {
                       </div>
                     ),
                   },
-                  { emoji: '👨‍💻', text: 'Indie Hacker' },
+                  { emoji: '👨‍💻', text: 'Builder' },
                 ].map((item, idx) => (
                   <li
                     className={`text-slate-400 flex flex-row items-center ${
@@ -100,7 +100,8 @@ export default function Home({ location, articles, subscribers }: props) {
                     }`}
                     key={item.text}
                   >
-                    <Twemoji text={item.emoji} className="mr-2" />
+                    {/* <Twemoji text={item.emoji} className="mr-2" /> */}
+                    <span className="mr-2">{item.emoji}</span>
                     {item?.toolTip ? (
                       <ToolTip text={item.text}>{item.toolTip}</ToolTip>
                     ) : (
