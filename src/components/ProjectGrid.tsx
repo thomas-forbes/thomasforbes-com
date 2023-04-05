@@ -117,7 +117,7 @@ const projects: ProjectType[] = [
   },
   {
     title: 'joinfounders.co',
-    description: 'Built the landing page',
+    description: 'Building the landing page',
     // link: 'https://joinfounders.co',
     link: 'https://founders-site.vercel.app',
     image: require('../../public/images/projects/founders.jpeg'),
