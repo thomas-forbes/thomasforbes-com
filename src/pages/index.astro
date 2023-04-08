@@ -22,7 +22,8 @@ const underlineColours = [
   <!-- MAIN -->
   <Section>
     <h1
-      class="rainbow-text text-center text-7xl font-bold duration-300 hover:scale-[1.03] md:text-8xl"
+      class="rainbow-text cursor-pointer text-center text-7xl font-bold duration-300 hover:rotate-1 hover:scale-[1.03] md:text-8xl"
+      id="thomasforbes"
     >
       Thomas Forbes
     </h1>
@@ -155,3 +156,15 @@ const underlineColours = [
     }
   }
 </style>
+
+<script>
+  const h1 = document.getElementById('thomasforbes')!
+  const audio = new Audio('/assets/sounds/pop.m4a')
+  audio.volume = 0.1
+
+  const pop = () => {
+    audio.play()
+  }
+  h1.onclick = pop
+  h1.onmouseover = pop
+</script>
