@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Section from '../components/Section.astro'
+import { formatDate } from '../utils/funcs'
 
 const sectionClass = '!items-start space-y-4 text-left'
 const subsectionClass = 'space-y-2'
@@ -10,22 +11,7 @@ const subsectionClass = 'space-y-2'
   <Section class="space-y-4">
     <h1>Things I use</h1>
     <p>
-      Not an exhaustive list. Last updated {
-        new Date()
-          .toLocaleString('en-IE', {
-            month: '2-digit',
-            day: '2-digit',
-            year: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-            second: '2-digit',
-            timeZone: 'UTC',
-          })
-          .replace(
-            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)/,
-            '$3-$2-$1 $4:$5:$6 UTC'
-          )
-      }
+      Not an exhaustive list. Last updated {formatDate(new Date(), true)}
     </p>
   </Section>
   <Section class={sectionClass}>
@@ -36,9 +22,9 @@ const subsectionClass = 'space-y-2'
         <ul>
           <li>Next.js (dynamic sites)</li>
           <li>Astro (static sites)</li>
-          <li>React Mative (mobile apps)</li>
+          <li>React Native (mobile apps)</li>
           <li>Tailwind CSS</li>
-          <li>tRPC (typesafe client-server communication)</li>
+          <li>tRPC (end-to-end typesafe APIs)</li>
         </ul>
       </div>
       <div class={subsectionClass}>
@@ -56,7 +42,7 @@ const subsectionClass = 'space-y-2'
           <li>Vim</li>
           <li>pnpm</li>
           <li>zsh</li>
-          <li>item 2</li>
+          <li>iTerm 2</li>
         </ul>
       </div>
 
@@ -65,7 +51,7 @@ const subsectionClass = 'space-y-2'
         <ul>
           <li>Signal</li>
           <li>Whatsapp</li>
-          <li>Twitter</li>
+          <li><a href="https://twitter.com/ThomasForbesy">Twitter</a></li>
         </ul>
       </div>
 
@@ -83,7 +69,7 @@ const subsectionClass = 'space-y-2'
       <div class={subsectionClass}>
         <h3>General</h3>
         <ul>
-          <li>Arc (browser</li>
+          <li>Arc (browser)</li>
           <li>Apple music</li>
           <li>
             <a href="https://reederapp.com/" target="_blank">Reeder (rss)</a>
@@ -113,7 +99,7 @@ const subsectionClass = 'space-y-2'
         <li>
           <a
             href="https://www.anker.com/products/a2046?variant=42448630612118&listingPlan=b"
-            target="_blank">Anker 543</a
+            target="_blank">Anker 543 4 port charger</a
           >
         </li>
         <li>
