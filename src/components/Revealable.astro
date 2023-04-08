@@ -1,0 +1,55 @@
+---
+interface Props {
+  class?: string
+}
+
+const { class: className } = Astro.props
+---
+
+<revealable-card
+  class:list={[
+    className,
+    'reveal smooth relative block h-full w-full translate-y-36 opacity-0',
+  ]}
+>
+  <slot />
+</revealable-card>
+
+<style>
+  .reveal.smooth {
+    @apply transition-all duration-500 ease-in-out;
+  }
+
+  .reveal.active {
+    @apply translate-y-0 opacity-100;
+  }
+</style>
+
+<script>
+  class RevealableCard extends HTMLElement {
+    private observer: IntersectionObserver
+
+    constructor() {
+      super()
+      this.observer = new IntersectionObserver(this.reveal, {
+        rootMargin: '145px 0px 50px 0px',
+      })
+      this.observer.observe(this)
+    }
+
+    private reveal = (entries: IntersectionObserverEntry[]) => {
+      const [entry] = entries
+      if (entry.isIntersecting) {
+        this.classList.add('active')
+      } else {
+        this.classList.remove('active')
+      }
+    }
+
+    disconnectedCallback() {
+      this.observer.disconnect()
+    }
+  }
+
+  customElements.define('revealable-card', RevealableCard)
+</script>

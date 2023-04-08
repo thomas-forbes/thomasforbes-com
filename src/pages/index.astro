@@ -1,63 +1,158 @@
 ---
-import BaseHead from '../components/BaseHead.astro'
-import Header from '../components/Header.astro'
+import Card from '../components/Card.astro'
 import Footer from '../components/Footer.astro'
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts'
+import Links from '../components/Links.astro'
+import Navbar from '../components/Navbar.astro'
+import Section from '../components/Section.astro'
+import Layout from '../layouts/Layout.astro'
+
+const city = import.meta.env.PROD
+  ? (await (await fetch('https://nomadlist.com/@thomasforbes.json')).json())
+      .location.now.city
+  : 'Somewhere'
+
+const underlineColours = [
+  'decoration-sky-400',
+  'decoration-indigo-400',
+  'decoration-rose-500',
+]
 ---
 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header title={SITE_TITLE} />
-    <main>
-      <h1>🧑‍🚀 Hello, Astronaut!</h1>
-      <p>
-        Welcome to the official <a href="https://astro.build/">Astro</a> blog starter
-        template. This template serves as a lightweight, minimally-styled starting
-        point for anyone looking to build a personal website, blog, or portfolio
-        with Astro.
+<Layout title="Thomas Forbes" className="flex flex-col items-center w-full">
+  <Navbar />
+  <main>
+    <Section>
+      <h1
+        class="rainbow-text text-center font-bold duration-300 hover:scale-[1.03]"
+      >
+        Thomas Forbes
+      </h1>
+      <p class="font-serif !text-2xl font-semibold text-slate-100">
+        ⚒️ Building quality things <i>fast</i> 💨
       </p>
-      <p>
-        This template comes with a few integrations already configured in your
-        <code>astro.config.mjs</code> file. You can customize your setup with
-        <a href="https://astro.build/integrations">Astro Integrations</a> to add
-        tools like Tailwind, React, or Vue to your project.
-      </p>
-      <p>Here are a few ideas on how to get started with the template:</p>
-      <ul>
-        <li>Edit this page in <code>src/pages/index.astro</code></li>
-        <li>
-          Edit the site header items in <code>src/components/Header.astro</code>
-        </li>
-        <li>
-          Add your name to the footer in <code
-            >src/components/Footer.astro</code>
-        </li>
-        <li>
-          Check out the included blog posts in <code>src/pages/blog/</code>
-        </li>
-        <li>
-          Customize the blog post page layout in <code
-            >src/layouts/BlogPost.astro</code>
-        </li>
+      <div class="flex flex-col gap-8 md:flex-row">
+        <!-- BULLETS -->
+        <ul
+          class="grid flex-shrink-0 grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-1"
+        >
+          {
+            [
+              { emoji: '🇮🇪🇺🇸', text: 'Citizen' },
+              { emoji: '🌍', text: city || 'Somewhere' },
+              { emoji: '💻', text: 'Developer' },
+              {
+                emoji: '🗓️',
+                text: `${Math.abs(
+                  new Date(
+                    Date.now() - new Date(2005, 8, 10).getTime()
+                  ).getUTCFullYear() - 1970
+                )} years old`,
+              },
+            ].map((item) => (
+              <li class="flex items-center space-x-2 text-left font-sans-serif text-base font-semibold text-slate-100 sm:text-lg md:text-xl">
+                <span class="inline-block w-8 sm:w-auto md:w-10">
+                  {item.emoji}
+                </span>
+                <span>{item.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <!-- TEXT -->
+        <div
+          class="max-w-32l space-y-6 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
+        >
+          <p>
+            My <b>favourite feeling</b> is the one coming home on the train after
+            a hard day of work having squeezed all of the productivity out of my
+            brain and having a thing I can point to and say <b>"I made that"</b
+            >.
+          </p>
+          <p>
+            I can't bare to give a user a suboptimal experience but also
+            understand the <a
+              target="_blank"
+              href="https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp"
+              >law of diminishing marginal returns</a
+            >.
+          </p>
+          <p>
+            I know I don't have all the experience or knowledge but I <b
+              >learn fast</b
+            > and have a need for speed to <b>get things done</b>.
+          </p>
+        </div>
+      </div>
+    </Section>
+    <Card>
+      <h2 class="mb-4 w-full border-b border-slate-200/20 pb-4 text-left">
+        Latest Writing
+      </h2>
+      <ul class="flex flex-col items-start px-2">
+        {
+          [
+            'What is 2+2?',
+            'How does my website look so dam good?',
+            'Hi!',
+            'test',
+          ].map((item, i) => (
+            <li class="group w-full text-left">
+              <a
+                href="/"
+                class="flex w-full items-center justify-between space-x-2 py-2 font-sans-serif text-xl font-semibold text-slate-300 no-underline"
+              >
+                <div>
+                  <span class="inline-block text-white duration-500 group-hover:rotate-180">
+                    &rarr;
+                  </span>
+                  <span
+                    class:list={[
+                      'underline duration-300 group-hover:underline-offset-4 ml-2 group-hover:ml-0',
+                      underlineColours[i % underlineColours.length],
+                    ]}
+                  >
+                    {item}
+                  </span>
+                </div>
+                <span class="mr-0 font-mono text-base font-normal text-slate-500 duration-300 group-hover:mr-2 group-hover:text-slate-400">
+                  2022-69-69
+                </span>
+              </a>
+            </li>
+          ))
+        }
       </ul>
-      <p>
-        Have fun! If you get stuck, remember to <a
-          href="https://docs.astro.build/"
-          >read the docs
-        </a> or <a href="https://astro.build/chat">join us on Discord</a> to ask
-        questions.
-      </p>
-      <p>
-        Looking for a blog template with a bit more personality? Check out <a
-          href="https://github.com/Charca/astro-blog-template"
-          >astro-blog-template
-        </a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-      </p>
-    </main>
-    <Footer />
-  </body>
-</html>
+    </Card>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .rainbow-text {
+    @apply !bg-clip-text text-transparent;
+    background: linear-gradient(
+      238deg,
+      theme('colors.sky.600') 0%,
+      theme('colors.indigo.500') 17%,
+      theme('colors.rose.500') 33%,
+      theme('colors.indigo.500') 50%,
+      theme('colors.sky.600') 66%,
+      theme('colors.indigo.500') 83%,
+      theme('colors.rose.500') 100%
+    );
+    background-size: 600%;
+    animation: rainbow-text-animation 6s ease infinite;
+  }
+
+  @keyframes rainbow-text-animation {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+</style>

@@ -1,0 +1,34 @@
+{
+  [
+    { href: '/', text: '/index' },
+    { href: '/uses' },
+    { href: '/blog' },
+    // { href: '/contact' },
+    { href: '/projects' },
+  ].map((link) => (
+    <a
+      href={link.href}
+      class="page-link px-1 py-2 font-mono text-slate-400 no-underline  underline-offset-2 duration-700 hover:text-slate-200 hover:underline hover:duration-300 active:text-slate-300 sm:px-4"
+    >
+      {link.text || link.href}
+    </a>
+  ))
+}
+
+<style>
+  .current-page {
+    @apply text-slate-100 !underline;
+  }
+</style>
+
+<script>
+  // highlight current page
+  const path = window.location.pathname
+  const links = document.querySelectorAll('.page-link')
+  links.forEach((link) => {
+    if (link.getAttribute('href') == path) {
+      link.classList.add('current-page')
+      link.classList.remove('text-slate-400')
+    }
+  })
+</script>

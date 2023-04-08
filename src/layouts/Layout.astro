@@ -1,0 +1,81 @@
+---
+export interface Props {
+  title: string
+  className?: string
+}
+
+const { title, className } = Astro.props
+
+import '@fontsource/bitter'
+import '@fontsource/bitter/600.css'
+
+import '@fontsource/nunito'
+import '@fontsource/nunito/600.css'
+import '@fontsource/nunito/700.css'
+
+import '@fontsource/ubuntu/700.css'
+---
+
+<!DOCTYPE html>
+<html
+  lang="en"
+  class="min-h-screen text-white selection:bg-transparent selection:text-sky-400"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body class:list={[className, '']}>
+    <slot />
+    <script>
+      console.log(`Hello there!`)
+    </script>
+  </body>
+</html>
+
+<style is:global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
+  @layer base {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply font-sans;
+    }
+    h1 {
+      @apply text-7xl font-bold md:text-8xl;
+    }
+    h2 {
+      @apply text-3xl font-bold md:text-4xl;
+    }
+    h3 {
+      @apply text-2xl font-bold md:text-3xl;
+    }
+    h4 {
+      @apply text-xl font-bold md:text-2xl;
+    }
+
+    p {
+      @apply font-mono text-slate-400;
+    }
+
+    html,
+    body {
+      @apply w-full bg-slate-950 text-center font-sans-serif;
+    }
+    a {
+      @apply underline decoration-2 underline-offset-1 duration-300;
+    }
+    a:hover {
+      @apply underline-offset-4;
+    }
+  }
+</style>
