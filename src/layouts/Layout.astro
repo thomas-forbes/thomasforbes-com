@@ -1,10 +1,10 @@
 ---
 export interface Props {
   title: string
-  className?: string
+  class?: string
 }
 
-const { title, className } = Astro.props
+const { title, class: className } = Astro.props
 
 import '@fontsource/bitter'
 import '@fontsource/bitter/600.css'
@@ -14,12 +14,14 @@ import '@fontsource/nunito/600.css'
 import '@fontsource/nunito/700.css'
 
 import '@fontsource/ubuntu/700.css'
+import Navbar from '../components/Navbar.astro'
+import Footer from '../components/Footer.astro'
 ---
 
 <!DOCTYPE html>
 <html
   lang="en"
-  class="min-h-screen text-white selection:bg-transparent selection:text-sky-400"
+  class="text-white selection:bg-transparent selection:text-sky-400"
 >
   <head>
     <meta charset="UTF-8" />
@@ -28,8 +30,12 @@ import '@fontsource/ubuntu/700.css'
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class:list={[className, '']}>
-    <slot />
+  <body class="flex flex-col items-center">
+    <Navbar />
+    <main class:list={[className, 'mx-8 w-full flex flex-col items-center']}>
+      <slot />
+    </main>
+    <Footer />
     <script>
       console.log(`Hello there!`)
     </script>
@@ -69,7 +75,7 @@ import '@fontsource/ubuntu/700.css'
 
     html,
     body {
-      @apply w-full bg-slate-950 text-center font-sans-serif;
+      @apply min-h-screen w-full bg-slate-950 text-center font-sans-serif;
     }
     a {
       @apply underline decoration-2 underline-offset-1 duration-300;

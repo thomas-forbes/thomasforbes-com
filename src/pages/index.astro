@@ -18,73 +18,73 @@ const underlineColours = [
 ]
 ---
 
-<Layout title="Thomas Forbes" className="flex flex-col items-center w-full">
-  <Navbar />
-  <main>
-    <Section>
-      <h1
-        class="rainbow-text text-center font-bold duration-300 hover:scale-[1.03]"
+<Layout title="Thomas Forbes">
+  <!-- MAIN -->
+  <Section>
+    <h1
+      class="rainbow-text text-center font-bold duration-300 hover:scale-[1.03]"
+    >
+      Thomas Forbes
+    </h1>
+    <p class="font-serif !text-2xl font-semibold text-slate-100">
+      ⚒️ Building quality things <i>fast</i> 💨
+    </p>
+    <div class="flex flex-col gap-8 px-3 md:flex-row">
+      <!-- BULLETS -->
+      <ul
+        class="grid flex-shrink-0 grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-1"
       >
-        Thomas Forbes
-      </h1>
-      <p class="font-serif !text-2xl font-semibold text-slate-100">
-        ⚒️ Building quality things <i>fast</i> 💨
-      </p>
-      <div class="flex flex-col gap-8 md:flex-row">
-        <!-- BULLETS -->
-        <ul
-          class="grid flex-shrink-0 grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-1"
-        >
-          {
-            [
-              { emoji: '🇮🇪🇺🇸', text: 'Citizen' },
-              { emoji: '🌍', text: city || 'Somewhere' },
-              { emoji: '💻', text: 'Developer' },
-              {
-                emoji: '🗓️',
-                text: `${Math.abs(
-                  new Date(
-                    Date.now() - new Date(2005, 8, 10).getTime()
-                  ).getUTCFullYear() - 1970
-                )} years old`,
-              },
-            ].map((item) => (
-              <li class="flex items-center space-x-2 text-left font-sans-serif text-base font-semibold text-slate-100 sm:text-lg md:text-xl">
-                <span class="inline-block w-8 sm:w-auto md:w-10">
-                  {item.emoji}
-                </span>
-                <span>{item.text}</span>
-              </li>
-            ))
-          }
-        </ul>
-        <!-- TEXT -->
-        <div
-          class="max-w-32l space-y-6 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
-        >
-          <p>
-            My <b>favourite feeling</b> is the one coming home on the train after
-            a hard day of work having squeezed all of the productivity out of my
-            brain and having a thing I can point to and say <b>"I made that"</b
-            >.
-          </p>
-          <p>
-            I can't bare to give a user a suboptimal experience but also
-            understand the <a
-              target="_blank"
-              href="https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp"
-              >law of diminishing marginal returns</a
-            >.
-          </p>
-          <p>
-            I know I don't have all the experience or knowledge but I <b
-              >learn fast</b
-            > and have a need for speed to <b>get things done</b>.
-          </p>
-        </div>
+        {
+          [
+            { emoji: '🇮🇪🇺🇸', text: 'Citizen' },
+            { emoji: '🌍', text: city || 'Somewhere' },
+            { emoji: '💻', text: 'Developer' },
+            {
+              emoji: '🗓️',
+              text: `${Math.abs(
+                new Date(
+                  Date.now() - new Date(2005, 8, 10).getTime()
+                ).getUTCFullYear() - 1970
+              )} years old`,
+            },
+          ].map((item) => (
+            <li class="flex items-center space-x-2 text-left font-sans-serif text-base font-semibold text-slate-100 sm:text-lg md:text-xl">
+              <span class="inline-block w-8 sm:w-auto md:w-10">
+                {item.emoji}
+              </span>
+              <span>{item.text}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <!-- TEXT -->
+      <div
+        class="max-w-32l space-y-6 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
+      >
+        <p>
+          My <b>favourite feeling</b> is the one coming home on the train after a
+          hard day of work having squeezed all of the productivity out of my brain
+          and having a thing I can point to and say <b>"I made that"</b>.
+        </p>
+        <p>
+          I can't bare to give a user a suboptimal experience but also
+          understand the <a
+            target="_blank"
+            href="https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp"
+            >law of diminishing marginal returns</a
+          >.
+        </p>
+        <p>
+          I know I don't have all the experience or knowledge but I <b
+            >learn fast</b
+          > and have a need for speed to <b>get things done</b>.
+        </p>
       </div>
-    </Section>
-    <Card>
+    </div>
+  </Section>
+  <!-- WRITING -->
+  <Section class="w-full">
+    <Card class="w-full">
       <h2 class="mb-4 w-full border-b border-slate-200/20 pb-4 text-left">
         Latest Writing
       </h2>
@@ -123,8 +123,7 @@ const underlineColours = [
         }
       </ul>
     </Card>
-  </main>
-  <Footer />
+  </Section>
 </Layout>
 
 <style>
