@@ -30,11 +30,18 @@ import Footer from '../components/Footer.astro'
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
-  <body class="flex flex-col items-center">
-    <Navbar />
-    <main class:list={[className, 'mx-8 w-full flex flex-col items-center']}>
-      <slot />
-    </main>
+  <body class="flex flex-col items-center justify-between">
+    <div class="flex w-full flex-col items-center">
+      <Navbar />
+      <main
+        class:list={[
+          className,
+          'px-4 sm:px-8 w-full flex flex-col items-center',
+        ]}
+      >
+        <slot />
+      </main>
+    </div>
     <Footer />
     <script>
       console.log(`Hello there!`)
@@ -56,17 +63,18 @@ import Footer from '../components/Footer.astro'
     h6 {
       @apply font-sans;
     }
+
     h1 {
-      @apply text-7xl font-bold md:text-8xl;
+      @apply text-5xl font-bold md:text-6xl;
     }
     h2 {
       @apply text-3xl font-bold md:text-4xl;
     }
     h3 {
-      @apply text-2xl font-bold md:text-3xl;
+      @apply text-xl font-bold md:text-2xl;
     }
     h4 {
-      @apply text-xl font-bold md:text-2xl;
+      @apply text-base font-bold md:text-lg;
     }
 
     p {

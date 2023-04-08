@@ -1,5 +1,150 @@
 ---
 import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
+
+const sectionClass = '!items-start space-y-4'
 ---
 
-<Layout title="/uses - Thomas Forbes">hi</Layout>
+<Layout title="/uses - Thomas Forbes" class="max-w-2xl">
+  <Section class="space-y-4">
+    <h1>Things I use</h1>
+    <p>
+      Not an exhaustive list. Last updated {
+        new Date()
+          .toLocaleString('en-IE', {
+            month: '2-digit',
+            day: '2-digit',
+            year: 'numeric',
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit',
+            timeZone: 'UTC',
+          })
+          .replace(
+            /(\d+)\/(\d+)\/(\d+),\s(\d+):(\d+):(\d+)/,
+            '$3-$2-$1 $4:$5:$6 UTC'
+          )
+      }
+    </p>
+  </Section>
+  <Section class={sectionClass}>
+    <h2>Software</h2>
+    <h3>Tech Stack</h3>
+    <ul>
+      <li>Next.js (dynamic sites)</li>
+      <li>Astro (static sites)</li>
+      <li>React Mative (mobile apps)</li>
+      <li>Tailwind CSS</li>
+      <li>tRPC (typesafe client-server communication)</li>
+    </ul>
+    <h3>Tech Services</h3>
+    <ul>
+      <li>Vercel (hosting)</li>
+      <li>Planetscale (db hosting)</li>
+    </ul>
+    <h3>Dev Tools</h3>
+    <ul>
+      <li>VS Code (+ vim extension)</li>
+      <li>Vim</li>
+      <li>pnpm</li>
+      <li>zsh</li>
+    </ul>
+    <h3>Social</h3>
+    <ul>
+      <li>Signal</li>
+      <li>Whatsapp</li>
+      <li>Twitter</li>
+    </ul>
+    <h3>General</h3>
+    <ul>
+      <li>Arc</li>
+      <li>Item 2</li>
+      <li>Todoist</li>
+      <li>Notion</li>
+      <li>Drafts</li>
+      <li>Cron (calendar)</li>
+      <li>Overcast (podcasts)</li>
+    </ul>
+  </Section>
+  <Section class={sectionClass}>
+    <h2>Hardware</h2>
+    <ul>
+      <li>M1 Macbook Air</li>
+      <li>iPad Mini 6th generation</li>
+      <li>iPhone 12 mini</li>
+      <li>Apple watch SE 2</li>
+      <li>
+        <a
+          href="https://www.amazon.co.uk/gp/product/B08CKXNJZS/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1"
+          target="_blank">Anker 6 in 1 dongle</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://www.anker.com/products/a2046?variant=42448630612118&listingPlan=b"
+          target="_blank">Anker 543</a
+        >
+      </li>
+      <li>
+        <a href="https://www.amazon.com/dp/B096TP4B1T"
+          >Anker 10k mAh power bank</a
+        >
+      </li>
+    </ul>
+  </Section>
+  <Section class={sectionClass}>
+    <h2><i>Things</i></h2>
+    <ul>
+      <li>
+        <a href="https://www.aersf.com/travel-pack-3-xpac-black" target="_blank"
+          >Aer travel pack 3</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://outlier.nyc/collections/shirts/products/ultrafine-cut-two-t-shirt"
+          target="_blank">Merino wool t-shirts</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://shop.lululemon.com/p/men-shorts/License-to-Train-Linerless-Short-5/_/prod11130328?color=0001&sz=M"
+          target="_blank">Shorts</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://shop.lululemon.com/p/men-joggers/Abc-Jogger/_/prod8530240?color=0001&sz=M"
+          target="_blank">Pants</a
+        >
+      </li>
+    </ul>
+  </Section>
+  <Section class={sectionClass}>
+    <h2>Consumables</h2>
+    <ul>
+      <li>
+        <a
+          href="https://huel.mention-me.com/m/ol/zb3la-thomas-forbes"
+          target="_blank">Huel (powder + bars)</a
+        >
+      </li>
+      <li><a href="https://athleticgreens.com/en" target="_blank">AG 1</a></li>
+      <li>Creatine</li>
+      <li>L-Tyrosine</li>
+      <li>Theanine (calm for sleep)</li>
+    </ul>
+  </Section>
+</Layout>
+
+<style>
+  ul {
+    @apply w-full px-4 text-left;
+  }
+  li {
+    @apply list-inside list-disc text-slate-400;
+  }
+  h3 {
+    @apply text-slate-300;
+  }
+</style>

@@ -7,11 +7,11 @@ export interface Props {
 const { class: className } = Astro.props
 ---
 
-<li
+<div
   class:list={[
     className,
-    'list-none border border-dash border-slate-200/10 bg-slate-900 highlight-white/5 shadow-lg rounded-xl py-6 px-8',
+    'list-none border border-dash border-slate-200/20 bg-slate-900 highlight-white/5 shadow-lg rounded-xl sm:py-6 py-3 sm:px-8 px-4',
   ]}
 >
   <slot />
-</li>
+</div>

@@ -22,64 +22,64 @@ const underlineColours = [
   <!-- MAIN -->
   <Section>
     <h1
-      class="rainbow-text text-center font-bold duration-300 hover:scale-[1.03]"
+      class="rainbow-text text-center text-7xl font-bold duration-300 hover:scale-[1.03] md:text-8xl"
     >
       Thomas Forbes
     </h1>
-    <p class="font-serif !text-2xl font-semibold text-slate-100">
+    <p class="font-sans text-xl font-semibold text-slate-100 sm:text-2xl">
       ⚒️ Building quality things <i>fast</i> 💨
     </p>
-    <div class="flex flex-col gap-8 px-3 md:flex-row">
+    <div class="flex flex-col gap-8 md:flex-row">
       <!-- BULLETS -->
-      <ul
-        class="grid flex-shrink-0 grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-1"
-      >
-        {
-          [
-            { emoji: '🇮🇪🇺🇸', text: 'Citizen' },
-            { emoji: '🌍', text: city || 'Somewhere' },
-            { emoji: '💻', text: 'Developer' },
-            {
-              emoji: '🗓️',
-              text: `${Math.abs(
-                new Date(
-                  Date.now() - new Date(2005, 8, 10).getTime()
-                ).getUTCFullYear() - 1970
-              )} years old`,
-            },
-          ].map((item) => (
-            <li class="flex items-center space-x-2 text-left font-sans-serif text-base font-semibold text-slate-100 sm:text-lg md:text-xl">
-              <span class="inline-block w-8 sm:w-auto md:w-10">
-                {item.emoji}
-              </span>
-              <span>{item.text}</span>
-            </li>
-          ))
-        }
-      </ul>
+      <Card class="flex-shrink-0 !bg-sky-950/60">
+        <ul class="grid h-full grid-cols-2 gap-2 sm:grid-cols-4 md:grid-cols-1">
+          {
+            [
+              { emoji: '🇮🇪🇺🇸', text: 'Citizen' },
+              { emoji: '🌍', text: city || 'Somewhere' },
+              { emoji: '💻', text: 'Developer' },
+              {
+                emoji: '🗓️',
+                text: `${Math.abs(
+                  new Date(
+                    Date.now() - new Date(2005, 8, 10).getTime()
+                  ).getUTCFullYear() - 1970
+                )} years old`,
+              },
+            ].map((item) => (
+              <li class="flex items-center space-x-2 text-left font-sans-serif text-base font-semibold sm:text-lg md:text-xl">
+                <span class="inline-block w-8 sm:w-auto md:w-10">
+                  {item.emoji}
+                </span>
+                <span>{item.text}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </Card>
       <!-- TEXT -->
-      <div
-        class="max-w-32l space-y-6 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
+      <Card
+        class="space-y-6 !bg-indigo-950/60 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
       >
         <p>
-          My <b>favourite feeling</b> is the one coming home on the train after a
-          hard day of work having squeezed all of the productivity out of my brain
-          and having a thing I can point to and say <b>"I made that"</b>.
+          My <b>favourite feeling</b> is coming home on the train after <i
+            >squeezing all the productivity out of my brain</i
+          > and being able to point to a thing and say <b>"I made that"</b>.
         </p>
-        <p>
+        <!-- <p>
           I can't bare to give a user a suboptimal experience but also
           understand the <a
             target="_blank"
             href="https://www.investopedia.com/terms/l/lawofdiminishingmarginalreturn.asp"
             >law of diminishing marginal returns</a
           >.
-        </p>
+        </p> -->
         <p>
           I know I don't have all the experience or knowledge but I <b
             >learn fast</b
           > and have a need for speed to <b>get things done</b>.
         </p>
-      </div>
+      </Card>
     </div>
   </Section>
   <!-- WRITING -->
@@ -99,7 +99,7 @@ const underlineColours = [
             <li class="group w-full text-left">
               <a
                 href="/"
-                class="flex w-full items-center justify-between space-x-2 py-2 font-sans-serif text-xl font-semibold text-slate-300 no-underline"
+                class="flex w-full flex-col justify-between space-x-2 py-2 font-sans-serif text-xl font-semibold text-slate-300 no-underline sm:flex-row sm:items-center"
               >
                 <div>
                   <span class="inline-block text-white duration-500 group-hover:rotate-180">
@@ -114,7 +114,7 @@ const underlineColours = [
                     {item}
                   </span>
                 </div>
-                <span class="mr-0 font-mono text-base font-normal text-slate-500 duration-300 group-hover:mr-2 group-hover:text-slate-400">
+                <span class="mr-0 flex-shrink-0 pl-6 font-mono text-sm font-normal text-slate-500 duration-300 group-hover:mr-2 group-hover:text-slate-400 sm:pl-0 md:text-base">
                   2022-69-69
                 </span>
               </a>
