@@ -19,18 +19,18 @@ I didn't find moving emotionally difficult at all. I don't understand people tha
 
 I joined 2nd year and continued to be ahead in maths but still stagnated.
 
-# Exponential Growth
+## Exponential Growth
 
 In 4th year things changed. I entered a project in the BT Young Scientist competition (Ireland's nation science competition) with my two best friends [Will](https://willcarkner.com/) and [Vedh](https://vedhkannan.com/) creating a new design for crutches. We won 1st place for our category, technology intermediate.
 
 We were invited to the BT Young Scientist Business bootcamp and got an email about a summer youth accelerator program called [Patch](https://www.joinpatch.org/). We applied and were somehow accepted.
 
-## Patch
+### Patch
 
 This program would completely change the trajectory of my life. Over the February midterm break I started reading self improvement books and started watching Y Combinator videos. I was hooked on entrepreneurship.
 
 At Patch I learned to work hard and fell in love with it.
 
-# Currently
+## Currently
 
 In 5th year improving myself

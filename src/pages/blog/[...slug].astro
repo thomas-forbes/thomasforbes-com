@@ -50,46 +50,48 @@ const { Content } = await post.render()
 </style>
 
 <style is:global>
-  article h1,
-  article h2,
-  article h3,
-  article h4,
-  article h5,
-  article h6 {
-    @apply text-slate-200;
-  }
-  article h1 {
-    @apply text-4xl font-bold md:text-5xl;
-  }
-  article h2 {
-    @apply text-2xl font-bold md:text-3xl;
-  }
-  article h3 {
-    @apply text-lg font-bold md:text-xl;
-  }
-  article h4 {
-    @apply text-base font-bold md:text-base;
-  }
+  article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-slate-200;
+    }
+    h1 {
+      @apply text-3xl font-bold md:text-4xl;
+    }
+    h2 {
+      @apply text-3xl font-bold md:text-4xl;
+    }
+    h3 {
+      @apply text-xl font-bold md:text-2xl;
+    }
+    h4 {
+      @apply text-base font-bold md:text-lg;
+    }
 
-  article p {
-    @apply font-mono text-slate-400;
-  }
+    p {
+      @apply font-mono text-slate-400;
+    }
 
-  article a {
-    @apply text-slate-300;
-  }
+    a {
+      @apply text-slate-300;
+    }
 
-  article p,
-  article pre,
-  article blockquote {
-    @apply mx-2 my-4;
-  }
+    p,
+    pre,
+    blockquote {
+      @apply mx-2 my-4;
+    }
 
-  article pre {
-    @apply rounded-xl border border-slate-200/10 px-4 py-3;
-  }
+    pre {
+      @apply rounded-xl border border-slate-200/10 px-4 py-3;
+    }
 
-  article blockquote {
-    @apply border-l border-slate-200/40 pl-2 italic;
+    blockquote {
+      @apply border-l border-slate-200/40 pl-2 italic;
+    }
   }
 </style>

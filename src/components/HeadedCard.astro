@@ -11,7 +11,10 @@ const { title, class: className, link } = Astro.props
 ---
 
 <Card class="w-full">
-  <h2 class="mb-4 w-full border-b border-slate-200/20 pb-4 text-left">
+  <h2
+    class="mb-4 w-full border-b border-slate-200/20 pb-4 text-left"
+    id={title.toLowerCase()}
+  >
     {
       link ? (
         <a
