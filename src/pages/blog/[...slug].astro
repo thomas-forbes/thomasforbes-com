@@ -35,8 +35,8 @@ const { Content } = await post.render()
     </p>
   </Section>
   <Section class="text-justify">
-    <article>
-      <Card>
+    <article class="w-full">
+      <Card class="w-full">
         <Content />
       </Card>
     </article>
@@ -61,24 +61,28 @@ const { Content } = await post.render()
   article h1 {
     @apply text-4xl font-bold md:text-5xl;
   }
-  h2 {
+  article h2 {
     @apply text-2xl font-bold md:text-3xl;
   }
-  h3 {
+  article h3 {
     @apply text-lg font-bold md:text-xl;
   }
-  h4 {
+  article h4 {
     @apply text-base font-bold md:text-base;
   }
 
-  p {
+  article p {
     @apply font-mono text-slate-400;
+  }
+
+  article a {
+    @apply text-slate-300;
   }
 
   article p,
   article pre,
   article blockquote {
-    @apply mx-1 my-3;
+    @apply mx-2 my-4;
   }
 
   article pre {
