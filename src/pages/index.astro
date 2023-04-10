@@ -73,7 +73,7 @@ const posts = (await getCollection('blog'))
           >.
         </p> -->
         <p>
-          blog I know I don't have all the experience or knowledge but I <b
+          I know I don't have all the experience or knowledge but I <b
             >learn fast</b
           > and have a need for speed to <b>get things done</b>.
         </p>
@@ -119,10 +119,12 @@ const posts = (await getCollection('blog'))
 <script>
   const h1 = document.getElementById('thomasforbes')!
 
-  const pop = () => {
+  h1.onclick = () => {
     const audio = new Audio('/assets/sounds/pop.m4a')
+    h1.classList.toggle('hover:rotate-1')
+    h1.classList.toggle('hover:-rotate-1')
+
     audio.volume = 0.1
     audio.play()
   }
-  h1.onclick = pop
 </script>
