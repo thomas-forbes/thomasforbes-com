@@ -15,7 +15,7 @@ I was there until 8th grade and it was great for me. I started to excel in schoo
 
 My grandmother left Ireland at 19 to come to America to start a life. Fortunately that gives me the claim to Irish citizenship. After 8th grade I moved to Ireland with my Mom and Dad.
 
-I didn't find moving emotionally difficult at all. I don't understand people that do. I found the two countries very similar.
+I didn't find moving emotionally difficult at all. I found the two countries very similar and my day-to-day life didn't change much.
 
 I joined 2nd year and continued to be ahead in maths but still stagnated.
 
