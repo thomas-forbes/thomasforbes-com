@@ -1,0 +1,98 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
+import HeadedCard from '../components/HeadedCard.astro'
+---
+
+<Layout title="/cv - Thomas Forbes">
+  <!-- CV -->
+  <Section>
+    <HeadedCard
+      title="CV"
+      class="list-parent text-left [&>ul>li>b]:text-slate-300 [&>ul>li>ul>li>b]:text-slate-300 [&>ul>li>ul>li]:text-slate-400 [&>ul>li>ul]:text-sm [&>ul>li]:text-lg [&>ul]:space-y-2"
+    >
+      <h3>Skills</h3>
+      <div class="flex w-full flex-row flex-wrap justify-around gap-3">
+        {
+          [
+            'Next.js',
+            'React',
+            'React-Native',
+            'Typescript',
+            'Node.js',
+            'Python',
+            'Golang',
+            'Linux',
+          ].map((item) => <p>{item}</p>)
+        }
+      </div>
+      <h3>Experience</h3>
+      <ul>
+        <li class="!list-none">
+          <div class="!inline-flex w-full justify-between space-y-2">
+            <span>
+              <span class="-ml-1 mr-3">•</span>
+              <b>Mobile App Developer</b> |
+              <a href="https://braidforbes.com">Braid-Forbes Health Research</a>
+            </span>
+            <span>2019 - Present</span>
+          </div>
+          <ul>
+            <li>
+              Built custom mobile applications in <b>React Native</b> for client
+              company sales teams to use with their customers.
+            </li>
+          </ul>
+        </li>
+        <li class="!list-none">
+          <div class="!inline-flex w-full justify-between">
+            <span>
+              <span class="-ml-1 mr-3">•</span>
+              <b>Co-founder <a href="https://braidforbes.com">Kreoh</a></b>
+            </span>
+            <span>Summer 2022</span>
+          </div>
+          <ul>
+            <li>
+              Co-founded Kreoh during <a href="https://joinpatch.org">Patch</a>,
+              a summer youth accelerator, but left due to school
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <h3>Awards</h3>
+      <ul>
+        <li>
+          <b>All Ireland Programming Olympiad</b>
+          <ul>
+            <li>Bronze medalist in 2023, 2022 and top 15 in 2021 and 2020</li>
+          </ul>
+        </li>
+        <li>
+          <b>Young Economist</b><ul>
+            <li>
+              <b>Gold medalist</b> in 2023 for a paper entitled, <a
+                href="https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing"
+                >"Driving Change: The Potential for Congestion Pricing in Irish
+                Cities"</a
+              >
+            </li>
+            <li>
+              <b>Gold medalist</b> in 2022 for a paper entitled, <a
+                href="https://docs.google.com/document/d/1G4CvFAEWkRpvlLC2j5LqWKWumxlYAkcjQufj0XjgUWI/edit?usp=sharing"
+                target="_blank"
+                >"Are Carbon Offsets the Future of Market-Based Climate Action?"</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li>
+          <b>BT Young Scientist and Technology Exhibition</b><ul>
+            <li><b>1st place</b> intermediate Technology 2022</li>
+            <li>Redesigned crutches to maximise comfort</li>
+          </ul>
+        </li>
+      </ul>
+    </HeadedCard>
+  </Section>
+</Layout>

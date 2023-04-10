@@ -6,11 +6,7 @@ import Section from '../components/Section.astro'
 import Layout from '../layouts/Layout.astro'
 import Project from '../components/Project.astro'
 import HeadedCard from '../components/HeadedCard.astro'
-
-const city = import.meta.env.PROD
-  ? (await (await fetch('https://nomadlist.com/@thomasforbes.json')).json())
-      .location.now.city
-  : 'Somewhere'
+import Revealable from '../components/Revealable.astro'
 
 const posts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
@@ -120,13 +116,18 @@ const projectColours = [
     tagsClass: 'bg-red-400',
   },
 ]
+
+const city = import.meta.env.PROD
+  ? (await (await fetch('https://nomadlist.com/@thomasforbes.json')).json())
+      .location.now.city
+  : undefined
 ---
 
 <Layout title="Thomas Forbes">
   <!-- MAIN -->
   <Section>
     <h1
-      class="rainbow-text cursor-pointer text-center text-7xl font-bold duration-300 hover:rotate-1 hover:scale-[1.03] md:text-8xl"
+      class="rainbow-text cursor-pointer select-none text-center text-7xl font-bold duration-300 hover:rotate-2 hover:scale-[1.03] md:text-8xl"
       id="thomasforbes"
     >
       Thomas Forbes
@@ -193,85 +194,130 @@ const projectColours = [
   </Section>
   <!-- PROJECTS -->
   <Section>
-    <HeadedCard
-      class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
-      title="Projects"
-    >
-      {
-        [
-          {
-            title: 'This Site',
-            tags: ['Astro', 'Tailwind CSS'],
-            description: 'My open source personal site',
-            link: 'https://github.com/thomas-forbes/thomasforbes-com',
-            image: '/assets/images/projects/site.jpeg',
-          },
-          {
-            title: 'joinfounders.co',
-            description: 'Building the landing page for dogpatch labs',
-            tags: ['Astro', 'Tailwind CSS'],
-            link: 'https://founders-site.vercel.app',
-            image: '/assets/images/projects/founders.jpeg',
-          },
-          {
-            title: 'examfinder.ie',
-            description:
-              'Irish state exam repository used by <b>1,000s of students</b>',
-            tags: ['Next.js', 'Tailwind CSS'],
-            link: 'https://examfinder.ie',
-            image: '/assets/images/projects/examfinder.jpeg',
-          },
-          {
-            title: 'Congestion Pricing in Irish Cities',
-            description: 'Young Economist paper on Congestion Pricing',
-            tags: ['Economics', 'Research'],
-            link: 'https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing',
-          },
-          {
-            title: 'Comfort Crutches',
-            description:
-              'BTYSTE project on a new design for crutches to improve comfort',
-            tags: ['Design', 'Research'],
-            link: 'https://docs.google.com/document/d/1GWTaDK8bUCbiqBAogynEZynpfnWcTmCUDnuWdgoHa64/edit?usp=sharing',
-          },
-          {
-            title: 'Kreoh',
-            description: 'Prev Co-Founder. AI question generator',
-            tags: ['Next.js', 'Chakra UI', 'GPT-3'],
-            link: 'https://kreoh.com',
-          },
-          {
-            title: 'dotheylike.me',
-            description: 'Find out if someone likes you 😉',
-            tags: ['Next.js', 'Tailwind CSS', 'GPT-3'],
-            link: 'https://dotheylike.me/',
-          },
-          {
-            title: 'Good Cycling Days',
-            description: 'Find the best days to cycle',
-            tags: ['React Native', 'Firebase', 'Tailwind CSS'],
-            link: 'https://goodcyclingdays.com/',
-          },
-          {
-            title: 'allmycontact.info',
-            description: 'Share contact info with QR codes',
-            tags: ['React Native', 'Tailwind CSS'],
-            link: 'https://allmycontact.info/',
-          },
-          {
-            title: 'ChatGPT CLI',
-            description: 'ChatGPT assistant in the terminal',
-            tags: ['CLI', 'JavaScript', 'Node'],
-            link: 'https://github.com/thomas-forbes/chatgpt-cli',
-          },
-        ].map((item, i) => (
-          <Project
-            {...item}
-            {...projectColours[(i * 3) % projectColours.length]}
-          />
-        ))
-      }
+    <HeadedCard class="w-full space-y-8" title="Projects">
+      <div class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+        {
+          [
+            {
+              title: 'This Site',
+              tags: ['Astro', 'Tailwind CSS'],
+              description: 'My open source personal site',
+              link: 'https://github.com/thomas-forbes/thomasforbes-com',
+              image: '/assets/images/projects/site.jpeg',
+            },
+            {
+              title: 'joinfounders.co',
+              description: 'Building the landing page for dogpatch labs',
+              tags: ['Astro', 'Tailwind CSS'],
+              link: 'https://founders-site.vercel.app',
+              image: '/assets/images/projects/founders.jpeg',
+            },
+            {
+              title: 'examfinder.ie',
+              description:
+                'Irish state exam repository used by <b>1,000s of students</b>',
+              tags: ['Next.js', 'Tailwind CSS'],
+              link: 'https://examfinder.ie',
+              image: '/assets/images/projects/examfinder.jpeg',
+            },
+            {
+              title: 'Congestion Pricing in Irish Cities',
+              description: 'Young Economist paper on Congestion Pricing',
+              tags: ['Economics', 'Research'],
+              link: 'https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing',
+            },
+            {
+              title: 'Comfort Crutches',
+              description:
+                'BTYSTE project on a new design for crutches to improve comfort',
+              tags: ['Design', 'Research'],
+              link: 'https://docs.google.com/document/d/1GWTaDK8bUCbiqBAogynEZynpfnWcTmCUDnuWdgoHa64/edit?usp=sharing',
+            },
+            {
+              title: 'Kreoh',
+              description: 'Ex Co-Founder. AI question generator',
+              tags: ['Next.js', 'Chakra UI', 'GPT-3'],
+              link: 'https://kreoh.com',
+            },
+            {
+              title: 'dotheylike.me',
+              description: 'Find out if someone likes you 😉',
+              tags: ['Next.js', 'Tailwind CSS', 'GPT-3'],
+              link: 'https://dotheylike.me/',
+            },
+            {
+              title: 'Good Cycling Days',
+              description: 'Weather app to find the best days to cycle',
+              tags: ['React Native', 'Firebase', 'Tailwind CSS'],
+              link: 'https://goodcyclingdays.com/',
+            },
+            {
+              title: 'allmycontact.info',
+              description: 'Share contact info with QR codes',
+              tags: ['React Native', 'Tailwind CSS'],
+              link: 'https://allmycontact.info/',
+            },
+            {
+              title: 'ChatGPT CLI',
+              description: 'ChatGPT assistant in the terminal',
+              tags: ['CLI', 'JavaScript', 'Node'],
+              link: 'https://github.com/thomas-forbes/chatgpt-cli',
+            },
+          ].map((item, i) => (
+            <div
+              id={`project-${i}`}
+              class:list={[i < 3 ? 'visible' : 'hidden']}
+            >
+              <Revealable>
+                <Project
+                  {...item}
+                  {...projectColours[(i * 3) % projectColours.length]}
+                />
+              </Revealable>
+            </div>
+          ))
+        }
+      </div>
+      <button
+        id="more-projects"
+        class="font-mono text-slate-300 duration-300 hover:text-slate-400 active:text-slate-500"
+        >View More</button
+      >
+      <script>
+        const moreProjects = document.getElementById('more-projects')
+        const projects = document.querySelectorAll('[id^="project-"]')
+        let hidden = true
+        moreProjects.addEventListener('click', () => {
+          hidden = !hidden
+          projects.forEach((project, i) => {
+            if (i < 3) return
+
+            project.classList.toggle('visible', !hidden)
+            project.classList.toggle('hidden', hidden)
+          })
+          moreProjects.innerText = hidden ? 'View More' : 'View Less'
+        })
+      </script>
     </HeadedCard>
+  </Section>
+
+  <!-- CTA -->
+  <Section>
+    <h2>Want to learn more?</h2>
+    <p class="text-slate-200">
+      I'm always looking for new opportunities and friends <a
+        href="/contact"
+        class="text-sky-400">contact me</a
+      >!
+    </p>
+    <div class="space-y-2 [&>p>a]:text-slate-300">
+      <p>
+        You may also want to check out <a href="/cv">my cv</a> or <a
+          href="/uses">the things I use</a
+        >.
+      </p>
+      <p>If you're ever in {city || 'Dublin'}, let's hang out.</p>
+    </div>
   </Section>
 </Layout>
 
@@ -308,8 +354,8 @@ const projectColours = [
 
   h1.onclick = () => {
     const audio = new Audio('/assets/sounds/pop.m4a')
-    h1.classList.toggle('hover:rotate-1')
-    h1.classList.toggle('hover:-rotate-1')
+    h1.classList.toggle('hover:rotate-2')
+    h1.classList.toggle('hover:-rotate-2')
 
     audio.volume = 0.1
     audio.play()

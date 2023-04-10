@@ -5,7 +5,7 @@ import Section from '../components/Section.astro'
 const sectionClass = '!items-start space-y-4 text-left'
 ---
 
-<Layout title="/contact - Thomas Forbes">
+<Layout title="/contact - Thomas Forbes" class="list-parent">
   <Section class="space-y-4">
     <h1>Contact</h1>
     <p>Where you can find me</p>
@@ -47,12 +47,6 @@ const sectionClass = '!items-start space-y-4 text-left'
 </Layout>
 
 <style>
-  ul {
-    @apply w-full px-4 text-left;
-  }
-  li {
-    @apply list-inside list-disc text-lg text-slate-300;
-  }
   h3 {
     @apply text-slate-200;
   }
