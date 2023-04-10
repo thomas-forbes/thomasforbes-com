@@ -1,20 +1,20 @@
 ---
 interface Props {
   title: string
+  tags: string[]
   description: string
+  link: string
   image?: string
-  class: string
+  className: string
   descClass: string
   tagsClass: string
-  link: string
-  tags: string[]
 }
 
 const {
   title,
   description,
   image,
-  class: className,
+  className,
   descClass: descClassName,
   tagsClass: tagsClassName,
   link,
@@ -30,11 +30,14 @@ const {
     ]}
   >
     <div
-      class="flex w-full flex-col items-center space-y-2 px-3 pb-4 pt-6 text-center"
+      class:list={[
+        { 'pb-4': !image },
+        'flex h-full w-full flex-col items-center justify-between gap-2 px-3 pt-6 text-center',
+      ]}
     >
       <h3 class="text-md text-2xl font-bold">{title}</h3>
       <div
-        class="flex flex-row flex-wrap justify-center gap-3 duration-300 group-hover:gap-5"
+        class="flex flex-row flex-wrap justify-center gap-3 duration-300 group-hover:gap-4"
       >
         {
           tags.map((tag) => (
@@ -53,13 +56,13 @@ const {
         set:html={description}
         class:list={[descClassName, 'text-sm font-sans-serif']}
       />
+      {
+        image && (
+          <div class="relative -bottom-8 max-h-[10rem] w-full max-w-[80%] overflow-hidden rounded-t-lg bg-slate-800 shadow-xl shadow-slate-950 duration-300 group-hover:bottom-0 group-hover:scale-105 group-hover:shadow-[0_55px_55px_rgba(0,0,0,0.25)] group-hover:shadow-slate-950">
+            <img src={image} />
+          </div>
+        )
+      }
     </div>
-    {
-      image && (
-        <div class="max-h-[10rem] w-full max-w-[80%] translate-y-8 overflow-hidden rounded-t-lg bg-slate-800 shadow-xl shadow-[#141414] duration-300 group-hover:translate-y-0 group-hover:scale-105 group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)]">
-          <img src={image} />
-        </div>
-      )
-    }
   </div>
 </a>
