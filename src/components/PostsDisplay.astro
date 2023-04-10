@@ -1,0 +1,17 @@
+---
+import type { CollectionEntry } from 'astro:content'
+import HeadedCard from './HeadedCard.astro'
+import Postlink from './PostLink.astro'
+
+interface Props {
+  posts: CollectionEntry<'blog'>[]
+  title: string
+  link?: string
+}
+
+const { title, posts, link } = Astro.props
+---
+
+<HeadedCard title={title} link={link}>
+  <ul>{posts.map((post) => <Postlink post={post} />)}</ul>
+</HeadedCard>

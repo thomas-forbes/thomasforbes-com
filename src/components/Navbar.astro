@@ -1,0 +1,23 @@
+---
+import Links from './Links.astro'
+---
+
+<nav
+  class="fixed z-50 flex w-full items-center justify-center px-4"
+  id="navbar"
+>
+  <div
+    class="flex w-full max-w-5xl flex-row justify-between rounded-b-3xl border border-t-0 border-slate-200/10 bg-slate-900 p-2"
+  >
+    <Links />
+  </div>
+</nav>
+<div id="navbar-offset" class="mb-5"></div>
+
+<script>
+  const navbarOffset = document.querySelector('#navbar-offset')! as HTMLElement
+  const navbar = document.querySelector('#navbar')! as HTMLElement
+
+  const navbarHeight = navbar.offsetHeight
+  navbarOffset.style.height = `${navbarHeight}px`
+</script>

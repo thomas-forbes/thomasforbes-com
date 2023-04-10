@@ -1,0 +1,17 @@
+---
+import Revealable from './Revealable.astro'
+
+export interface Props {
+  class?: string
+}
+const { class: className } = Astro.props
+---
+
+<div
+  class:list={[
+    className,
+    'list-none border border-dash border-slate-200/20 bg-slate-900 highlight-white/5 shadow-lg rounded-xl sm:py-6 py-3 sm:px-8 px-4',
+  ]}
+>
+  <slot />
+</div>

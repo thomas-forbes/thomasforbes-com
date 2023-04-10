@@ -1,0 +1,34 @@
+---
+import Card from './Card.astro'
+
+interface Props {
+  class?: string
+  link?: string
+  title: string
+}
+
+const { title, class: className, link } = Astro.props
+---
+
+<Card class="w-full">
+  <h2
+    class="mb-4 w-full border-b border-slate-200/20 pb-4 text-left"
+    id={title.toLowerCase()}
+  >
+    {
+      link ? (
+        <a
+          href={link}
+          class="no-underline hover:text-slate-400 active:text-slate-500"
+        >
+          {title}
+        </a>
+      ) : (
+        <span>{title}</span>
+      )
+    }
+  </h2>
+  <div class={className}>
+    <slot />
+  </div>
+</Card>

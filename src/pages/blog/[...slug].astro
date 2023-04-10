@@ -1,0 +1,97 @@
+---
+import { CollectionEntry, getCollection } from 'astro:content'
+import Section from '../../components/Section.astro'
+import Layout from '../../layouts/Layout.astro'
+import { formatDate } from '../../utils/funcs'
+import Card from '../../components/Card.astro'
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog')
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: post,
+  }))
+}
+type Props = CollectionEntry<'blog'>
+
+const post = Astro.props
+const { Content } = await post.render()
+---
+
+<Layout title={`${post.data.title} - Thomas Forbes`}>
+  <Section class="space-y-4">
+    <h1>{post.data.title}</h1>
+    <p>
+      Published <time>{formatDate(post.data.pubDate)}</time>{
+        post.data.updatedDate && (
+          <>
+            last updated
+            <time>
+              {formatDate(post.data.updatedDate || post.data.pubDate)}
+            </time>
+          </>
+        )
+      }
+    </p>
+  </Section>
+  <Section class="text-justify">
+    <article class="w-full">
+      <Card class="w-full">
+        <Content />
+      </Card>
+    </article>
+  </Section>
+</Layout>
+
+<style>
+  time {
+    @apply text-slate-300;
+  }
+</style>
+
+<style is:global>
+  article {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply text-slate-200;
+    }
+    h1 {
+      @apply text-3xl font-bold md:text-4xl;
+    }
+    h2 {
+      @apply text-3xl font-bold md:text-4xl;
+    }
+    h3 {
+      @apply text-xl font-bold md:text-2xl;
+    }
+    h4 {
+      @apply text-base font-bold md:text-lg;
+    }
+
+    p {
+      @apply font-mono text-slate-400;
+    }
+
+    a {
+      @apply text-slate-300;
+    }
+
+    p,
+    pre,
+    blockquote {
+      @apply mx-2 my-4;
+    }
+
+    pre {
+      @apply rounded-xl border border-slate-200/10 px-4 py-3;
+    }
+
+    blockquote {
+      @apply border-l border-slate-200/40 pl-2 italic;
+    }
+  }
+</style>
