@@ -1,9 +1,11 @@
 ---
 import { getCollection } from 'astro:content'
 import Card from '../components/Card.astro'
-import Blogdash from '../components/PostsDisplay.astro'
+import PostsDisplay from '../components/PostsDisplay.astro'
 import Section from '../components/Section.astro'
 import Layout from '../layouts/Layout.astro'
+import Project from '../components/Project.astro'
+import HeadedCard from '../components/HeadedCard.astro'
 
 const city = import.meta.env.PROD
   ? (await (await fetch('https://nomadlist.com/@thomasforbes.json')).json())
@@ -13,6 +15,61 @@ const city = import.meta.env.PROD
 const posts = (await getCollection('blog'))
   .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
   .slice(0, 5)
+
+const projectColours = {
+  blue: [
+    {
+      className: 'from-blue-500 to-sky-700 hover:ring-blue-500/20',
+      descClassName: 'text-blue-200',
+      tagsClassName: 'bg-blue-400',
+    },
+    {
+      className: 'from-sky-500 to-cyan-700 hover:ring-sky-500/20',
+      descClassName: 'text-sky-200',
+      tagsClassName: 'bg-sky-400',
+    },
+    {
+      className: 'from-cyan-500 to-teal-700 hover:ring-cyan-500/20',
+      descClassName: 'text-cyan-200',
+      tagsClassName: 'bg-cyan-400',
+    },
+  ],
+  purple: [
+    {
+      className: 'from-fuchsia-500 to-purple-700 hover:ring-fuchsia-500/20',
+      descClassName: 'text-fuchsia-200',
+      tagsClassName: 'bg-fuchsia-400',
+    },
+    {
+      className: 'from-purple-500 to-violet-700 hover:ring-purple-500/20',
+      descClassName: 'text-purple-200',
+      tagsClassName: 'bg-purple-400',
+    },
+    {
+      className: 'from-violet-500 to-blue-700 hover:ring-violet-500/20',
+      descClassName: 'text-violet-200',
+      tagsClassName: 'bg-violet-400',
+    },
+  ],
+  red: [
+    {
+      className: 'from-rose-500 to-pink-700 hover:ring-rose-500/20',
+      descClassName: 'text-rose-200',
+      tagsClassName: 'bg-rose-400',
+    },
+
+    {
+      className: 'from-pink-500 to-red-700 hover:ring-pink-500/20',
+      descClassName: 'text-pink-200',
+      tagsClassName: 'bg-pink-400',
+    },
+    {
+      className: 'from-red-500 to-orange-700 hover:ring-red-500/20',
+      descClassName: 'text-red-200',
+      tagsClassName: 'bg-red-400',
+    },
+  ],
+}
 ---
 
 <Layout title="Thomas Forbes">
@@ -81,8 +138,47 @@ const posts = (await getCollection('blog'))
     </div>
   </Section>
   <!-- WRITING -->
-  <Section class="w-full">
-    <Blogdash title="Latest Writing" posts={posts} />
+  <Section>
+    <PostsDisplay title="Blog →" link="/blog" posts={posts} />
+  </Section>
+  <!-- PROJECTS -->
+  <Section>
+    <HeadedCard
+      class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3"
+      title="Projects →"
+      link="/projects"
+    >
+      <Project
+        title="This Site"
+        tags={['Astro', 'Tailwind CSS']}
+        description="My open source personal site"
+        link="https://github.com/thomas-forbes/thomasforbes-com"
+        image="/assets/images/projects/site.jpeg"
+        class={projectColours.blue[0].className}
+        descClass={projectColours.blue[0].descClassName}
+        tagsClass={projectColours.blue[0].tagsClassName}
+      />
+      <Project
+        title="joinfounders.co"
+        description="Building the landing page for dogpatch labs"
+        tags={['Astro', 'Tailwind CSS']}
+        link="https://founders-site.vercel.app"
+        image="/assets/images/projects/founders.jpeg"
+        class={projectColours.purple[0].className}
+        descClass={projectColours.purple[0].descClassName}
+        tagsClass={projectColours.purple[0].tagsClassName}
+      />
+      <Project
+        title="examfinder.ie"
+        description="Irish state exam repository used by <b>1,000s of students</b>"
+        tags={['Next.js', 'Tailwind CSS']}
+        link="https://examfinder.ie"
+        image="/assets/images/projects/examfinder.jpeg"
+        class={projectColours.red[0].className}
+        descClass={projectColours.red[0].descClassName}
+        tagsClass={projectColours.red[0].tagsClassName}
+      />
+    </HeadedCard>
   </Section>
 </Layout>
 
@@ -92,15 +188,13 @@ const posts = (await getCollection('blog'))
     background: linear-gradient(
       238deg,
       theme('colors.sky.600') 0%,
-      theme('colors.indigo.500') 17%,
-      theme('colors.rose.500') 33%,
-      theme('colors.indigo.500') 50%,
-      theme('colors.sky.600') 66%,
-      theme('colors.indigo.500') 83%,
-      theme('colors.rose.500') 100%
+      theme('colors.indigo.500') 15%,
+      theme('colors.rose.500') 50%,
+      theme('colors.indigo.500') 85%,
+      theme('colors.sky.600') 100%
     );
-    background-size: 600%;
-    animation: rainbow-text-animation 6s ease infinite;
+    background-size: 400%;
+    animation: rainbow-text-animation 4s ease infinite;
   }
 
   @keyframes rainbow-text-animation {

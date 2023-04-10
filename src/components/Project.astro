@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string
+  description: string
+  image?: string
+  class: string
+  descClass: string
+  tagsClass: string
+  link: string
+  tags: string[]
+}
+
+const {
+  title,
+  description,
+  image,
+  class: className,
+  descClass: descClassName,
+  tagsClass: tagsClassName,
+  link,
+  tags,
+} = Astro.props
+---
+
+<a href={link} class="no-underline" target="_blank">
+  <div
+    class:list={[
+      className,
+      'rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer shadow-lg hover:shadow-2xl shadow-gray-900 h-full hover:scale-105 hover:ring-4 ring-offset-2 ring-offset-transparent',
+    ]}
+  >
+    <div
+      class="flex w-full flex-col items-center space-y-2 px-3 pb-4 pt-6 text-center"
+    >
+      <h3 class="text-md text-2xl font-bold">{title}</h3>
+      <div
+        class="flex flex-row flex-wrap justify-center gap-3 duration-300 group-hover:gap-5"
+      >
+        {
+          tags.map((tag) => (
+            <p
+              class:list={[
+                tagsClassName,
+                'h-fit bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1 text-white font-sans-serif',
+              ]}
+            >
+              {tag}
+            </p>
+          ))
+        }
+      </div>
+      <p
+        set:html={description}
+        class:list={[descClassName, 'text-sm font-sans-serif']}
+      />
+    </div>
+    {
+      image && (
+        <div class="max-h-[10rem] w-full max-w-[80%] translate-y-8 overflow-hidden rounded-t-lg bg-slate-800 shadow-xl shadow-[#141414] duration-300 group-hover:translate-y-0 group-hover:scale-105 group-hover:drop-shadow-[0_55px_55px_rgba(0,0,0,0.25)]">
+          <img src={image} />
+        </div>
+      )
+    }
+  </div>
+</a>

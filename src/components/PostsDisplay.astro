@@ -1,17 +1,17 @@
 ---
 import type { CollectionEntry } from 'astro:content'
-import Card from './Card.astro'
+import HeadedCard from './HeadedCard.astro'
 import Postlink from './PostLink.astro'
 
 interface Props {
   posts: CollectionEntry<'blog'>[]
   title: string
+  link?: string
 }
 
-const { title, posts } = Astro.props
+const { title, posts, link } = Astro.props
 ---
 
-<Card class="w-full">
-  <h2 class="mb-4 border-b border-slate-200/20 pb-4 text-left">{title}</h2>
+<HeadedCard title={title} link={link}>
   <ul>{posts.map((post) => <Postlink post={post} />)}</ul>
-</Card>
+</HeadedCard>
