@@ -9,7 +9,7 @@ import HeadedCard from '../components/HeadedCard.astro'
 import Revealable from '../components/Revealable.astro'
 
 const posts = (await getCollection('blog'))
-  .sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf())
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 5)
 
 const unSortedColours = {
@@ -305,7 +305,7 @@ const city = import.meta.env.PROD
   <Section>
     <h2>Want to learn more?</h2>
     <p class="text-lg text-slate-200">
-      I'm always looking for new opportunities and people to meet <a
+      I'm always looking for new opportunities and <br />new people to meet <a
         href="/contact"
         class="text-sky-400">contact me</a
       >!
