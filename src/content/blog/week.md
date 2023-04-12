@@ -3,6 +3,12 @@ title: 'Current Average Week'
 pubDate: 2023-04-11
 ---
 
+## Philosophy
+
+I think the results of a person is a lagging measure of how they spend their time
+
+My current lens for thinking about time is trying to maximise total productive output. This means I think about rest as a means to be more productive later or hanging out with friends as a means to get motivations or new perspectives.
+
 ## Weekdays
 
 | Time          | Activity                                   |
