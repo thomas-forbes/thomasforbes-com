@@ -31,6 +31,10 @@ This program would completely change the trajectory of my life. Over the Februar
 
 At Patch I learned to work hard and fell in love with it.
 
+### Gym
+
+After the summer doing Patch in September 2022 I started going to the gym at 5:30 every weekday morning and have remained pretty consistent.
+
 ## Currently
 
 In 5th year improving myself
