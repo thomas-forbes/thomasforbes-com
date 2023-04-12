@@ -92,11 +92,16 @@ import Footer from '../components/Footer.astro'
       @apply underline-offset-4;
     }
 
-    .list-parent ul {
-      @apply w-full px-4 text-left;
-    }
-    .list-parent li {
-      @apply list-item list-inside list-disc text-slate-300;
+    .list-parent {
+      ul {
+        @apply w-full px-4 text-left;
+      }
+      li {
+        @apply list-item list-inside list-disc text-slate-300;
+      }
+      li > ul > li {
+        @apply text-slate-400;
+      }
     }
   }
 </style>

@@ -16,24 +16,47 @@ const subsectionClass = 'space-y-2'
   </Section>
   <Section class={sectionClass}>
     <h2 class="text-sky-400">Software</h2>
-    <div class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
+    <div class="grid w-full grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3">
       <div class={subsectionClass}>
         <h3>Tech Stack</h3>
         <ul>
-          <li>Next.js (dynamic sites)</li>
-          <li>React (ui framework)</li>
+          <li>
+            <a href="https://github.com/t3-oss/create-t3-app" target="_blank"
+              >T3 Stack</a
+            >
+            <ul>
+              <li>Next.js (dynamic sites)</li>
+              <li>React (ui framework)</li>
+              <li>Typescript</li>
+              <li>Tailwind CSS</li>
+              <li>
+                <a href="https://trpc.io/" target="_blank"
+                  >tRPC (typesafe APIs)</a
+                >
+              </li>
+              <li>Prisma, SQL, Auth.js</li>
+            </ul>
+          </li>
           <li>Astro (static sites)</li>
           <li>React Native (mobile apps)</li>
-          <li>Tailwind CSS</li>
-          <li>tRPC (end-to-end typesafe APIs)</li>
         </ul>
       </div>
-      <div class={subsectionClass}>
-        <h3>Tech Platforms</h3>
-        <ul>
-          <li>Vercel (hosting)</li>
-          <li>Planetscale (database)</li>
-        </ul>
+      <div class:list={[subsectionClass, 'flex flex-col justify-between']}>
+        <div>
+          <h3>Other Tech I know</h3>
+          <ul>
+            <li>GoLang</li>
+            <li>Python</li>
+            <li>Linux</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Tech Platforms</h3>
+          <ul>
+            <li>Vercel (hosting)</li>
+            <li>Planetscale (database)</li>
+          </ul>
+        </div>
       </div>
 
       <div class={subsectionClass}>
