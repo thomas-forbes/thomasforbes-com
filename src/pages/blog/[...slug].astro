@@ -14,7 +14,7 @@ export async function getStaticPaths() {
 }
 type Props = CollectionEntry<'blog'>
 
-const post = Astro.props
+const post = Astro.props as Props
 const { Content } = await post.render()
 ---
 
@@ -40,6 +40,12 @@ const { Content } = await post.render()
         <Content />
       </Card>
     </article>
+    <p>
+      <a
+        href={`https://github.com/thomas-forbes/thomasforbes-com/blob/main/src/content/blog/${post.id}`}
+        target="_blank">View version history</a
+      >
+    </p>
   </Section>
 </Layout>
 
