@@ -23,46 +23,74 @@ const {
 ---
 
 <a href={link} class="no-underline" target="_blank">
-  <div
-    class:list={[
-      className,
-      'rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer shadow-lg hover:shadow-2xl shadow-gray-900 h-full hover:scale-105 hover:ring-4 ring-offset-2 ring-offset-transparent',
-    ]}
-  >
+  <div class="h-full duration-300 hover:scale-105">
     <div
       class:list={[
-        { 'pb-4': !image },
-        'flex h-full w-full flex-col items-center justify-between gap-2 px-3 pt-6 text-center',
+        className,
+        'rounded-xl flex flex-col items-center justify-between bg-gradient-to-b overflow-hidden duration-300 group cursor-pointer shadow-lg hover:shadow-2xl shadow-gray-900 h-full hover:ring-4 ring-offset-2 ring-offset-transparent squirm w-full hover:duration-100',
       ]}
     >
-      <h3 class="text-md text-2xl font-bold">{title}</h3>
       <div
-        class="flex flex-row flex-wrap justify-center gap-3 duration-300 group-hover:gap-4"
+        class:list={[
+          { 'pb-4': !image },
+          'flex h-full w-full flex-col items-center justify-between gap-2 px-3 pt-6 text-center',
+        ]}
       >
+        <h3 class="text-md text-2xl font-bold">{title}</h3>
+        <div
+          class="flex flex-row flex-wrap justify-center gap-3 duration-300 group-hover:gap-4"
+        >
+          {
+            tags.map((tag) => (
+              <p
+                class:list={[
+                  tagsClassName,
+                  'h-fit bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1 text-white font-sans-serif',
+                ]}
+              >
+                {tag}
+              </p>
+            ))
+          }
+        </div>
+        <p
+          set:html={description}
+          class:list={[descClassName, 'text-sm font-sans-serif']}
+        />
         {
-          tags.map((tag) => (
-            <p
-              class:list={[
-                tagsClassName,
-                'h-fit bg-opacity-50 text-xs shadow-lg rounded-md px-2 py-1 text-white font-sans-serif',
-              ]}
-            >
-              {tag}
-            </p>
-          ))
+          image && (
+            <div class="relative -bottom-8 max-h-[10rem] w-full max-w-[80%] overflow-hidden rounded-lg bg-slate-800 shadow-xl shadow-slate-950 duration-300 group-hover:bottom-0 group-hover:scale-105 group-hover:shadow-[0_55px_55px_rgba(0,0,0,0.25)] group-hover:shadow-slate-950">
+              <img src={image} />
+            </div>
+          )
         }
       </div>
-      <p
-        set:html={description}
-        class:list={[descClassName, 'text-sm font-sans-serif']}
-      />
-      {
-        image && (
-          <div class="relative -bottom-8 max-h-[10rem] w-full max-w-[80%] overflow-hidden rounded-t-lg bg-slate-800 shadow-xl shadow-slate-950 duration-300 group-hover:bottom-0 group-hover:scale-105 group-hover:shadow-[0_55px_55px_rgba(0,0,0,0.25)] group-hover:shadow-slate-950">
-            <img src={image} />
-          </div>
-        )
-      }
     </div>
   </div>
 </a>
+
+<script>
+  const containers = document.querySelectorAll(
+    '.squirm'
+  )! as NodeListOf<HTMLElement>
+
+  containers.forEach((container) => {
+    container.addEventListener('mousemove', tiltImage)
+
+    function tiltImage(event: MouseEvent) {
+      const rect = container.getBoundingClientRect()
+      const xPos = (event.clientX - rect.left) / rect.width - 0.5
+      const yPos = (event.clientY - rect.top) / rect.height - 0.5
+      const tiltX = -yPos * 25
+      const tiltY = xPos * 25
+      container.style.transform = `perspective(1000px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`
+    }
+
+    container.addEventListener('mouseout', resetImage)
+
+    function resetImage() {
+      container.style.transform =
+        'perspective(1000px) rotateX(0deg) rotateY(0deg)'
+    }
+  })
+</script>
