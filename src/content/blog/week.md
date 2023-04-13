@@ -20,7 +20,7 @@ My current lens for thinking about time is trying to maximise total productive o
 | 8:35 - 15:45  | School                                     |
 | 15:45 - 16:45 | Commute home                               |
 | 16:45 - 19:45 | Unordered: (dinner, work, chill, walk dog) |
-| 19:45         | Bed                                        |
+| 19:45         | Read + Bed                                 |
 
 ### Wednesday
 
@@ -31,7 +31,7 @@ I get off school early on Wednesdays. Everything else remains the same.
 | 8:35 - 13:05  | School                                     |
 | 13:05 - 14:10 | Commute home                               |
 | 14:10 - 19:45 | Unordered: (dinner, work, chill, walk dog) |
-| 19:45         | Bed                                        |
+| 19:45         | Read + Bed                                 |
 
 ### Notes
 
@@ -49,7 +49,7 @@ I get off school early on Wednesdays. Everything else remains the same.
 | 9:00 - ~(15 - 17):00          | Work                                        |
 | ~(15 - 17):00 - ~(16 - 18):00 | Commute home                                |
 | ~(16 - 18):00 - 19:45         | Unordered: (dinner, chill, walk dog)        |
-| 19:45                         | Bed                                         |
+| 19:45                         | Read + Bed                                  |
 
 ### Notes
 
@@ -62,3 +62,4 @@ I get off school early on Wednesdays. Everything else remains the same.
 - Pretty variable
 - I try to recover and prepare my body / mind for the week ahead.
 - I try to go for a long multi-hour and listen to podcasts or audiobooks at 3x speed.
+  - Once walked 30.69 km (actual number) from Malahide to Dun Laoghaire.

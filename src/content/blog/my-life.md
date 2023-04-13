@@ -3,6 +3,8 @@ title: 'My Life'
 pubDate: 2023-04-10
 ---
 
+**This doesn't cover a lot of the little things. I am trying to focus on the key acceleration changes and the context I live in.**
+
 ## Early life
 
 Born in Montgomery country Maryland in 2005 and raised in a single family house in suburbia. My dad was an Economics professor at [CUA](https://www.catholic.edu/index.html) and my Mom ran her [own healthcare analysis business](http://www.braidforbes.com/). My Dad taught me maths from a young age and I got good at it.
@@ -37,4 +39,4 @@ After the summer doing Patch in September 2022 I started going to the gym at 5:3
 
 ## Currently
 
-In 5th year improving myself
+In 5th year improving myself and working on cool projects
