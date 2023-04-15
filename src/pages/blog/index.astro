@@ -20,4 +20,5 @@ const posts = (await getCollection('blog')).sort(
   <Section>
     <Blogdash title="Latest" posts={posts} />
   </Section>
+  <p><a href="/blog/rss">View RSS</a></p>
 </Layout>
