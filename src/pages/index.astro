@@ -7,10 +7,9 @@ import Layout from '../layouts/Layout.astro'
 import Project from '../components/Project.astro'
 import HeadedCard from '../components/HeadedCard.astro'
 import Revealable from '../components/Revealable.astro'
+import { getPosts } from '../utils/funcs'
 
-const posts = (await getCollection('blog'))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 5)
+const posts = (await getPosts()).slice(0, 5)
 
 const unSortedColours = {
   blue: [

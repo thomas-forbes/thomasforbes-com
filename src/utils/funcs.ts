@@ -1,3 +1,5 @@
+import { getCollection } from 'astro:content'
+
 export const formatDate = (date: Date, time = false) => {
   return date
     .toLocaleString('en-IE', {
@@ -14,3 +16,8 @@ export const formatDate = (date: Date, time = false) => {
       `$3-$2-$1${time ? ' $4:$5:$6 UTC' : ''}`
     )
 }
+
+export const getPosts = async () =>
+  (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )

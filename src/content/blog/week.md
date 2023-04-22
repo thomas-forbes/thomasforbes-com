@@ -1,6 +1,7 @@
 ---
 title: 'Current Average Week'
 pubDate: 2023-04-11
+fav: true
 ---
 
 ## Philosophy

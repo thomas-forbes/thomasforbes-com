@@ -1,6 +1,7 @@
 ---
 title: 'My Life'
 pubDate: 2023-04-10
+fav: true
 ---
 
 **This doesn't cover a lot of the little things. I am trying to focus on the key acceleration changes and the context I live in.**

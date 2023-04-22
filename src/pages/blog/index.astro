@@ -1,12 +1,10 @@
 ---
-import { getCollection } from 'astro:content'
 import Blogdash from '../../components/PostsDisplay.astro'
 import Section from '../../components/Section.astro'
 import Layout from '../../layouts/Layout.astro'
+import { getPosts } from '../../utils/funcs'
 
-const posts = (await getCollection('blog')).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-)
+const posts = await getPosts()
 ---
 
 <Layout title="/blog - Thomas Forbes">
@@ -15,10 +13,13 @@ const posts = (await getCollection('blog')).sort(
     <p>Some of my thoughts</p>
   </Section>
   <Section>
-    <Blogdash title="Best" posts={posts} />
+    <Blogdash
+      title="My Favourite"
+      posts={posts.filter((post) => post.data.fav)}
+    />
   </Section>
   <Section>
-    <Blogdash title="Latest" posts={posts} />
+    <Blogdash title="My Latest" posts={posts} />
   </Section>
   <p><a href="/blog/rss.xml">View RSS</a></p>
 </Layout>

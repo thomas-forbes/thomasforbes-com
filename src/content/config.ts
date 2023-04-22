@@ -11,6 +11,10 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
+    fav: z
+      .boolean()
+      .optional()
+      .transform((val) => val ?? false),
   }),
 })
 
