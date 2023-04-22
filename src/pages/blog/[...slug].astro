@@ -81,16 +81,22 @@ const { Content } = await post.render()
 
     li,
     p {
-      @apply font-mono text-slate-400;
+      @apply font-mono text-slate-300;
     }
 
     b,
     strong {
-      @apply text-slate-300;
+      @apply text-slate-200;
+    }
+    b,
+    strong,
+    em,
+    a {
+      @apply !px-0;
     }
 
     a {
-      @apply !px-0 text-slate-300;
+      @apply text-slate-200;
     }
 
     pre {
@@ -98,7 +104,11 @@ const { Content } = await post.render()
     }
 
     blockquote {
-      @apply border-l border-slate-200/40 pl-2 italic;
+      @apply ml-2 border-l-4 border-slate-200 italic;
+
+      p {
+        @apply text-slate-200;
+      }
     }
 
     table {
@@ -120,6 +130,13 @@ const { Content } = await post.render()
 
     ul {
       @apply list-inside list-disc;
+    }
+
+    ul > li > ul > li {
+      @apply text-slate-400;
+    }
+    ul > li > ul > li > ul > li {
+      @apply text-slate-500;
     }
   }
 </style>
