@@ -190,7 +190,7 @@ const city = import.meta.env.PROD
           [
             {
               title: 'This Site',
-              tags: ['Astro', 'Tailwind CSS'],
+              tags: ['Astro', 'Tailwind CSS', 'Open Source'],
               description: 'My open source personal site',
               link: 'https://github.com/thomas-forbes/thomasforbes-com',
               image: '/assets/images/projects/site.jpeg',
@@ -206,7 +206,7 @@ const city = import.meta.env.PROD
               title: 'examfinder.ie',
               description:
                 'Irish state exam repository used by <b>1,000s of students</b>',
-              tags: ['Next.js', 'Tailwind CSS'],
+              tags: ['Next.js', 'Tailwind CSS', 'Open Source'],
               link: 'https://examfinder.ie',
               image: '/assets/images/projects/examfinder.jpeg',
             },
@@ -236,33 +236,38 @@ const city = import.meta.env.PROD
               description: 'Ex Co-Founder. AI question generator',
               tags: ['Next.js', 'Chakra UI', 'GPT-3'],
               link: 'https://kreoh.com',
-              image: '/assets/images/projects/kreoh.png',
+            },
+            {
+              title: 'Podcast Thing',
+              description: 'Demo full-stack serverless podcast review app',
+              tags: ['T3 Stack', 'Next.js', 'Open Source'],
+              link: 'https://github.com/thomas-forbes/podcast-thing',
+            },
+            {
+              title: 'ChatGPT CLI',
+              description: 'ChatGPT assistant in the terminal',
+              tags: ['CLI', 'JavaScript', 'Open Source'],
+              link: 'https://github.com/thomas-forbes/chatgpt-cli',
             },
             {
               title: 'Paper on Congestion Pricing in Ireland',
               description: 'Young Economist paper on Congestion Pricing',
-              tags: ['Economics', 'Research'],
+              tags: ['Economics', 'Research', 'Open Source'],
               link: 'https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing',
             },
             {
               title: 'Paper on Carbon Offsets',
               description:
                 'Young Economist paper on contrasting the EU ETS and Carbon Offsets',
-              tags: ['Economics', 'Research'],
+              tags: ['Economics', 'Research', 'Open Source'],
               link: 'https://docs.google.com/document/d/1G4CvFAEWkRpvlLC2j5LqWKWumxlYAkcjQufj0XjgUWI/edit?usp=sharing',
             },
             {
               title: 'Comfort Crutches',
               description:
                 'BTYSTE project on a new design for crutches to improve comfort',
-              tags: ['Design', 'Research'],
+              tags: ['Design', 'Research', 'Open Source'],
               link: 'https://docs.google.com/document/d/1GWTaDK8bUCbiqBAogynEZynpfnWcTmCUDnuWdgoHa64/edit?usp=sharing',
-            },
-            {
-              title: 'ChatGPT CLI',
-              description: 'ChatGPT assistant in the terminal',
-              tags: ['CLI', 'JavaScript', 'Node'],
-              link: 'https://github.com/thomas-forbes/chatgpt-cli',
             },
           ].map((item, i) => (
             <div
