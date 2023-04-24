@@ -12,12 +12,4 @@ import Links from './Links.astro'
     <Links />
   </div>
 </nav>
-<div id="navbar-offset" class="mb-5"></div>
-
-<script>
-  const navbarOffset = document.querySelector('#navbar-offset')! as HTMLElement
-  const navbar = document.querySelector('#navbar')! as HTMLElement
-
-  const navbarHeight = navbar.offsetHeight
-  navbarOffset.style.height = `${navbarHeight}px`
-</script>
+<div id="navbar-offset" class="h-16"></div>
