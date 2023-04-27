@@ -11,62 +11,6 @@ import { getPosts } from '../utils/funcs'
 
 const posts = (await getPosts()).slice(0, 5)
 
-const unSortedColours = {
-  blue: [
-    {
-      className: 'from-blue-500 to-sky-700 hover:ring-blue-500/20',
-      descClass: 'text-blue-200',
-      tagsClass: 'bg-blue-400',
-    },
-    {
-      className: 'from-sky-500 to-cyan-700 hover:ring-sky-500/20',
-      descClass: 'text-sky-200',
-      tagsClass: 'bg-sky-400',
-    },
-    {
-      className: 'from-cyan-500 to-teal-700 hover:ring-cyan-500/20',
-      descClass: 'text-cyan-200',
-      tagsClass: 'bg-cyan-400',
-    },
-  ],
-  purple: [
-    {
-      className: 'from-fuchsia-500 to-purple-700 hover:ring-fuchsia-500/20',
-      descClass: 'text-fuchsia-200',
-      tagsClass: 'bg-fuchsia-400',
-    },
-    {
-      className: 'from-purple-500 to-violet-700 hover:ring-purple-500/20',
-      descClass: 'text-purple-200',
-      tagsClass: 'bg-purple-400',
-    },
-    {
-      className: 'from-violet-500 to-blue-700 hover:ring-violet-500/20',
-      descClass: 'text-violet-200',
-      tagsClass: 'bg-violet-400',
-    },
-  ],
-  red: [
-    {
-      className: 'from-rose-500 to-pink-700 hover:ring-rose-500/20',
-      descClass: 'text-rose-200',
-      tagsClass: 'bg-rose-400',
-    },
-
-    {
-      className: 'from-pink-500 to-red-700 hover:ring-pink-500/20',
-      descClass: 'text-pink-200',
-      tagsClass: 'bg-pink-400',
-    },
-    {
-      className: 'from-red-500 to-orange-700 hover:ring-red-500/20',
-      descClass: 'text-red-200',
-      tagsClass: 'bg-red-400',
-    },
-  ],
-}
-
-// redefine as array
 const projectColours = [
   {
     className: 'from-blue-500 to-sky-700 hover:ring-blue-500/20',

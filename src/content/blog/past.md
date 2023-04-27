@@ -1,7 +1,7 @@
 ---
-title: 'My Life'
+title: 'Past'
 pubDate: 2023-04-10
-fav: true
+tags: ['fav', 'forever']
 ---
 
 **This doesn't cover a lot of the little things. I am trying to focus on the key acceleration changes and the context I live in.**
@@ -38,6 +38,4 @@ At Patch I learned to work hard and fell in love with it.
 
 After the summer doing Patch in September 2022 I started going to the gym at 5:30 every weekday morning and have remained pretty consistent.
 
-## Currently
-
-In 5th year improving myself and working on cool projects
+## [Currently](/blog/now)

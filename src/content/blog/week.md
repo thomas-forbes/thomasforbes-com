@@ -1,7 +1,8 @@
 ---
-title: 'Current Average Week'
+title: 'Average Week'
 pubDate: 2023-04-11
-fav: true
+tags: ['forever']
+priority: -1
 ---
 
 ## Philosophy

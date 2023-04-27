@@ -1,0 +1,140 @@
+---
+import Layout from './Layout.astro'
+import Section from '../components/Section.astro'
+import { formatDate } from '../utils/funcs'
+import Card from '../components/Card.astro'
+
+interface Props {
+  siteTitle: string
+  title: string
+  pubDate: Date
+  updatedDate?: Date
+  href?: string
+}
+
+const {
+  siteTitle,
+  title,
+  pubDate,
+  updatedDate,
+  href = `https://github.com/thomas-forbes/thomasforbes-com/blob/main/src/content${Astro.url.pathname}.md`,
+} = Astro.props as Props
+---
+
+<Layout title={siteTitle}>
+  <Section class="space-y-4">
+    <h1>{title}</h1>
+    <p>
+      Published <time>{formatDate(pubDate)}</time>{
+        updatedDate && (
+          <>
+            last updated
+            <time>{formatDate(updatedDate)}</time>
+          </>
+        )
+      }
+    </p>
+  </Section>
+  <Section class="text-justify">
+    <article class="w-full">
+      <Card class="w-full space-y-3 !p-4 sm:!p-8">
+        <slot />
+      </Card>
+    </article>
+    <p>
+      <a href={href} target="_blank">View version history</a>
+    </p>
+  </Section>
+</Layout>
+
+<style>
+  time {
+    @apply text-slate-300;
+  }
+</style>
+
+<style is:global>
+  article {
+    * {
+      @apply px-2;
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      @apply !px-0 text-slate-200;
+    }
+    h1,
+    h2 {
+      @apply pt-6 text-3xl font-bold md:text-4xl;
+    }
+    h3 {
+      @apply pt-4 text-xl font-bold md:text-2xl;
+    }
+    h4 {
+      @apply pt-2 text-base font-bold md:text-lg;
+    }
+
+    li,
+    p {
+      @apply font-mono text-slate-300;
+    }
+
+    b,
+    strong {
+      @apply text-slate-200;
+    }
+    b,
+    strong,
+    em,
+    a {
+      @apply !px-0;
+    }
+
+    a {
+      @apply text-slate-200;
+    }
+
+    pre {
+      @apply rounded-xl border border-slate-200/10 px-4 py-3;
+    }
+
+    blockquote {
+      @apply ml-2 border-l-4 border-slate-200 italic;
+
+      p {
+        @apply text-slate-200;
+      }
+    }
+
+    table {
+      @apply mx-2 border-collapse border border-slate-200/10;
+    }
+
+    th,
+    td {
+      @apply border border-slate-200/10 p-2 text-slate-300;
+    }
+
+    th {
+      @apply bg-slate-300/20;
+    }
+
+    tr {
+      @apply odd:bg-slate-200/5 even:bg-slate-200/10;
+    }
+
+    ul {
+      @apply list-inside list-disc;
+    }
+
+    ul > li > ul > li {
+      @apply text-slate-400;
+    }
+    ul > li > ul > li > ul > li {
+      @apply text-slate-500;
+    }
+  }
+</style>

@@ -14,12 +14,23 @@ const posts = await getPosts()
   </Section>
   <Section>
     <Blogdash
-      title="My Favourite"
-      posts={posts.filter((post) => post.data.fav)}
+      title="Favourites"
+      posts={posts.filter((post) => post.data.tags?.includes('fav'))}
     />
   </Section>
   <Section>
-    <Blogdash title="My Latest" posts={posts} />
+    <Blogdash
+      title="Forever"
+      posts={posts.filter((post) => post.data.tags?.includes('forever'))}
+    />
+  </Section>
+  <Section>
+    <Blogdash
+      title="Latest"
+      posts={posts.sort(
+        (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+      )}
+    />
   </Section>
   <p><a href="/blog/rss.xml">View RSS</a></p>
 </Layout>

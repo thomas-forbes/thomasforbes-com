@@ -11,11 +11,17 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
-    fav: z
-      .boolean()
-      .optional()
-      .transform((val) => val ?? false),
+    tags: z.array(z.union([z.literal('fav'), z.literal('forever')])).optional(),
+    priority: z.number().optional(),
   }),
 })
+/* TEMPLATE
+---
+title: 'title'
+pubDate: '2021-01-01'
+# updatedDate: '2021-01-01'
+tags: []
+priority: 0
+*/
 
 export const collections = { blog }

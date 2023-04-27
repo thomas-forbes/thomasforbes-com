@@ -1,15 +1,12 @@
 ---
-title: 'Who I want to become'
+title: 'Future'
 pubDate: 2023-04-23
+tags: ['forever']
 ---
-
-## Caveats
 
 > "Plans are worthless, but planning is everything" - Dwight D. Eisenhower
 
-This is only where I think I'm going. I know I won't end up exactly where I plan, but you can't go anywhere not trying to go somewhere.
-
-You can view how this has changed over time with the link at the bottom.
+This is only where I think I'm going. I know I won't end up exactly where I plan, but **you can't go anywhere not trying to go somewhere**.
 
 ## Guiding Principles
 
@@ -18,7 +15,8 @@ You can view how this has changed over time with the link at the bottom.
 - Location freedom
 - Minimal material possessions
 - Curiosity
-- Quality time with friends and family
+- Great relationships (friends, family, partner)
+- Amazing health
 - Few wasted days
 
 ## Implementation
