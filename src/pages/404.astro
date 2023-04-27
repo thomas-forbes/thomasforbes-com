@@ -1,0 +1,22 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Section from '../components/Section.astro'
+---
+
+<Layout title="404">
+  <Section>
+    <h1>404</h1>
+    <div class="max-w-3xl space-y-4 [&>p>a]:text-slate-300">
+      <p>
+        Uh oh page not found but don't worry it was probably my fault. I like to
+        play with the urls a bit too much
+      </p>
+      <p>
+        You will probably find what you are looking for on the <a href="/"
+          >home page</a
+        >
+        or the <a href="/blog">blog</a>
+      </p>
+    </div>
+  </Section>
+</Layout>
