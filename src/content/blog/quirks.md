@@ -1,6 +1,7 @@
 ---
 title: 'My Quirks'
 pubDate: 2023-04-22
+updateDate: 2023-04-29
 ---
 
 ## Social
@@ -24,6 +25,7 @@ pubDate: 2023-04-22
 ## Random
 
 - I drink a lot of water (a lot)
+- I really don't like paper documents. I much prefer digital
 - I don't eat movie food while the movie is paused or before it starts
 
 <br>
