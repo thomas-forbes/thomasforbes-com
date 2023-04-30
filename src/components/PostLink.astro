@@ -18,10 +18,12 @@ const { post } = Astro.props
       <span class="inline-block text-white duration-500 group-hover:rotate-180">
         &rarr;
       </span>
-      <span
-        class="postlink ml-2 underline duration-300 group-hover:ml-0 group-hover:underline-offset-4"
-      >
-        {post.data.title}
+      <span class="ml-2 duration-300 group-hover:ml-0">
+        <span
+          class="postlink underline underline-offset-1 duration-200 group-hover:underline-offset-4"
+        >
+          {post.data.title}</span
+        >
       </span>
     </div>
     <span
