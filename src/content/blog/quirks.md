@@ -1,5 +1,5 @@
 ---
-title: 'My Quirks'
+title: 'Quirks'
 pubDate: 2023-04-22
 updateDate: 2023-04-29
 ---
