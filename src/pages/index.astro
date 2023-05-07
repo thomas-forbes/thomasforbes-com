@@ -335,11 +335,14 @@ const city = import.meta.env.PROD
   const h1 = document.getElementById('thomasforbes')!
 
   h1.onclick = () => {
-    const audio = new Audio('/assets/sounds/pop.m4a')
+    const pop = new Audio('/assets/sounds/pop.m4a')
+    const bomb = new Audio('/assets/sounds/bomb.mp3')
+    const audio = Math.random() > 0.1 ? pop : bomb
+
     h1.classList.toggle('hover:rotate-2')
     h1.classList.toggle('hover:-rotate-2')
 
-    audio.volume = 0.1
+    audio.volume = 0.2
     audio.play()
   }
 </script>
