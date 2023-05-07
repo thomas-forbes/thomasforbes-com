@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content'
 import { formatDate } from '../utils/funcs'
+import Rainbow from './Rainbow.astro'
 
 interface Props {
   post: CollectionEntry<'blog'>
@@ -12,18 +13,16 @@ const { post } = Astro.props
 <li class="group w-full text-left">
   <a
     href={`/blog/${post.slug}`}
-    class="flex w-full flex-col justify-between space-x-2 py-2 font-sans-serif text-xl font-semibold text-slate-300 no-underline sm:flex-row sm:items-center"
+    class="flex w-full flex-col justify-between space-x-2 py-2 text-xl font-semibold text-slate-300 no-underline sm:flex-row sm:items-center"
   >
     <div>
       <span class="inline-block text-white duration-500 group-hover:rotate-180">
         &rarr;
       </span>
       <span class="ml-2 duration-300 group-hover:ml-0">
-        <span
-          class="postlink underline underline-offset-1 duration-200 group-hover:underline-offset-4"
-        >
-          {post.data.title}</span
-        >
+        <Rainbow>
+          {post.data.title}
+        </Rainbow>
       </span>
     </div>
     <span
@@ -33,34 +32,3 @@ const { post } = Astro.props
     </span>
   </a>
 </li>
-
-<style>
-  @keyframes change-border-color {
-    0% {
-      @apply decoration-sky-400;
-    }
-    25% {
-      @apply decoration-indigo-400;
-    }
-    75% {
-      @apply decoration-rose-500;
-    }
-    100% {
-      @apply decoration-sky-400;
-    }
-  }
-
-  .postlink {
-    animation: change-border-color 4s ease infinite;
-  }
-</style>
-
-<script>
-  const elems = document.querySelectorAll(
-    '.postlink'
-  )! as NodeListOf<HTMLElement>
-
-  for (let i = 0; i < elems.length; i++) {
-    elems[i].style.animationDelay = '-' + Math.floor(Math.random() * 8) + 's'
-  }
-</script>

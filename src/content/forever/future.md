@@ -1,7 +1,6 @@
 ---
 title: 'Future'
-pubDate: 2023-04-23
-tags: ['forever']
+updatedDate: 2023-04-23
 ---
 
 > "Plans are worthless, but planning is everything" - Dwight D. Eisenhower

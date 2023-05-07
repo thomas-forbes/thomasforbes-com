@@ -11,17 +11,18 @@ const blog = defineCollection({
       .string()
       .optional()
       .transform((str) => (str ? new Date(str) : undefined)),
-    tags: z.array(z.union([z.literal('fav'), z.literal('forever')])).optional(),
-    priority: z.number().optional(),
+    tags: z.array(z.union([z.literal('fav'), z.literal('fav')])).optional(),
   }),
 })
-/* TEMPLATE
----
-title: 'title'
-pubDate: '2021-01-01'
-# updatedDate: '2021-01-01'
-tags: []
-priority: 0
-*/
 
-export const collections = { blog }
+const forever = defineCollection({
+  schema: z.object({
+    title: z.string(),
+    updatedDate: z
+      .string()
+      .or(z.date())
+      .transform((val) => new Date(val)),
+  }),
+})
+
+export const collections = { blog, forever }

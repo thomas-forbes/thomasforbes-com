@@ -18,6 +18,6 @@ export const formatDate = (date: Date, time = false) => {
 }
 
 export const getPosts = async () =>
-  (await getCollection('blog'))
-    .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-    .sort((a, b) => (b.data.priority || 0) - (a.data.priority || 0))
+  (await getCollection('blog')).sort(
+    (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  )

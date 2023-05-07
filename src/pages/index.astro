@@ -1,15 +1,28 @@
 ---
 import { getCollection } from 'astro:content'
 import Card from '../components/Card.astro'
+import HeadedCard from '../components/HeadedCard.astro'
 import PostsDisplay from '../components/PostsDisplay.astro'
+import Project from '../components/Project.astro'
+import Revealable from '../components/Revealable.astro'
 import Section from '../components/Section.astro'
 import Layout from '../layouts/Layout.astro'
-import Project from '../components/Project.astro'
-import HeadedCard from '../components/HeadedCard.astro'
-import Revealable from '../components/Revealable.astro'
 import { getPosts } from '../utils/funcs'
+import Rainbow from '../components/Rainbow.astro'
 
-const posts = (await getPosts()).slice(0, 5)
+const blogPosts = (await getPosts()).slice(0, 5)
+
+const forevers = await getCollection('forever')
+const order = ['past', 'now', 'future']
+forevers.sort((a, b) => {
+  const aIndex = order.indexOf(a.slug)
+  const bIndex = order.indexOf(b.slug)
+
+  if (aIndex === -1) return 1
+  if (bIndex === -1) return -1
+
+  return aIndex - bIndex
+})
 
 const projectColours = [
   {
@@ -122,9 +135,28 @@ const city = import.meta.env.PROD
       </Card>
     </div>
   </Section>
+  <!-- ABOUT -->
+  <Section>
+    <HeadedCard title="About" class="flex flex-col items-center">
+      <ul
+        class="flex w-full flex-row flex-wrap items-center justify-between gap-5"
+      >
+        {
+          forevers.map((item, i) => (
+            <a
+              href={`/${item.slug}`}
+              class="group text-xl font-semibold no-underline"
+            >
+              <Rainbow>{item.data.title}</Rainbow>
+            </a>
+          ))
+        }
+      </ul>
+    </HeadedCard>
+  </Section>
   <!-- WRITING -->
   <Section>
-    <PostsDisplay title="Blog →" link="/blog" posts={posts} />
+    <PostsDisplay title="Blog →" link="/blog" posts={blogPosts} />
   </Section>
   <!-- PROJECTS -->
   <Section>
@@ -143,7 +175,7 @@ const city = import.meta.env.PROD
               title: 'joinfounders.co',
               description: 'Building the landing page for dogpatch labs',
               tags: ['Astro', 'Tailwind CSS'],
-              link: 'https://foundersite.vercel.app',
+              link: 'https://www.joinfounders.co/',
               image: '/assets/images/projects/founders.jpeg',
             },
             {
@@ -257,17 +289,17 @@ const city = import.meta.env.PROD
     <p class="text-lg text-slate-200">
       I'm always looking for new opportunities and <br />new people to meet <a
         href="/contact"
-        class="text-sky-400">contact me</a
-      >!
+        class="group no-underline"><Rainbow>contact me!</Rainbow></a
+      >
     </p>
-    <div class="space-y-2 [&>p>a]:text-slate-300">
+    <!-- <div class="space-y-2 [&>p>a]:text-slate-300">
       <p>
         You may also want to check out <a href="/cv">my cv</a> or <a
           href="/uses">the things I use</a
         >.
       </p>
       <p>If you're ever in {city || 'Dublin'}, let's hang out.</p>
-    </div>
+    </div> -->
   </Section>
 </Layout>
 

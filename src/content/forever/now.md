@@ -1,8 +1,6 @@
 ---
 title: 'Now'
-pubDate: 2023-04-27
-# updatedDate: 2023-04-27
-tags: ['forever']
+updatedDate: 2023-04-27
 ---
 
 - Home: [Malahide, Dublin, Ireland](https://goo.gl/maps/B5kfXCQM1eNFZW8w9)
@@ -31,4 +29,4 @@ tags: ['forever']
 ## Reading
 
 - The great mental models 1
-- (Will get back up to 2 books at once after exams)
+- Skin in the game

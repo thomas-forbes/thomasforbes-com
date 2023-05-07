@@ -1,8 +1,6 @@
 ---
 title: 'Average Week'
-pubDate: 2023-04-11
-tags: ['forever']
-priority: -1
+updatedDate: 2023-04-11
 ---
 
 ## Philosophy

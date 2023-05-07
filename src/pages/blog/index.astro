@@ -20,12 +20,6 @@ const posts = await getPosts()
   </Section>
   <Section>
     <Blogdash
-      title="Forever"
-      posts={posts.filter((post) => post.data.tags?.includes('forever'))}
-    />
-  </Section>
-  <Section>
-    <Blogdash
       title="Latest"
       posts={posts.sort(
         (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()

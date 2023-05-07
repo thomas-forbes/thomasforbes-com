@@ -1,16 +1,16 @@
 ---
 import { CollectionEntry, getCollection } from 'astro:content'
-import BlogPost from '../../layouts/BlogPost.astro'
-import { formatDate } from '../../utils/funcs'
+import BlogPost from '../layouts/BlogPost.astro'
+import { formatDate } from '../utils/funcs'
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog')
+  const posts = await getCollection('forever')
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: post,
   }))
 }
-type Props = CollectionEntry<'blog'>
+type Props = CollectionEntry<'forever'>
 
 const post = Astro.props as Props
 const { Content } = await post.render()
@@ -21,14 +21,7 @@ const { Content } = await post.render()
   title={post.data.title}
 >
   <p slot="subtitle">
-    Published <time>{formatDate(post.data.pubDate)}</time>{
-      post.data.updatedDate && (
-        <>
-          last updated
-          <time>{formatDate(post.data.updatedDate)}</time>
-        </>
-      )
-    }
+    Last updated <time>{formatDate(post.data.updatedDate)}</time>
   </p>
   <Content />
 </BlogPost>

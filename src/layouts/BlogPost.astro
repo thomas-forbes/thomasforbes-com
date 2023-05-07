@@ -7,33 +7,15 @@ import Card from '../components/Card.astro'
 interface Props {
   siteTitle: string
   title: string
-  pubDate: Date
-  updatedDate?: Date
-  href?: string
 }
 
-const {
-  siteTitle,
-  title,
-  pubDate,
-  updatedDate,
-  href = `https://github.com/thomas-forbes/thomasforbes-com/blob/main/src/content${Astro.url.pathname}.md`,
-} = Astro.props as Props
+const { siteTitle, title } = Astro.props as Props
 ---
 
 <Layout title={siteTitle}>
   <Section class="space-y-4">
     <h1>{title}</h1>
-    <p>
-      Published <time>{formatDate(pubDate)}</time>{
-        updatedDate && (
-          <>
-            last updated
-            <time>{formatDate(updatedDate)}</time>
-          </>
-        )
-      }
-    </p>
+    <slot name="subtitle" />
   </Section>
   <Section class="text-justify">
     <article class="w-full">
@@ -42,7 +24,10 @@ const {
       </Card>
     </article>
     <p>
-      <a href={href} target="_blank">View version history</a>
+      <a
+        href="https://github.com/thomas-forbes/thomasforbes-com/tree/main/src/content"
+        target="_blank">View version history</a
+      >
     </p>
   </Section>
 </Layout>
@@ -128,6 +113,10 @@ const {
 
     ul {
       @apply list-inside list-disc;
+    }
+
+    ol {
+      @apply list-inside list-decimal;
     }
 
     ul > li > ul > li {
