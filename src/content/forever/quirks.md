@@ -15,7 +15,7 @@ updatedDate: 2023-04-29
 ## Personal
 
 - Dyslexic
-  - audio > text
+  - audio > text (I listen at 3x speed. not as hard as you think)
   - enhanced visual thinking
 - Very particular about:
   - Schedule
