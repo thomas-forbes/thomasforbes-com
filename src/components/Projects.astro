@@ -1,0 +1,169 @@
+---
+import Project from './Project.astro'
+import Revealable from './Revealable.astro'
+const projectColours = [
+  {
+    className: 'from-blue-500 to-sky-700 hover:ring-blue-500/20',
+    descClass: 'text-blue-200',
+    tagsClass: 'bg-blue-400',
+  },
+  {
+    className: 'from-sky-500 to-cyan-700 hover:ring-sky-500/20',
+    descClass: 'text-sky-200',
+    tagsClass: 'bg-sky-400',
+  },
+  {
+    className: 'from-cyan-500 to-teal-700 hover:ring-cyan-500/20',
+    descClass: 'text-cyan-200',
+    tagsClass: 'bg-cyan-400',
+  },
+  {
+    className: 'from-fuchsia-500 to-purple-700 hover:ring-fuchsia-500/20',
+    descClass: 'text-fuchsia-200',
+    tagsClass: 'bg-fuchsia-400',
+  },
+  {
+    className: 'from-purple-500 to-violet-700 hover:ring-purple-500/20',
+    descClass: 'text-purple-200',
+    tagsClass: 'bg-purple-400',
+  },
+  {
+    className: 'from-violet-500 to-blue-700 hover:ring-violet-500/20',
+    descClass: 'text-violet-200',
+    tagsClass: 'bg-violet-400',
+  },
+  {
+    className: 'from-rose-500 to-pink-700 hover:ring-rose-500/20',
+    descClass: 'text-rose-200',
+    tagsClass: 'bg-rose-400',
+  },
+
+  {
+    className: 'from-pink-500 to-red-700 hover:ring-pink-500/20',
+    descClass: 'text-pink-200',
+    tagsClass: 'bg-pink-400',
+  },
+  {
+    className: 'from-red-500 to-orange-700 hover:ring-red-500/20',
+    descClass: 'text-red-200',
+    tagsClass: 'bg-red-400',
+  },
+]
+---
+
+<div class="grid w-full grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3">
+  {
+    [
+      {
+        title: 'This Site',
+        tags: ['Astro', 'Tailwind CSS', 'Open Source'],
+        description: 'My open source personal site',
+        link: 'https://github.com/thomas-forbes/thomasforbes-com',
+        image: '/assets/images/projects/site.jpeg',
+      },
+      {
+        title: 'joinfounders.co',
+        description: 'Building the landing page for dogpatch labs',
+        tags: ['Astro', 'Tailwind CSS'],
+        link: 'https://www.joinfounders.co/',
+        image: '/assets/images/projects/founders.jpeg',
+      },
+      {
+        title: 'examfinder.ie',
+        description:
+          'Irish state exam repository used by <b>1,000s of students</b>',
+        tags: ['Next.js', 'Tailwind CSS', 'Open Source'],
+        link: 'https://examfinder.ie',
+        image: '/assets/images/projects/examfinder.jpeg',
+      },
+      {
+        title: 'allmycontact.info',
+        description: 'Share contact info with QR codes',
+        tags: ['React Native', 'Tailwind CSS'],
+        link: 'https://allmycontact.info/',
+        image: '/assets/images/projects/amci.png',
+      },
+      {
+        title: 'Good Cycling Days',
+        description: 'Weather app to find the best days to cycle',
+        tags: ['React Native', 'Firebase', 'Tailwind CSS'],
+        link: 'https://goodcyclingdays.com/',
+        image: '/assets/images/projects/gcd.png',
+      },
+      {
+        title: 'dotheylike.me',
+        description: 'Find out if someone likes you 😉',
+        tags: ['Next.js', 'Tailwind CSS', 'GPT-3'],
+        link: 'https://dotheylike.me/',
+        image: '/assets/images/projects/dotheylike.me.png',
+      },
+      {
+        title: 'Kreoh',
+        description: 'Ex Co-Founder. AI question generator',
+        tags: ['Next.js', 'Chakra UI', 'GPT-3'],
+        link: 'https://kreoh.com',
+      },
+      {
+        title: 'Podcast Thing',
+        description: 'Demo full-stack serverless podcast review app',
+        tags: ['T3 Stack', 'Next.js', 'Open Source'],
+        link: 'https://github.com/thomas-forbes/podcast-thing',
+      },
+      {
+        title: 'ChatGPT CLI',
+        description: 'ChatGPT assistant in the terminal',
+        tags: ['CLI', 'JavaScript', 'Open Source'],
+        link: 'https://github.com/thomas-forbes/chatgpt-cli',
+      },
+      {
+        title: 'Paper on Congestion Pricing in Ireland',
+        description: 'Young Economist paper on Congestion Pricing',
+        tags: ['Economics', 'Research', 'Open Source'],
+        link: 'https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing',
+      },
+      {
+        title: 'Paper on Carbon Offsets',
+        description:
+          'Young Economist paper on contrasting the EU ETS and Carbon Offsets',
+        tags: ['Economics', 'Research', 'Open Source'],
+        link: 'https://docs.google.com/document/d/1G4CvFAEWkRpvlLC2j5LqWKWumxlYAkcjQufj0XjgUWI/edit?usp=sharing',
+      },
+      {
+        title: 'Comfort Crutches',
+        description:
+          'BTYSTE project on a new design for crutches to improve comfort',
+        tags: ['Design', 'Research', 'Open Source'],
+        link: 'https://docs.google.com/document/d/1GWTaDK8bUCbiqBAogynEZynpfnWcTmCUDnuWdgoHa64/edit?usp=sharing',
+      },
+    ].map((item, i) => (
+      <div id={`project-${i}`} class:list={[i < 3 ? 'visible' : 'hidden']}>
+        <Revealable>
+          <Project
+            {...item}
+            {...projectColours[(i * 3) % projectColours.length]}
+          />
+        </Revealable>
+      </div>
+    ))
+  }
+</div>
+<button
+  id="more-projects"
+  class="font-sans-serif text-xl font-bold text-slate-300 duration-300 hover:text-slate-400 active:text-slate-500"
+  >View More</button
+>
+<script>
+  const moreProjects = document.getElementById('more-projects')!
+  const projects = document.querySelectorAll('[id^="project-"]')
+  let hidden = true
+  moreProjects.addEventListener('click', () => {
+    hidden = !hidden
+    projects.forEach((project, i) => {
+      if (i < 3) return
+
+      project.classList.toggle('visible', !hidden)
+      project.classList.toggle('hidden', hidden)
+    })
+    moreProjects.innerText = hidden ? 'View More' : 'View Less'
+  })
+</script>

@@ -112,18 +112,34 @@ const { siteTitle, title } = Astro.props as Props
     }
 
     ul {
-      @apply list-inside list-disc;
+      @apply list-['•'] pl-6;
+      ul {
+        @apply pl-2;
+      }
     }
 
     ol {
-      @apply list-inside list-decimal;
+      @apply pl-6;
+      li::marker {
+        content: counter(list-item) '.';
+      }
+    }
+
+    li {
+      padding-left: 1ch;
+    }
+    li::marker {
+      @apply text-base font-bold;
     }
 
     ul > li > ul > li {
-      @apply text-slate-400;
+      @apply text-sm text-slate-400;
     }
     ul > li > ul > li > ul > li {
       @apply text-slate-500;
     }
+  }
+  article div:first-child {
+    @apply !pt-0;
   }
 </style>
