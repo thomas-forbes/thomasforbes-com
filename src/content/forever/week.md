@@ -1,17 +1,31 @@
 ---
 title: 'Average Week'
-updatedDate: 2023-04-11
+updatedDate: 2023-06-10
 ---
 
 ## Philosophy
 
-I think the results of a person is a lagging measure of how they spend their time
+> The results of a person is a lagging measure of how they spend their time
+
+\- Me (and probably many before me)
 
 My current lens for thinking about time is trying to maximise total productive output. This means I think about rest as a means to be more productive later or hanging out with friends as a means to get motivations or new perspectives.
 
 ## Weekdays
 
-| Time          | Activity                                   |
+| Time            | Activity                                    |
+| --------------- | ------------------------------------------- |
+| 5:00            | Wakeup with sunrise lamp                    |
+| ~5:30 - ~6:45   | Gym                                         |
+| ~6:45 - 7:30    | Prep to leave                               |
+| 7:30 - 8:30     | Commute to [DPL](https://dogpatchlabs.com/) |
+| 8:30 - ~16:00   | Work                                        |
+| ~16:00 - ~17:00 | Commute home                                |
+| ~17:00 - 19:45  | Unordered: (dinner, work, chill, walk dog)  |
+| 19:45           | Read + Bed                                  |
+
+<!--
+| Time                                       | Activity |
 | ------------- | ------------------------------------------ |
 | 5:00          | Wakeup with sunrise lamp                   |
 | ~5:30 - ~6:30 | Gym                                        |
@@ -21,8 +35,9 @@ My current lens for thinking about time is trying to maximise total productive o
 | 15:45 - 16:45 | Commute home                               |
 | 16:45 - 19:45 | Unordered: (dinner, work, chill, walk dog) |
 | 19:45         | Read + Bed                                 |
+-->
 
-### Wednesday
+<!-- ### Wednesday
 
 I get off school early on Wednesdays. Everything else remains the same.
 
@@ -31,31 +46,32 @@ I get off school early on Wednesdays. Everything else remains the same.
 | 8:35 - 13:05  | School                                     |
 | 13:05 - 14:10 | Commute home                               |
 | 14:10 - 19:45 | Unordered: (dinner, work, chill, walk dog) |
-| 19:45         | Read + Bed                                 |
+| 19:45         | Read + Bed                                 | -->
 
 ### Notes
 
-- I do a good deal of shallow work at school.
+- My leaving time is pretty variable (±1.5 hrs) depending on how exhausting my work is
+<!-- - I do a good deal of shallow work at school.
 - I have Maths, Applied Maths, and Irish as basically free periods.
-- I have 1hr of break including lunch during school.
+- I have 1hr of break including lunch during school. -->
 
 ## Saturday
 
-| Time                          | Activity                                    |
-| ----------------------------- | ------------------------------------------- |
-| ~7:00                         | Wake                                        |
-| ~7:00 - ~8:00                 | Prep                                        |
-| ~8:00 - 9:00                  | Commute to [DPL](https://dogpatchlabs.com/) |
-| 9:00 - ~(15 - 17):00          | Work                                        |
-| ~(15 - 17):00 - ~(16 - 18):00 | Commute home                                |
-| ~(16 - 18):00 - 19:45         | Unordered: (dinner, chill, walk dog)        |
-| 19:45                         | Read + Bed                                  |
+| Time            | Activity                                    |
+| --------------- | ------------------------------------------- |
+| ~7:00           | Wake                                        |
+| ~7:00 - ~8:00   | Prep                                        |
+| ~8:00 - 9:00    | Commute to [DPL](https://dogpatchlabs.com/) |
+| 9:00 - ~16:00   | Work                                        |
+| ~16:00 - ~17:00 | Commute home                                |
+| ~17:00 - 19:45  | Unordered: (dinner, chill, work, walk dog)  |
+| 19:45           | Read + Bed                                  |
 
 ### Notes
 
 - DPL only opens at 9:00. I would grind earlier.
-- Gym opens late on weekends. I would grind earlier.
-- Sometime I stay up later watching something with my family
+- Gym opens late on weekends so I don't go.
+- Sometime I stay up later watching something with my family or hanging out with friends.
 
 ## Sunday
 
