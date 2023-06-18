@@ -69,6 +69,7 @@ The template I use is:
 ## Questions
 
 - What would have been different if you were your optimal self?
+- If you had to do half of what you did what would you cut?
 
 ## Improvements
 
