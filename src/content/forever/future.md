@@ -7,6 +7,8 @@ updatedDate: 2023-04-23
 
 This is only where I think I'm going. I know I won't end up exactly where I plan, but **you can't go anywhere not trying to go somewhere**.
 
+![dream vs reality diagram](/assets/images/blog/plan-vs-reality.png)
+
 ## Guiding Principles
 
 - Time freedom

@@ -6,7 +6,7 @@ import { formatDate } from '../utils/funcs'
 export async function getStaticPaths() {
   const posts = await getCollection('forever')
   return posts.map((post) => ({
-    params: { slug: post.slug },
+    params: { post: post.slug },
     props: post,
   }))
 }

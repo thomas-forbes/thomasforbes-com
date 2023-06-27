@@ -1,8 +1,7 @@
 ---
-import Layout from './Layout.astro'
-import Section from '../components/Section.astro'
-import { formatDate } from '../utils/funcs'
 import Card from '../components/Card.astro'
+import Section from '../components/Section.astro'
+import Layout from './Layout.astro'
 
 interface Props {
   siteTitle: string
@@ -137,6 +136,13 @@ const { siteTitle, title } = Astro.props as Props
     }
     ul > li > ul > li > ul > li {
       @apply text-slate-500;
+    }
+
+    p:has(> img) {
+      @apply flex items-center justify-center;
+    }
+    img {
+      @apply w-1/2 rounded-xl;
     }
   }
   article div *:first-child {
