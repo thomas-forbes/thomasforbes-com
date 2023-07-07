@@ -9,8 +9,9 @@ const blog = defineCollection({
       .transform((val) => new Date(val)),
     updatedDate: z
       .string()
+      .or(z.date())
       .optional()
-      .transform((str) => (str ? new Date(str) : undefined)),
+      .transform((val) => (val ? new Date(val) : undefined)),
     tags: z.array(z.union([z.literal('fav'), z.literal('fav')])).optional(),
   }),
 })
