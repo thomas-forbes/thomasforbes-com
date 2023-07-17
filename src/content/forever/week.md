@@ -11,9 +11,15 @@ updatedDate: 2023-06-10
 
 My current lens for thinking about time is trying to maximise total productive output. This means I think about rest as a means to be more productive later or hanging out with friends as a means to get motivations or new perspectives.
 
-## Weekdays
+**this is just an average not a rigid schedule**
 
-| Time            | Activity                                    |
+## IN FLUX
+
+My schedule is currently majorly in flux (2023-07-16) and I will update when I have a more stable schedule. (You can see my previous averages in the git history)
+
+<!-- ## Weekdays -->
+
+<!-- | Time            | Activity                                    |
 | --------------- | ------------------------------------------- |
 | 5:00            | Wakeup with sunrise lamp                    |
 | ~5:30 - ~6:45   | Gym                                         |
@@ -22,7 +28,7 @@ My current lens for thinking about time is trying to maximise total productive o
 | 8:30 - ~16:00   | Work                                        |
 | ~16:00 - ~17:00 | Commute home                                |
 | ~17:00 - 19:45  | Unordered: (dinner, work, chill, walk dog)  |
-| 19:45           | Read + Bed                                  |
+| 19:45           | Read + Bed                                  | -->
 
 <!--
 | Time                                       | Activity |
@@ -48,14 +54,14 @@ I get off school early on Wednesdays. Everything else remains the same.
 | 14:10 - 19:45 | Unordered: (dinner, work, chill, walk dog) |
 | 19:45         | Read + Bed                                 | -->
 
-### Notes
+<!-- ### Notes
 
-- My leaving time is pretty variable (±1.5 hrs) depending on how exhausting my work is
+- My leaving time is pretty variable (±1.5 hrs) depending on how exhausting my work is -->
 <!-- - I do a good deal of shallow work at school.
 - I have Maths, Applied Maths, and Irish as basically free periods.
 - I have 1hr of break including lunch during school. -->
 
-## Saturday
+<!-- ## Saturday
 
 | Time            | Activity                                    |
 | --------------- | ------------------------------------------- |
@@ -78,4 +84,4 @@ I get off school early on Wednesdays. Everything else remains the same.
 - Pretty variable
 - I try to recover and prepare my body / mind for the week ahead.
 - I try to go for a long multi-hour and listen to podcasts or audiobooks at 3x speed.
-  - Once walked 30.69 km (actual number) from Malahide to Dun Laoghaire.
+  - Once walked 30.69 km (actual number) from Malahide to Dun Laoghaire. -->
