@@ -1,7 +1,6 @@
 ---
-import Layout from '../layouts/Layout.astro'
 import Section from '../components/Section.astro'
-import { formatDate } from '../utils/funcs'
+import Layout from '../layouts/Layout.astro'
 
 const sectionClass = '!items-start space-y-4 text-left'
 const subsectionClass = 'space-y-2'
@@ -11,7 +10,8 @@ const subsectionClass = 'space-y-2'
   <Section class="space-y-4">
     <h1>Things I use</h1>
     <p>
-      Not an exhaustive list. Last updated {formatDate(new Date(), true)}
+      Not an exhaustive list.
+      <!-- Last updated {formatDate(new Date(), true)} -->
     </p>
   </Section>
   <Section class={sectionClass}>
@@ -97,9 +97,6 @@ const subsectionClass = 'space-y-2'
         <ul>
           <li>Arc (browser)</li>
           <li>Apple music</li>
-          <li>
-            <a href="https://reederapp.com/" target="_blank">Reeder (rss)</a>
-          </li>
           <li>Overcast (podcasts)</li>
         </ul>
       </div>
@@ -143,9 +140,6 @@ const subsectionClass = 'space-y-2'
             href="https://huel.mention-me.com/m/ol/zb3la-thomas-forbes"
             target="_blank">Huel (powder + bars)</a
           >
-        </li>
-        <li>
-          <a href="https://athleticgreens.com/en" target="_blank">AG 1</a>
         </li>
         <li>Creatine</li>
         <li>L-Tyrosine</li>

@@ -17,9 +17,6 @@ updatedDate: 2023-04-29
 - Dyslexic
   - audio > text (I listen at 3x speed. not as hard as you think)
   - enhanced visual thinking
-- Very particular about:
-  - Schedule
-  - Food timings (when I'm in a season of work I want 100% control)
 
 ## Random
 

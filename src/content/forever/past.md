@@ -35,6 +35,6 @@ At Patch I learned to work hard and fell in love with it.
 
 ### Gym
 
-After the summer doing Patch in September 2022 I started going to the gym at 5:30 every weekday morning and have remained pretty consistent.
+After the summer doing Patch in September 2022 I started going to the gym at 5:30 every weekday morning and have remained pretty consistent. This has been a big part of my life.
 
 ## [Currently](/blog/now)
