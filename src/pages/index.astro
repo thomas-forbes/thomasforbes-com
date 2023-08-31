@@ -23,18 +23,18 @@ forevers.sort((a, b) => {
   return aIndex - bIndex
 })
 
-const city =
-  import.meta.env.PROD || true
-    ? (
-        await (
-          await fetch(
-            `https://nomadlist.com/@thomasforbes.json?key=${
-              import.meta.env.NOMADLIST_API_KEY
-            }`
-          )
-        ).json()
-      ).location.now.city
-    : undefined
+const city = 'SF'
+// import.meta.env.PROD
+//   ? (
+//       await (
+//         await fetch(
+//           `https://nomadlist.com/@thomasforbes.json?key=${
+//             import.meta.env.NOMADLIST_API_KEY
+//           }`
+//         )
+//       ).json()
+//     ).location?.now?.city
+//   : undefined
 ---
 
 <Layout title="Thomas Forbes">
@@ -46,8 +46,8 @@ const city =
     >
       Thomas Forbes
     </h1>
-    <p class="font-sans text-xl font-semibold text-slate-100 sm:text-2xl">
-      ⚒️ Building quality things <i>fast</i> 💨
+    <p class="font-sans text-lg font-semibold text-slate-100 sm:text-xl">
+      engineer @ <a href="https://bestever.ai">bestever.ai</a>
     </p>
     <div class="flex flex-col gap-8 md:flex-row">
       <!-- BULLETS -->
@@ -62,7 +62,7 @@ const city =
                 emoji: '🗓️',
                 id: 'age',
                 text: `${(
-                  (Date.now() - new Date(2005, 8, 10).getTime()) /
+                  (new Date().getTime() - new Date(2005, 8, 10).getTime()) /
                   1000 /
                   60 /
                   60 /
@@ -82,7 +82,7 @@ const city =
         </ul>
         <script>
           document.getElementById('age')!.innerText = `${(
-            (Date.now() - new Date(2005, 8, 10).getTime()) /
+            (new Date().getTime() - new Date(2005, 8, 10).getTime()) /
             1000 /
             60 /
             60 /
@@ -96,13 +96,14 @@ const city =
         class="space-y-6 !bg-indigo-950/60 text-justify text-base [&>p>b]:text-slate-100 [&>p]:text-gray-300"
       >
         <p>
+          I'm an 18 year old engineer at <a href="https://bestever.ai"
+            >Bestever.ai</a
+          > doing my final year of high school on my own
+        </p>
+        <p>
           My <b>favourite feeling</b> is coming home on the train after <i
             >squeezing all the productivity out of my brain</i
           > and being able to point to a thing and say <b>"I made that"</b>.
-        </p>
-        <p>
-          I <b>love</b> to work on interesting projects and have a <i>need</i> to
-          work <b>hard and fast</b>.
         </p>
       </Card>
     </div>
@@ -140,20 +141,10 @@ const city =
   <!-- CTA -->
   <Section>
     <h2>Want to learn more?</h2>
-    <p class="text-lg text-slate-200">
-      I'm always looking for new opportunities and <br />new people to meet <a
-        href="/contact"
-        class="group no-underline"><Rainbow>contact me!</Rainbow></a
-      >
+    <p class="w-96 text-lg text-slate-200" style="text-wrap: balance;">
+      I'm always looking for new people to meet
+      <a href="/contact" class="group"><Rainbow>contact me!</Rainbow></a>
     </p>
-    <!-- <div class="space-y-2 [&>p>a]:text-slate-300">
-      <p>
-        You may also want to check out <a href="/cv">my cv</a> or <a
-          href="/uses">the things I use</a
-        >.
-      </p>
-      <p>If you're ever in {city || 'Dublin'}, let's hang out.</p>
-    </div> -->
   </Section>
 
   <style>
