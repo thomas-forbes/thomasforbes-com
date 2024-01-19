@@ -17,8 +17,12 @@ forevers.sort((a, b) => {
   const aIndex = order.indexOf(a.slug)
   const bIndex = order.indexOf(b.slug)
 
-  if (aIndex === -1) return 1
-  if (bIndex === -1) return -1
+  if (aIndex === -1) {
+    return 1
+  }
+  if (bIndex === -1) {
+    return -1
+  }
 
   return aIndex - bIndex
 })
@@ -109,7 +113,7 @@ const city = 'SF'
     </div>
   </Section>
   <!-- ABOUT -->
-  <Section>
+  <!-- <Section>
     <HeadedCard title="About" class="flex flex-col items-center">
       <ul
         class="flex w-full flex-row flex-wrap items-center justify-between gap-5"
@@ -126,11 +130,11 @@ const city = 'SF'
         }
       </ul>
     </HeadedCard>
-  </Section>
+  </Section> -->
   <!-- WRITING -->
-  <Section>
+  <!-- <Section>
     <PostsDisplay title="Blog →" link="/blog" posts={blogPosts} />
-  </Section>
+  </Section> -->
   <!-- PROJECTS -->
   <Section>
     <HeadedCard class="w-full space-y-8" title="Projects">
