@@ -55,6 +55,20 @@ const projectColours = [
   {
     [
       {
+        title: 'Rate My Tax Professional',
+        description: 'For US citizens living abroad to find a tax professional',
+        tags: ['Solid.js', 'Tailwind CSS'],
+        link: 'https://ratemytaxprofessional.com/',
+        image: '/assets/images/projects/rmtp.png',
+      },
+      {
+        title: 'Bestever.ai',
+        tags: ['Next.js', 'Figma Plugin', 'Typescript'],
+        description: 'Junior frontend engineer 1.5 years',
+        link: 'https://bestever.ai',
+        image: '/assets/images/projects/bestever.png',
+      },
+      {
         title: 'This Site',
         tags: ['Astro', 'Tailwind CSS', 'Open Source'],
         description: 'My open source personal site',
@@ -110,12 +124,6 @@ const projectColours = [
         link: 'https://github.com/thomas-forbes/quick-commit',
       },
       {
-        title: 'ChatGPT CLI',
-        description: 'ChatGPT assistant in the terminal',
-        tags: ['CLI', 'JavaScript', 'Open Source'],
-        link: 'https://github.com/thomas-forbes/chatgpt-cli',
-      },
-      {
         title: 'Paper on Congestion Pricing in Ireland',
         description: 'Young Economist paper on Congestion Pricing',
         tags: ['Economics', 'Research', 'Open Source'],
@@ -134,12 +142,6 @@ const projectColours = [
           'BTYSTE project on a new design for crutches to improve comfort',
         tags: ['Design', 'Research', 'Open Source'],
         link: 'https://docs.google.com/document/d/1GWTaDK8bUCbiqBAogynEZynpfnWcTmCUDnuWdgoHa64/edit?usp=sharing',
-      },
-      {
-        title: 'Podcast Review Demo',
-        description: 'Demo full-stack serverless podcast review app',
-        tags: ['T3 Stack', 'Next.js', 'Open Source'],
-        link: 'https://github.com/thomas-forbes/podcast-thing',
       },
     ].map((item, i) => (
       <div id={`project-${i}`} class:list={[i < 3 ? 'visible' : 'hidden']}>
