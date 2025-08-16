@@ -1,6 +1,7 @@
 'use client';
 
 import { Link } from '@/components/ui/link';
+import { MAILTO_URL } from '@/lib/types';
 import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
@@ -23,7 +24,7 @@ export default function Navbar() {
         },
         {
           label: '^email',
-          href: 'mailto:hi@thomasforbes.com',
+          href: MAILTO_URL,
           target: '_blank',
         },
         {

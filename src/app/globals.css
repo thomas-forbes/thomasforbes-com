@@ -45,7 +45,7 @@
   --sidebar-accent-foreground: #3f354a;
   --sidebar-border: #d0d0db;
   --sidebar-ring: #4a5fb5;
-  --radius: 0.25rem;
+  --radius: 0.45rem;
   --shadow-2xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-sm: 2px 3px 5px 0px hsl(28 13% 20% / 0.12), 2px 1px 2px -1px hsl(28 13% 20% / 0.12);
@@ -96,7 +96,7 @@
   --sidebar-accent-foreground: #e8e5f0;
   --sidebar-border: #40404a;
   --sidebar-ring: #6b7fd7;
-  --radius: 0.25rem;
+  --radius: 0.45rem;
   --shadow-2xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-sm: 2px 3px 5px 0px hsl(28 13% 20% / 0.12), 2px 1px 2px -1px hsl(28 13% 20% / 0.12);
@@ -167,6 +167,12 @@
   --tracking-widest: calc(var(--tracking-normal) + 0.1em);
 }
 
+@theme {
+  --text-xxs: 0.625rem;
+  --text-xxs--line-height: 0.875rem;
+  --text-xxs--font-weight: 400;
+}
+
 body {
   letter-spacing: var(--tracking-normal);
 }
@@ -206,5 +212,21 @@ body {
   }
   100% {
     background-position: 0% 50%;
+  }
+}
+
+.quote-fade-in {
+  animation: quote-fade-in 1s ease;
+  will-change: opacity, transform;
+}
+
+@keyframes quote-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }

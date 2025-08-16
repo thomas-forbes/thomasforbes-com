@@ -1,16 +1,27 @@
+import { Quotes } from '@/app/(page)/Quotes';
 import Navbar from '@/components/navbar';
 import { PhotoPreview } from '@/components/PhotoPreview';
+import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
 import { getPhotos } from '@/lib/getPhotos';
+import { fetchAllFavorites } from '@/lib/quotes';
+import { MAILTO_URL } from '@/lib/types';
 
 export default function Home() {
   return (
     <>
       <Header />
-      <Previously />
+      <hr />
       <Photos />
+      <hr />
+      <div className="grid grid-cols-2 gap-8">
+        <QuotesWrapper />
+        <FairWarning />
+      </div>
+      <hr />
+      <Previously />
     </>
   );
 }
@@ -132,5 +143,34 @@ async function Photos() {
         </div>
       </div>
     </Section>
+  );
+}
+
+async function QuotesWrapper() {
+  const quotes = await fetchAllFavorites();
+  return <Quotes quotes={quotes} />;
+}
+
+function FairWarning() {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>🚨 Warning</CardTitle>
+      </CardHeader>
+      <CardContent className="flex flex-1 flex-col justify-between gap-4">
+        <div className="flex flex-col gap-2">
+          <p>
+            If you find this site interesting, we should probably talk. I <b>want</b> to talk to{' '}
+            <b>you</b> 👀.{' '}
+          </p>
+          <p> Just send me an email and see what happens 🤭.</p>
+        </div>
+        <Button asChild className="w-full">
+          <Link href={MAILTO_URL} className="hover:no-underline">
+            Your move
+          </Link>
+        </Button>
+      </CardContent>
+    </Card>
   );
 }
