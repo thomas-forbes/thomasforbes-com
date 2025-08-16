@@ -8,7 +8,7 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <div className="flex gap-3">
+    <div className="flex flex-wrap gap-3">
       {[
         {
           label: '/index',
@@ -37,7 +37,10 @@ export default function Navbar() {
           key={label}
           href={href}
           target={target}
-          className={cn('font-mono', pathname === href && 'text-secondary')}
+          className={cn(
+            'font-mono text-sm text-nowrap md:text-base',
+            pathname === href && 'text-secondary',
+          )}
         >
           {label}
         </Link>

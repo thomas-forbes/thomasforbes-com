@@ -16,7 +16,7 @@ export default function Home() {
       <hr />
       <Photos />
       <hr />
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid gap-8 md:grid-cols-2">
         <QuotesWrapper />
         <FairWarning />
       </div>
