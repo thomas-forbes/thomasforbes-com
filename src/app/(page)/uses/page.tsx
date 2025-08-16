@@ -55,7 +55,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       className: 'italic text-emerald-600 dark:text-emerald-400',
       items: [
         {
-          label: 'Patagonia Black Hole 32L backpack',
+          label: 'Patagonia Black Hole 32L backpack (love this thing)',
           href: 'https://www.patagonia.com/product/black-hole-pack-32-liters/196924011793.html',
         },
         {
