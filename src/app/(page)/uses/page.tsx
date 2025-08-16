@@ -5,7 +5,7 @@ import { Section } from '@/components/ui/section';
 const uses: { category: string; className?: string; items: { label: string; href?: string }[] }[] =
   [
     {
-      category: '# General Software',
+      category: 'General Software',
       items: [
         { label: 'texts.com', href: 'https://texts.com/' },
         { label: 'Overcast (podcasts)' },
@@ -14,7 +14,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       ],
     },
     {
-      category: '# Dev Tools',
+      category: 'Dev Tools',
       className: 'text-cyan-600 dark:text-cyan-400',
       items: [
         { label: 'Cursor (+ vim extension)' },
@@ -22,7 +22,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       ],
     },
     {
-      category: '# Productivity',
+      category: 'Productivity',
       className: 'text-amber-600 dark:text-amber-400',
       items: [
         { label: 'Drafts (better apple notes)' },
@@ -31,7 +31,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       ],
     },
     {
-      category: '# Electronics',
+      category: 'Electronics',
       className: 'text-indigo-700 dark:text-indigo-400',
       items: [
         { label: 'M2 15in Macbook Air' },
@@ -41,7 +41,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       ],
     },
     {
-      category: '# Consumables',
+      category: 'Consumables',
       className: 'text-rose-600 dark:text-rose-400',
       items: [
         { label: 'Creatine' },
@@ -51,7 +51,7 @@ const uses: { category: string; className?: string; items: { label: string; href
       ],
     },
     {
-      category: '# Things',
+      category: 'Things',
       className: 'italic text-emerald-600 dark:text-emerald-400',
       items: [
         {

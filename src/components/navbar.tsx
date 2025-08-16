@@ -36,7 +36,7 @@ export default function Navbar() {
           key={label}
           href={href}
           target={target}
-          className={cn('font-mono', pathname === href && 'text-secondary-foreground')}
+          className={cn('font-mono', pathname === href && 'text-secondary')}
         >
           {label}
         </Link>

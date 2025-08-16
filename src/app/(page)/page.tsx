@@ -45,7 +45,7 @@ function Header() {
 
 function Previously() {
   return (
-    <Section title="# Previously">
+    <Section title="Previously">
       <div className="flex flex-col gap-4">
         {[
           {
@@ -75,7 +75,7 @@ function Previously() {
           {
             title: (
               <Link href="https://www.youngeconomist.ie/" target="_blank">
-                Ireland Young Economist
+                Irish Young Economist
               </Link>
             ),
             description: (
@@ -117,7 +117,7 @@ async function Photos() {
   const photos = await getPhotos();
   return (
     <Section
-      title="# Photos"
+      title="Photos"
       action={
         <Link href="/photos" className="font-mono text-sm">
           see all

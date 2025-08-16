@@ -11,41 +11,40 @@
     'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
     'Courier New', monospace;
 
-  --background: #f5f1e6;
-  --foreground: #4a3f35;
-  --card: #fffcf5;
-  --card-foreground: #4a3f35;
-  --popover: #fffcf5;
-  --popover-foreground: #4a3f35;
-  --primary: #a67c52;
+  --background: #f1f1f5;
+  --foreground: #3f354a;
+  --card: #fcfcff;
+  --card-foreground: #3f354a;
+  --popover: #fcfcff;
+  --popover-foreground: #3f354a;
+  /* --primary: #4a5fb5; */
+  --primary: var(--color-indigo-500);
   --primary-foreground: #ffffff;
-  --secondary: #e2d8c3;
-  --secondary-foreground: #5c4d3f;
-  --muted: #ece5d8;
-  --muted-foreground: #7d6b56;
-  --accent: #d4c8aa;
-  --accent-foreground: #4a3f35;
-  --destructive: #b54a35;
+  /* --secondary: #796a9e; */
+  --secondary: var(--color-violet-700);
+  --secondary-foreground: #ffffff;
+  --muted: #e5e5e8;
+  --muted-foreground: #564d6b;
+  --accent: #d4cde0;
+  --accent-foreground: #3f354a;
+  --destructive: #b54a4a;
   --destructive-foreground: #ffffff;
-  --border: #dbd0ba;
-  --input: #dbd0ba;
-  --ring: #a67c52;
-  --chart-1: #a67c52;
-  --chart-2: #8d6e4c;
-  --chart-3: #735a3a;
-  --chart-4: #b3906f;
-  --chart-5: #c0a080;
-  --sidebar: #ece5d8;
-  --sidebar-foreground: #4a3f35;
-  --sidebar-primary: #a67c52;
+  --border: #d0d0db;
+  --input: #d0d0db;
+  --ring: #4a5fb5;
+  --chart-1: #4a5fb5;
+  --chart-2: #796a9e;
+  --chart-3: #a67c52;
+  --chart-4: #8d6e4c;
+  --chart-5: #735a3a;
+  --sidebar: #e5e5e8;
+  --sidebar-foreground: #3f354a;
+  --sidebar-primary: #4a5fb5;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #d4c8aa;
-  --sidebar-accent-foreground: #4a3f35;
-  --sidebar-border: #dbd0ba;
-  --sidebar-ring: #a67c52;
-  /* --font-sans: Libre Baskerville, serif;
-  --font-serif: Lora, serif;
-  --font-mono: IBM Plex Mono, monospace; */
+  --sidebar-accent: #d4cde0;
+  --sidebar-accent-foreground: #3f354a;
+  --sidebar-border: #d0d0db;
+  --sidebar-ring: #4a5fb5;
   --radius: 0.25rem;
   --shadow-2xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
@@ -55,46 +54,48 @@
   --shadow-lg: 2px 3px 5px 0px hsl(28 13% 20% / 0.12), 2px 4px 6px -1px hsl(28 13% 20% / 0.12);
   --shadow-xl: 2px 3px 5px 0px hsl(28 13% 20% / 0.12), 2px 8px 10px -1px hsl(28 13% 20% / 0.12);
   --shadow-2xl: 2px 3px 5px 0px hsl(28 13% 20% / 0.3);
-  --tracking-normal: 0em;
+  --tracking-normal: normal;
   --spacing: 0.25rem;
 }
 
 .dark {
-  --background: #2d2621;
-  --foreground: #ece5d8;
-  --card: #3a322c;
-  --card-foreground: #ece5d8;
-  --popover: #3a322c;
-  --popover-foreground: #ece5d8;
-  --primary: #c0a080;
-  --primary-foreground: #2d2621;
-  --secondary: #4a4039;
-  --secondary-foreground: #ece5d8;
-  --muted: #3a322c;
-  --muted-foreground: #c5bcac;
-  --accent: #59493e;
-  --accent-foreground: #ece5d8;
-  --destructive: #b54a35;
+  --background: var(--color-slate-950);
+  /* --background: #26262d; */
+  --foreground: #e8e5f0;
+  /* --card: #2c2c35; */
+  --card: var(--color-slate-900);
+  --card-foreground: #e8e5f0;
+  --popover: #2c2c35;
+  --popover-foreground: #e8e5f0;
+  /* --primary: #6b7fd7; */
+  --primary: var(--color-indigo-400);
+  --primary-foreground: #ffffff;
+  /* --secondary: #8c79b5; */
+  --secondary: var(--color-violet-400);
+  --secondary-foreground: #ffffff;
+  --muted: #32323c;
+  --muted-foreground: #b8b4c5;
+  --accent: #4a4059;
+  --accent-foreground: #e8e5f0;
+  --destructive: #b54a4a;
   --destructive-foreground: #ffffff;
-  --border: #4a4039;
-  --input: #4a4039;
-  --ring: #c0a080;
-  --chart-1: #c0a080;
-  --chart-2: #b3906f;
-  --chart-3: #a67c52;
-  --chart-4: #8d6e4c;
-  --chart-5: #735a3a;
-  --sidebar: #2d2621;
-  --sidebar-foreground: #ece5d8;
-  --sidebar-primary: #c0a080;
-  --sidebar-primary-foreground: #2d2621;
-  --sidebar-accent: #59493e;
-  --sidebar-accent-foreground: #ece5d8;
-  --sidebar-border: #4a4039;
-  --sidebar-ring: #c0a080;
-  /* --font-sans: Libre Baskerville, serif;
-  --font-serif: Lora, serif;
-  --font-mono: IBM Plex Mono, monospace; */
+  /* --border: #40404a; */
+  --border: var(--color-slate-800);
+  --input: #40404a;
+  --ring: #6b7fd7;
+  --chart-1: #6b7fd7;
+  --chart-2: #8c79b5;
+  --chart-3: #a095c0;
+  --chart-4: #b3906f;
+  --chart-5: #a67c52;
+  --sidebar: #26262d;
+  --sidebar-foreground: #e8e5f0;
+  --sidebar-primary: #6b7fd7;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #4a4059;
+  --sidebar-accent-foreground: #e8e5f0;
+  --sidebar-border: #40404a;
+  --sidebar-ring: #6b7fd7;
   --radius: 0.25rem;
   --shadow-2xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
   --shadow-xs: 2px 3px 5px 0px hsl(28 13% 20% / 0.06);
@@ -157,6 +158,17 @@
   --shadow-lg: var(--shadow-lg);
   --shadow-xl: var(--shadow-xl);
   --shadow-2xl: var(--shadow-2xl);
+
+  --tracking-tighter: calc(var(--tracking-normal) - 0.05em);
+  --tracking-tight: calc(var(--tracking-normal) - 0.025em);
+  --tracking-normal: var(--tracking-normal);
+  --tracking-wide: calc(var(--tracking-normal) + 0.025em);
+  --tracking-wider: calc(var(--tracking-normal) + 0.05em);
+  --tracking-widest: calc(var(--tracking-normal) + 0.1em);
+}
+
+body {
+  letter-spacing: var(--tracking-normal);
 }
 
 @layer base {
@@ -165,5 +177,34 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.title-gradient {
+  background: linear-gradient(
+    45deg,
+    var(--color-rose-500),
+    var(--color-indigo-500),
+    var(--color-cyan-600),
+    var(--color-violet-600),
+    var(--color-rose-500)
+  );
+  background-size: 400% 400%;
+  background-position: 0% 50%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: title-gradient-cycle 5s ease-in-out infinite;
+}
+
+@keyframes title-gradient-cycle {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 }
