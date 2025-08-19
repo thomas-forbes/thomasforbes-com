@@ -1,1 +1,1 @@
-export const MAILTO_URL = 'mailto:hi@thomasforbes.com';
+export const MAILTO_URL = 'mailto:public@thomasforbes.com';
