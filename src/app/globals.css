@@ -200,7 +200,7 @@ body {
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  animation: title-gradient-cycle 5s ease-in-out infinite;
+  animation: title-gradient-cycle 8s ease-in-out infinite;
 }
 
 @keyframes title-gradient-cycle {
