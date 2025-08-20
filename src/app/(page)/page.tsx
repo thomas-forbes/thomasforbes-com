@@ -18,7 +18,7 @@ export default function Home() {
       <hr />
       <div className="grid gap-8 md:grid-cols-2">
         <QuotesWrapper />
-        <FairWarning />
+        <Contact />
       </div>
       <hr />
       <Previously />
@@ -151,7 +151,7 @@ async function QuotesWrapper() {
   return <Quotes quotes={quotes} />;
 }
 
-function FairWarning() {
+function Contact() {
   return (
     <Card>
       <CardHeader>
@@ -159,11 +159,7 @@ function FairWarning() {
       </CardHeader>
       <CardContent className="flex flex-1 flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <p>
-            If you find this site interesting, we should probably talk. I <b>want</b> to talk to{' '}
-            <b>you</b> 👀.{' '}
-          </p>
-          <p> Just send me an email and see what happens 🤭.</p>
+          <p>Clicking this might lead to actual human conversation. Proceed at your own risk.</p>
         </div>
         <Button asChild className="w-full">
           <Link href={MAILTO_URL} className="hover:no-underline">
