@@ -66,6 +66,10 @@ const uses: { category: string; className?: string; items: { label: string; href
           label: 'Shorts',
           href: 'https://shop.lululemon.com/p/men-shorts/Bowline-Short-5-Woven-MD/_/prod11510140',
         },
+        {
+          label: 'Shoes',
+          href: 'https://www.rei.com/product/229583/hoka-mach-6-road-running-shoes-mens',
+        },
       ],
     },
   ];
