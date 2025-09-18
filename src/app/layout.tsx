@@ -1,4 +1,5 @@
 import { ThemeProvider } from '@/components/themes-provider';
+import { Analytics } from '@vercel/analytics/next';
 import type { Metadata } from 'next';
 import { Fira_Code, Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
@@ -48,6 +49,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
