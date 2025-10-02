@@ -173,16 +173,13 @@
   --text-xxs--font-weight: 400;
 }
 
-body {
-  letter-spacing: var(--tracking-normal);
-}
-
 @layer base {
   * {
-    @apply border-border outline-ring/50 duration-200;
+    @apply border-border outline-ring/50 selection:text-secondary duration-200 selection:bg-transparent;
   }
   body {
     @apply bg-background text-foreground;
+    letter-spacing: var(--tracking-normal);
   }
 }
 
