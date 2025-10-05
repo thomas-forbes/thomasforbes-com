@@ -36,34 +36,28 @@ function QuoteCard({
           </Link>
         </CardDescription>
       </CardHeader>
-      <CardContent className="space-y-4">
-        <div className="flex h-9 w-full items-center gap-2">
+      <CardContent className="h-42 px-1.5">
+        <div className="flex w-full flex-row items-center gap-1.5">
           <Button variant="ghost" size="icon" onClick={previous}>
             <ChevronLeft />
           </Button>
-          <div className="relative h-full flex-1">
-            <div
-              className="quote-fade-in absolute inset-0 flex flex-col justify-center text-center font-mono"
-              key={index}
-            >
-              <p className="text-xxs truncate">{quote.book.title}</p>
-              <p className="text-xxs truncate">{quote.book.author}</p>
-            </div>
+          <div
+            key={index}
+            className={cn(
+              'quote-fade-in flex min-h-0 w-full flex-auto flex-col gap-2',
+              !isZoomed && 'hover:cursor-zoom-in',
+            )}
+            onClick={() => !isZoomed && setIsZoomed(true)}
+          >
+            <p className={cn(isZoomed ? 'line-clamp-none' : 'line-clamp-5')}>{quote.h.text}</p>
+            <p className={cn('text-xxs', isZoomed ? 'line-clamp-none' : 'line-clamp-1')}>
+              – {quote.book.title} by {quote.book.author}
+            </p>
           </div>
           <Button variant="ghost" size="icon" onClick={next}>
             <ChevronRight />
           </Button>
         </div>
-        <p
-          key={index}
-          className={cn(
-            'quote-fade-in',
-            isZoomed ? 'line-clamp-none' : 'line-clamp-5 hover:cursor-zoom-in',
-          )}
-          onClick={() => !isZoomed && setIsZoomed(true)}
-        >
-          {quote.h.text}
-        </p>
       </CardContent>
     </Card>
   );

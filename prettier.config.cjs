@@ -1,7 +1,7 @@
 /** @type {import("prettier").Config} */
 module.exports = {
   plugins: ['prettier-plugin-tailwindcss'],
-  printWidth: 100,
+  printWidth: 80,
   tabWidth: 2,
   useTabs: false,
   semi: true,
