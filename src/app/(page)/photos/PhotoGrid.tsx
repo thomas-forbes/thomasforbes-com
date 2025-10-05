@@ -12,7 +12,10 @@ export function PhotoGrid({ photos }: { photos: string[] }) {
     photosPerColumn[i % columns].push(photos[i]);
   }
   return (
-    <div className="grid gap-4" style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}>
+    <div
+      className="grid gap-4"
+      style={{ gridTemplateColumns: `repeat(${columns}, 1fr)` }}
+    >
       {photosPerColumn.map((column, index) => (
         <div key={index} className="grid h-fit gap-4">
           {column.map((photo) => (

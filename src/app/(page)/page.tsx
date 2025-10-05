@@ -2,7 +2,13 @@ import { Quotes } from '@/app/(page)/Quotes';
 import Navbar from '@/components/navbar';
 import { PhotoPreview } from '@/components/PhotoPreview';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
 import { getPhotos } from '@/lib/getPhotos';
@@ -33,8 +39,8 @@ function Header() {
       <Card>
         <CardContent className="space-y-3 font-mono">
           <p>
-            Taking a gap semester from Georgetown to deal with health issues and work on personal
-            projects.
+            Taking a gap semester from Georgetown to deal with health issues and
+            work on personal projects.
           </p>
           <p>
             Previously, I dropped out of my final year of high school to work at{' '}
@@ -44,8 +50,8 @@ function Header() {
             in sf.
           </p>
           <p>
-            My favorite feeling is finishing a long day of work and having something I can point to
-            and say &quot;I made that&quot;.
+            My favorite feeling is finishing a long day of work and having
+            something I can point to and say &quot;I made that&quot;.
           </p>
           <p>My second favorite feeling is to jump out of plane 🪂.</p>
         </CardContent>
@@ -73,7 +79,8 @@ function Previously() {
               </>
             ),
             description: '2023/06 -> 2024/08 in sf',
-            content: 'Full-stack engineer. Finished my high school coursework in my freetime.',
+            content:
+              'Full-stack engineer. Finished my high school coursework in my freetime.',
           },
           {
             title: (
@@ -81,7 +88,8 @@ function Previously() {
                 All Ireland Programming Olympiad
               </Link>
             ),
-            description: 'Bronze medalist in 2023, 2022 and top 15 in 2021 and 2020',
+            description:
+              'Bronze medalist in 2023, 2022 and top 15 in 2021 and 2020',
           },
           {
             title: (
@@ -113,7 +121,9 @@ function Previously() {
             <CardHeader>
               <CardTitle>{title}</CardTitle>
               {description && (
-                <CardDescription className="font-mono">{description}</CardDescription>
+                <CardDescription className="font-mono">
+                  {description}
+                </CardDescription>
               )}
             </CardHeader>
             {content && <CardContent>{content}</CardContent>}
@@ -159,7 +169,10 @@ function Contact() {
       </CardHeader>
       <CardContent className="flex flex-1 flex-col justify-between gap-4">
         <div className="flex flex-col gap-2">
-          <p>Clicking this might lead to actual human conversation. Proceed at your own risk.</p>
+          <p>
+            Clicking this might lead to actual human conversation. Proceed at
+            your own risk.
+          </p>
         </div>
         <Button asChild className="w-full">
           <Link href={MAILTO_URL} className="hover:no-underline">

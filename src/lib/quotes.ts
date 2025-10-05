@@ -27,7 +27,10 @@ const BASE = 'https://readwise.io/api/v2/export/';
 const revalidate = 60 * 60 * 24;
 
 export async function fetchAllFavorites(): Promise<
-  Array<{ book: { id: number; title: string; author: string | null }; h: Highlight }>
+  Array<{
+    book: { id: number; title: string; author: string | null };
+    h: Highlight;
+  }>
 > {
   const favorites: Array<{
     book: { id: number; title: string; author: string | null };
@@ -59,7 +62,11 @@ export async function fetchAllFavorites(): Promise<
       for (const h of book.highlights) {
         if (h.is_favorite) {
           favorites.push({
-            book: { id: book.user_book_id, title: book.title, author: book.author },
+            book: {
+              id: book.user_book_id,
+              title: book.title,
+              author: book.author,
+            },
             h,
           });
         }

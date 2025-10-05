@@ -3,7 +3,8 @@ import NextLink, { type LinkProps } from 'next/link';
 import type { AnchorHTMLAttributes } from 'react';
 
 export function Link(
-  props: LinkProps & Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>,
+  props: LinkProps &
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>,
 ) {
   return (
     <NextLink
