@@ -21,7 +21,11 @@ const components: MDXComponents = {
   ol: ({ children }) => (
     <ol className="list-inside list-decimal">{children}</ol>
   ),
-  li: ({ children }) => <li>{children}</li>,
+  li: ({ children }) => (
+    <li className="[&>ol]:pl-4 [&>ol]:opacity-80 [&>ul]:pl-4 [&>ul]:opacity-80">
+      {children}
+    </li>
+  ),
   blockquote: ({ children }) => (
     <blockquote className="inline-flex w-full items-start gap-3 rounded-xl border border-amber-700/20 bg-amber-500/10 px-4 py-3 font-mono text-amber-900 italic dark:border-amber-500/20 dark:text-amber-200">
       <span className="text-amber-600 dark:text-amber-500">&gt;</span>{' '}
