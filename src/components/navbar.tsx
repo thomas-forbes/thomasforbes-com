@@ -2,7 +2,6 @@
 
 import { Link } from '@/components/ui/link';
 import { MAILTO_URL } from '@/lib/types';
-import { cn } from '@/lib/utils';
 import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
@@ -37,10 +36,9 @@ export default function Navbar() {
           key={label}
           href={href}
           target={target}
-          className={cn(
-            'font-mono text-sm text-nowrap md:text-base',
-            pathname === href && 'text-secondary',
-          )}
+          selected={pathname === href}
+          className="font-mono text-sm text-nowrap md:text-base"
+          hideVisited
         >
           {label}
         </Link>
