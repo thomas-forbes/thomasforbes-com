@@ -5,7 +5,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <NoiseCanvas />
-      <div className="flex h-full min-h-screen w-screen flex-col items-center px-5 pt-10 pb-5">
+      <div className="flex h-full min-h-dvh w-screen flex-col items-center px-5 pt-10 pb-5">
         <div className="flex h-full w-full max-w-3xl flex-1 flex-col gap-8">
           <Navbar />
           {children}
