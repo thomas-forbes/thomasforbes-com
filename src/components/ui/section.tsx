@@ -12,7 +12,7 @@ export function Section({
   title: string;
   as?: 'h1' | 'h2';
   action?: React.ReactNode;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   className?: string;
   titleClassName?: string;
 }) {
@@ -32,6 +32,7 @@ export function Section({
         )}
         {action}
       </div>
+      {as === 'h1' && <hr />}
       {children}
     </div>
   );

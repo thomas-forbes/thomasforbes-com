@@ -1,5 +1,4 @@
 import { Quotes } from '@/app/(page)/Quotes';
-import Navbar from '@/components/navbar';
 import { PhotoPreview } from '@/components/PhotoPreview';
 import { Button } from '@/components/ui/button';
 import {
@@ -35,7 +34,6 @@ export default function Home() {
 function Header() {
   return (
     <Section as="h1" title="Thomas Forbes">
-      <Navbar />
       <Card>
         <CardContent className="space-y-3 font-mono">
           <p>

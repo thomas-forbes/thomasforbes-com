@@ -1,4 +1,3 @@
-import Navbar from '@/components/navbar';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
 
@@ -79,10 +78,7 @@ const uses: {
 
 export default function Uses() {
   return (
-    <>
-      <Section title="Uses" as="h1">
-        <Navbar />
-      </Section>
+    <Section title="Uses" as="h1">
       <div className="grid gap-4 md:grid-cols-2">
         {uses.map((use) => (
           <Section
@@ -107,6 +103,6 @@ export default function Uses() {
           </Section>
         ))}
       </div>
-    </>
+    </Section>
   );
 }
