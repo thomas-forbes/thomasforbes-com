@@ -7,7 +7,7 @@ import { usePathname } from 'next/navigation';
 export default function Navbar() {
   const pathname = usePathname();
   return (
-    <div className="flex flex-wrap gap-3">
+    <div className="grid grid-cols-3 place-items-center gap-5 sm:flex [&>:nth-child(3n+1)]:justify-self-start [&>:nth-child(3n+2)]:justify-self-center [&>:nth-child(3n+3)]:justify-self-end">
       {[
         {
           label: '/index',
@@ -21,6 +21,7 @@ export default function Navbar() {
           label: '/photos',
           href: '/photos',
         },
+        { label: '/other', href: '/other' },
         {
           label: '^email',
           href: MAILTO_URL,
@@ -37,7 +38,7 @@ export default function Navbar() {
           href={href}
           target={target}
           selected={pathname === href}
-          className="font-mono text-sm text-nowrap md:text-base"
+          className="font-mono text-nowrap"
           hideVisited
         >
           {label}

@@ -5,7 +5,7 @@ import { type ReactNode } from 'react';
 
 const components: MDXComponents = {
   a: ({ children, href }) => (
-    <Link href={href} target="_blank">
+    <Link href={href} target={href.startsWith('/') ? undefined : '_blank'}>
       {children}
     </Link>
   ),
