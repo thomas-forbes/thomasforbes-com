@@ -16,7 +16,7 @@ export function Link({
     <NextLink
       {...props}
       className={cn(
-        'text-primary no-underline underline-offset-0 hover:underline hover:underline-offset-4 hover:opacity-70',
+        'text-primary no-underline underline-offset-0 hover:underline hover:underline-offset-4 hover:opacity-70 active:scale-[0.97]',
         selected && 'text-pink-500',
         !hideVisited && 'visited:text-secondary',
         className,
