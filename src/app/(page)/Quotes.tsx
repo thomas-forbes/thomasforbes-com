@@ -1,12 +1,23 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { fetchAllFavorites } from '@/lib/quotes';
 import { cn } from '@/lib/utils';
+import { markdownComponents } from '@/mdx-components';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useState } from 'react';
+import { useMemo, useState, type HTMLAttributes } from 'react';
+import type { Components as ReactMarkdownComponents } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
+import rehypeSanitize from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
 
 function QuoteCard({
   quote,
@@ -25,8 +36,53 @@ function QuoteCard({
   previous: () => void;
   setIsZoomed: (isZoomed: boolean) => void;
 }) {
+  const quoteMarkdownComponents = useMemo<Partial<ReactMarkdownComponents>>(
+    () => ({
+      ...markdownComponents,
+      p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
+        <p
+          {...props}
+          className={cn(
+            className,
+            'overflow-hidden',
+            isZoomed ? 'line-clamp-none' : 'line-clamp-4',
+          )}
+        />
+      ),
+    }),
+    [isZoomed],
+  );
+
+  const attributionMarkdownComponents = useMemo<
+    Partial<ReactMarkdownComponents>
+  >(
+    () => ({
+      ...markdownComponents,
+      p: ({ className, ...props }: HTMLAttributes<HTMLParagraphElement>) => (
+        <p
+          {...props}
+          className={cn(
+            className,
+            'text-xxs',
+            isZoomed ? 'line-clamp-none' : 'line-clamp-1',
+          )}
+        />
+      ),
+    }),
+    [isZoomed],
+  );
+
+  const attributionMarkdown = useMemo(
+    () => `– ${quote.book.title} by ${quote.book.author}`,
+    [quote.book.author, quote.book.title],
+  );
+
   return (
-    <Card className={cn(isZoomed && 'quote-fade-in z-20 w-full max-w-xl overflow-scroll')}>
+    <Card
+      className={cn(
+        isZoomed && 'quote-fade-in z-20 w-full max-w-xl overflow-scroll',
+      )}
+    >
       <CardHeader>
         <CardTitle>📙 Favorite Quotes</CardTitle>
         <CardDescription>
@@ -54,17 +110,23 @@ function QuoteCard({
             )}
             onClick={() => !isZoomed && setIsZoomed(true)}
           >
-            <p
+            <ReactMarkdown
               className={cn(
-                'min-h-0 flex-1 overflow-hidden',
-                isZoomed ? 'line-clamp-none' : 'line-clamp-4',
+                'markdown min-h-0 flex-1 space-y-2 overflow-hidden',
               )}
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeSanitize]}
+              components={quoteMarkdownComponents}
             >
               {quote.h.text}
-            </p>
-            <p className={cn('text-xxs', isZoomed ? 'line-clamp-none' : 'line-clamp-1')}>
-              – {quote.book.title} by {quote.book.author}
-            </p>
+            </ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeSanitize]}
+              components={attributionMarkdownComponents}
+            >
+              {attributionMarkdown}
+            </ReactMarkdown>
           </div>
           <Button variant="ghost" size="icon" onClick={next}>
             <ChevronRight />
@@ -75,7 +137,11 @@ function QuoteCard({
   );
 }
 
-export function Quotes({ quotes }: { quotes: Awaited<ReturnType<typeof fetchAllFavorites>> }) {
+export function Quotes({
+  quotes,
+}: {
+  quotes: Awaited<ReturnType<typeof fetchAllFavorites>>;
+}) {
   const [index, setIndex] = useState(0);
   const [isZoomed, setIsZoomed] = useState(false);
   const next = () => setIndex((index + 1) % quotes.length);
@@ -94,9 +160,12 @@ export function Quotes({ quotes }: { quotes: Awaited<ReturnType<typeof fetchAllF
       {isZoomed && (
         <div
           className={cn(
-            isZoomed && 'fixed inset-0 z-10 flex items-center justify-center bg-black/80 p-10',
+            isZoomed &&
+              'fixed inset-0 z-10 flex items-center justify-center bg-black/80 p-10',
           )}
-          onClick={(e) => isZoomed && e.target === e.currentTarget && setIsZoomed(false)}
+          onClick={(e) =>
+            isZoomed && e.target === e.currentTarget && setIsZoomed(false)
+          }
         >
           <QuoteCard
             quote={quotes[index]}

@@ -3,9 +3,12 @@ import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
 import { type ReactNode } from 'react';
 
-const components: MDXComponents = {
+const markdownComponents: MDXComponents = {
   a: ({ children, href }) => (
-    <Link href={href} target={href.startsWith('/') ? undefined : '_blank'}>
+    <Link
+      href={href ?? '/'}
+      target={href?.startsWith('/') ? undefined : '_blank'}
+    >
       {children}
     </Link>
   ),
@@ -19,7 +22,7 @@ const components: MDXComponents = {
   p: ({ children }) => <p>{children}</p>,
   ul: ({ children }) => <ul className="list-inside list-disc">{children}</ul>,
   ol: ({ children }) => (
-    <ol className="list-inside list-decimal">{children}</ol>
+    <ol className="list-outside list-decimal pl-6">{children}</ol>
   ),
   li: ({ children }) => (
     <li className="[&>ol]:pl-4 [&>ol]:opacity-80 [&>ul]:pl-4 [&>ul]:opacity-80">
@@ -48,6 +51,8 @@ const components: MDXComponents = {
   ),
 };
 
+export { markdownComponents };
+
 export function useMDXComponents(): MDXComponents {
-  return components;
+  return markdownComponents;
 }
