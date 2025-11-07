@@ -20,7 +20,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 function Footer() {
   return (
     <div className="text-accent flex flex-col items-center font-mono">
-      <p className="text-xs">Don&apos;t forget to sleep well</p>
+      <p className="text-xs">Don&apos;t forget to sleep well tonight</p>
       <p className="text-sm">© {new Date().getFullYear()} Thomas Forbes</p>
     </div>
   );
