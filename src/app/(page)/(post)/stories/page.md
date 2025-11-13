@@ -23,3 +23,4 @@ Some stories I like and often tell people:
   - Ran more crazy ultramarathons
   - Did all of this with a heart condition that made his heart less effective?!
   - Started [smoke jumping](https://grokipedia.com/page/Smokejumper) for fun in the wildfire season
+- [CIA precursor plot to make Hitler feminine](https://chatgpt.com/share/6915fc5e-3ce4-8010-bd0d-eb3c53979a5c)
