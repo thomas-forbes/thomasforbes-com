@@ -13,6 +13,7 @@ import { Section } from '@/components/ui/section';
 import { getPhotos } from '@/lib/getPhotos';
 import { fetchAllFavorites } from '@/lib/quotes';
 import { MAILTO_URL } from '@/lib/types';
+import type { ReactNode } from 'react';
 
 export default function Home() {
   return (
@@ -58,63 +59,96 @@ function Header() {
   );
 }
 
+const PREVIOUSLY_ITEMS: {
+  title: ReactNode;
+  description?: ReactNode;
+  content?: ReactNode | ReactNode[];
+}[] = [
+  {
+    title: <>Student at Georgetown University</>,
+    description: '2024/08 -> 2025/05 in DC',
+  },
+  {
+    title: (
+      <>
+        Software Engineer at{' '}
+        <Link href="https://bestever.ai" target="_blank">
+          Bestever
+        </Link>
+      </>
+    ),
+    description: '2023/06 -> 2024/08 in SF',
+    content:
+      'Full-stack engineer. Finished my high school coursework in my freetime.',
+  },
+  {
+    title: (
+      <Link href="https://www.joinpatch.org/" target="_blank">
+        Patch
+      </Link>
+    ),
+    description: 'Summer 2022 in Dublin',
+    content: [
+      "Ireland's leading young builder accelerator.",
+      <>
+        Built an{' '}
+        <Link href="https://apps.ankiweb.net/" target="_blank">
+          Anki
+        </Link>{' '}
+        like study tool with automated flashcard generation using gpt-3 (yes I'm
+        an unc)
+      </>,
+    ],
+  },
+  {
+    title: (
+      <Link href="https://aipo.ucc.ie/" target="_blank">
+        All Ireland Programming Olympiad
+      </Link>
+    ),
+    content: 'Bronze medalist in 2023, 2022 and top 15 in 2021 and 2020',
+  },
+  {
+    title: (
+      <Link href="https://www.youngeconomist.ie/" target="_blank">
+        Irish Young Economist
+      </Link>
+    ),
+    content: [
+      <>
+        IGEES award winner and Gold medalist 2023{' '}
+        <Link
+          href="https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing"
+          target="_blank"
+        >
+          (paper)
+        </Link>
+        . Gold medalist 2022{' '}
+        <Link
+          href="https://docs.google.com/document/d/1G4CvFAEWkRpvlLC2j5LqWKWumxlYAkcjQufj0XjgUWI/edit?usp=sharing"
+          target="_blank"
+        >
+          (paper)
+        </Link>
+      </>,
+      <>
+        Invited to meet with Minister for Finance{' '}
+        <Link
+          href="https://en.wikipedia.org/wiki/Paschal_Donohoe"
+          target="_blank"
+        >
+          Paschal Donohoe
+        </Link>
+      </>,
+    ],
+  },
+];
+
 function Previously() {
   return (
     <Section title="Previously">
       <div className="flex flex-col gap-4">
-        {[
-          {
-            title: <>Student at Georgetown University</>,
-            description: '2024/08 -> 2025/05 in dc',
-          },
-          {
-            title: (
-              <>
-                Software Engineer at{' '}
-                <Link href="https://bestever.ai" target="_blank">
-                  Bestever
-                </Link>
-              </>
-            ),
-            description: '2023/06 -> 2024/08 in sf',
-            content:
-              'Full-stack engineer. Finished my high school coursework in my freetime.',
-          },
-          {
-            title: (
-              <Link href="https://aipo.ucc.ie/" target="_blank">
-                All Ireland Programming Olympiad
-              </Link>
-            ),
-            description:
-              'Bronze medalist in 2023, 2022 and top 15 in 2021 and 2020',
-          },
-          {
-            title: (
-              <Link href="https://www.youngeconomist.ie/" target="_blank">
-                Irish Young Economist
-              </Link>
-            ),
-            description: (
-              <>
-                IGEES award winner and Gold medalist 2023{' '}
-                <Link
-                  href="https://drive.google.com/file/d/1KlU16SRe7rNavkPd86SrDLHjNzC_nRws/view?usp=sharing"
-                  target="_blank"
-                >
-                  (paper)
-                </Link>
-                . Gold medalist 2022{' '}
-                <Link
-                  href="https://docs.google.com/document/d/1G4CvFAEWkRpvlLC2j5LqWKWumxlYAkcjQufj0XjgUWI/edit?usp=sharing"
-                  target="_blank"
-                >
-                  (paper)
-                </Link>
-              </>
-            ),
-          },
-        ].map(({ title, description, content }, index) => (
+        {PREVIOUSLY_ITEMS.map(({ title, description, content }, index) => (
           <Card key={index}>
             <CardHeader>
               <CardTitle>{title}</CardTitle>
@@ -124,7 +158,19 @@ function Previously() {
                 </CardDescription>
               )}
             </CardHeader>
-            {content && <CardContent>{content}</CardContent>}
+            {content && (
+              <CardContent>
+                {Array.isArray(content) ? (
+                  <ul className="list-inside list-disc">
+                    {content.map((item, index) => (
+                      <li key={index}>{item}</li>
+                    ))}
+                  </ul>
+                ) : (
+                  content
+                )}
+              </CardContent>
+            )}
           </Card>
         ))}
       </div>
