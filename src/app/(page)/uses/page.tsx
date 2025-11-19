@@ -72,6 +72,10 @@ const uses: {
         label: 'Shoes',
         href: 'https://www.rei.com/product/229583/hoka-mach-6-road-running-shoes-mens',
       },
+      {
+        label: 'Razor',
+        href: 'https://hensonshaving.com/products/henson-al13-in-jet-black',
+      },
     ],
   },
 ];
