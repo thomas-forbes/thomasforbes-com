@@ -1,5 +1,5 @@
 import { Quotes } from '@/app/(page)/Quotes';
-import { PhotoPreview } from '@/components/PhotoPreview';
+import { PhotoPreview } from '@/components/photo-preview';
 import { Button } from '@/components/ui/button';
 import {
   Card,

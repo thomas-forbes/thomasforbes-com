@@ -1,3 +1,4 @@
+import { CodeBlock } from '@/components/code-block';
 import { Link } from '@/components/ui/link';
 import { cn } from '@/lib/utils';
 import type { MDXComponents } from 'mdx/types';
@@ -43,12 +44,7 @@ const markdownComponents: MDXComponents = {
     className?: string;
     [key: string]: unknown;
   }) => <code className={cn('px-1', className)} {...props} />,
-  pre: (props) => (
-    <pre
-      className="bg-card overflow-x-auto rounded-xl border p-3 text-sm [&>code]:block [&>code]:overflow-x-auto"
-      {...props}
-    />
-  ),
+  pre: CodeBlock,
 };
 
 export { markdownComponents };
