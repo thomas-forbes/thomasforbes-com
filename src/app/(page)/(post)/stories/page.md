@@ -24,3 +24,4 @@ Some stories I like and often tell people:
   - Did all of this with a heart condition that made his heart less effective?!
   - Started [smoke jumping](https://grokipedia.com/page/Smokejumper) for fun in the wildfire season
 - [CIA precursor plot to make Hitler feminine](https://chatgpt.com/share/6915fc5e-3ce4-8010-bd0d-eb3c53979a5c)
+- [The 1968 race to sail solo non-stop around the world](https://collabfund.com/blog/lifestyles/)
