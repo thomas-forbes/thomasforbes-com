@@ -16,7 +16,7 @@ Some stories I like and often tell people:
   - ...
   - All 28 crew survive the 633 day expedition
 - [David Goggins](https://grokipedia.com/page/David_Goggins) ([book](https://www.amazon.com/Cant-Hurt-Me-Master-Your/dp/1544512279))
-  - Lost 106 in 3 months to try out for the Navy SEALS
+  - Lost 106 lbs in 3 months to try out for the Navy SEALS
   - "Failed" training 2 times due to health issues
   - Passed on final attempt and finished training with broken legs
   - Ran 100 miles in 24 hours with no cardio prep in the past 6 months

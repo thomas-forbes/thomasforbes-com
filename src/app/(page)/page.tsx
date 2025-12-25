@@ -65,6 +65,12 @@ const PREVIOUSLY_ITEMS: {
   content?: ReactNode | ReactNode[];
 }[] = [
   {
+    title: 'Email app',
+    description: 'releasing soon...',
+    content:
+      "Current email apps aren't excellent. I didn't like that so I am building my own for fun.",
+  },
+  {
     title: <>Student at Georgetown University</>,
     description: '2024/08 -> 2025/05 in DC',
   },
