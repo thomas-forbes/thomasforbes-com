@@ -9,8 +9,8 @@ export function Section({
   className,
   titleClassName,
 }: {
-  title: string;
-  as?: 'h1' | 'h2';
+  title: React.ReactNode;
+  as?: 'h1' | 'h2' | 'p';
   action?: React.ReactNode;
   children?: React.ReactNode;
   className?: string;
@@ -23,13 +23,13 @@ export function Section({
           <h1
             className={cn('title-gradient text-5xl font-bold', titleClassName)}
           >
-            # {title}
+            {title}
           </h1>
-        ) : (
-          <h2 className={cn('text-2xl font-bold', titleClassName)}>
-            ## {title}
-          </h2>
-        )}
+        ) : as === 'h2' ? (
+          <h2 className={cn('text-2xl font-bold', titleClassName)}>{title}</h2>
+        ) : as === 'p' ? (
+          <p className={cn('text-lg font-bold', titleClassName)}>{title}</p>
+        ) : null}
         {action}
       </div>
       {as === 'h1' && <hr />}

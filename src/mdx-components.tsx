@@ -13,13 +13,9 @@ const markdownComponents: MDXComponents = {
       {children}
     </Link>
   ),
-  h1: ({ children }) => <h1 className="text-5xl font-bold"># {children}</h1>,
-  h2: ({ children }) => (
-    <h2 className="pt-4 text-4xl font-bold">## {children}</h2>
-  ),
-  h3: ({ children }) => (
-    <h3 className="pt-2 text-3xl font-bold">### {children}</h3>
-  ),
+  h1: ({ children }) => <h1 className="text-5xl font-bold">{children}</h1>,
+  h2: ({ children }) => <h2 className="pt-4 text-4xl font-bold">{children}</h2>,
+  h3: ({ children }) => <h3 className="pt-2 text-3xl font-bold">{children}</h3>,
   p: ({ children }) => <p>{children}</p>,
   ul: ({ children }) => <ul className="list-inside list-disc">{children}</ul>,
   ol: ({ children }) => (

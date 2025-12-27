@@ -1,5 +1,7 @@
 'use client';
 
+import { Link } from '@/components/ui/link';
+import { Section } from '@/components/ui/section';
 import { randomYearOfContributions } from '@/lib/random-contributions';
 import { useThemeWipe } from '@/theme/wipe';
 import { useQuery } from '@tanstack/react-query';
@@ -29,7 +31,7 @@ const fetchContributions = async () => {
   return response.json() as Promise<ContributionResponse>;
 };
 
-export function GitHubContributions() {
+export function Contributions() {
   const { data: queryData } = useQuery({
     queryKey: ['github-contributions'],
     queryFn: fetchContributions,
@@ -37,7 +39,7 @@ export function GitHubContributions() {
 
   const [randomData, setRandomData] = useState<
     ContributionResponse['contributions']
-  >([]);
+  >(() => randomYearOfContributions());
   useInterval(
     () => setRandomData(randomYearOfContributions()),
     !queryData ? 300 : null,
@@ -61,7 +63,17 @@ export function GitHubContributions() {
   if (data.length === 0) return null;
 
   return (
-    <div className="z-10 flex flex-col items-center">
+    <Section
+      title={
+        <>
+          <Link href="https://github.com/thomas-forbes" target="_blank">
+            What
+          </Link>{' '}
+          I've been up to
+        </>
+      }
+      className="z-10"
+    >
       <ActivityCalendar
         data={data}
         colorScheme={resolvedTheme}
@@ -113,6 +125,6 @@ export function GitHubContributions() {
           ],
         }}
       />
-    </div>
+    </Section>
   );
 }

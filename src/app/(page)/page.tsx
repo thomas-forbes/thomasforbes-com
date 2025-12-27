@@ -1,4 +1,4 @@
-import { GitHubContributions } from '@/app/(page)/contributions';
+import { Contributions } from '@/app/(page)/contributions';
 import { Quotes } from '@/app/(page)/quotes';
 import { PhotoPreview } from '@/components/photo-preview';
 import { Button } from '@/components/ui/button';
@@ -21,9 +21,10 @@ export default function Home() {
     <>
       <Header />
       <hr />
+      <Contributions />
+      <hr />
       <Photos />
       <hr />
-      <GitHubContributions />
       <hr />
       <div className="grid gap-8 md:grid-cols-5">
         <QuotesWrapper />
