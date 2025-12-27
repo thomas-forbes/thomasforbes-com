@@ -36,7 +36,7 @@ function Header() {
   return (
     <Section as="h1" title="Thomas Forbes">
       <Card>
-        <CardContent className="space-y-3 font-mono">
+        <CardContent className="space-y-3">
           <p>
             Taking a gap semester from Georgetown to deal with health issues and
             work on personal projects.
@@ -50,9 +50,10 @@ function Header() {
           </p>
           <p>
             My favorite feeling is finishing a long day of work and having
-            something I can point to and say &quot;I made that&quot;.
+            something I can point to and say{' '}
+            <span className="italic">&quot;I made that&quot;</span>.
           </p>
-          <p>My second favorite feeling is to jump out of plane 🪂.</p>
+          <p>My second favorite feeling is to jump out of plane 🪂</p>
         </CardContent>
       </Card>
     </Section>

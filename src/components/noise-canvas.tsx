@@ -3,16 +3,38 @@
 import { cn } from '@/lib/utils';
 import { useEffect, useRef, useState } from 'react';
 
-const NOISE_DENSITY = 0.03;
-const OPACITY_MIN = 0.04;
-const OPACITY_MAX = 0.2;
-const COLOR_VARIATION = 0.15;
-const USE_GRAYSCALE = true;
+type Settings = {
+  noiseDensity: number;
 
-const DARK_MODE_BASE_MIN = 200;
-const DARK_MODE_BASE_MAX = 255;
-const LIGHT_MODE_BASE_MIN = 0;
-const LIGHT_MODE_BASE_MAX = 80;
+  opacityMin: number;
+  opacityMax: number;
+
+  colorVariation: number;
+  useGrayscale: boolean;
+
+  baseMin: number;
+  baseMax: number;
+};
+
+const LIGHT_SETTINGS: Settings = {
+  noiseDensity: 0.02,
+  opacityMin: 0.1,
+  opacityMax: 0.3,
+  colorVariation: 0.15,
+  useGrayscale: true,
+  baseMin: 0,
+  baseMax: 80,
+};
+
+const DARK_SETTINGS: Settings = {
+  noiseDensity: 0.02,
+  opacityMin: 0.15,
+  opacityMax: 0.4,
+  colorVariation: 0.15,
+  useGrayscale: true,
+  baseMin: 200,
+  baseMax: 255,
+};
 
 // Buffer size - larger than typical viewport to allow sampling
 const BUFFER_WIDTH = 3840; // 4K width
@@ -78,29 +100,34 @@ export function NoiseCanvas() {
       const imageData = context.createImageData(width, height);
       const data = imageData.data;
 
-      // Determine base color range based on theme
-      const baseMin = isDarkMode ? DARK_MODE_BASE_MIN : LIGHT_MODE_BASE_MIN;
-      const baseMax = isDarkMode ? DARK_MODE_BASE_MAX : LIGHT_MODE_BASE_MAX;
+      // Get settings based on current theme
+      const settings = isDarkMode ? DARK_SETTINGS : LIGHT_SETTINGS;
 
       // Generate noise based on configured parameters
       for (let i = 0; i < data.length; i += 4) {
         // Randomly decide if this pixel should have noise
-        if (Math.random() < NOISE_DENSITY) {
+        if (Math.random() < settings.noiseDensity) {
           // Generate base noise value
           let baseValue: number;
-          if (USE_GRAYSCALE) {
+          if (settings.useGrayscale) {
             // Grayscale noise: random value within theme-appropriate range
-            baseValue = Math.random() * (baseMax - baseMin) + baseMin;
+            baseValue =
+              Math.random() * (settings.baseMax - settings.baseMin) +
+              settings.baseMin;
           } else {
             // Binary noise: use base min or max
-            baseValue = Math.random() < 0.5 ? baseMin : baseMax;
+            baseValue =
+              Math.random() < 0.5 ? settings.baseMin : settings.baseMax;
           }
 
           // Add color variation (softer/harder white, or warmer/cooler tones)
           // Each RGB channel gets slightly different variation
-          const rVariation = (Math.random() - 0.5) * COLOR_VARIATION * 255;
-          const gVariation = (Math.random() - 0.5) * COLOR_VARIATION * 255;
-          const bVariation = (Math.random() - 0.5) * COLOR_VARIATION * 255;
+          const rVariation =
+            (Math.random() - 0.5) * settings.colorVariation * 255;
+          const gVariation =
+            (Math.random() - 0.5) * settings.colorVariation * 255;
+          const bVariation =
+            (Math.random() - 0.5) * settings.colorVariation * 255;
 
           // Apply variation and clamp to valid range
           const r = Math.max(0, Math.min(255, baseValue + rVariation));
@@ -109,7 +136,8 @@ export function NoiseCanvas() {
 
           // Generate opacity within the configured range
           const opacity =
-            Math.random() * (OPACITY_MAX - OPACITY_MIN) + OPACITY_MIN;
+            Math.random() * (settings.opacityMax - settings.opacityMin) +
+            settings.opacityMin;
 
           data[i] = r; // R
           data[i + 1] = g; // G
