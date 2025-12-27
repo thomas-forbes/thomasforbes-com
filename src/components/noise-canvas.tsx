@@ -161,10 +161,22 @@ export function NoiseCanvas({
       const maxOffsetX = Math.max(0, bufferCanvas.width - viewportWidth);
       const maxOffsetY = Math.max(0, bufferCanvas.height - viewportHeight);
 
-      // Randomize offset to sample different area of buffer
-      // This ensures variety when resizing
-      offsetXRef.current = maxOffsetX > 0 ? Math.random() * maxOffsetX : 0;
-      offsetYRef.current = maxOffsetY > 0 ? Math.random() * maxOffsetY : 0;
+      // Only pick a new random offset if:
+      // 1. This is the first render (offset is still 0 and we have room to offset)
+      // 2. The current offset would exceed the new max (would sample outside buffer)
+      const needsNewOffsetX =
+        (offsetXRef.current === 0 && maxOffsetX > 0) ||
+        offsetXRef.current > maxOffsetX;
+      const needsNewOffsetY =
+        (offsetYRef.current === 0 && maxOffsetY > 0) ||
+        offsetYRef.current > maxOffsetY;
+
+      if (needsNewOffsetX) {
+        offsetXRef.current = maxOffsetX > 0 ? Math.random() * maxOffsetX : 0;
+      }
+      if (needsNewOffsetY) {
+        offsetYRef.current = maxOffsetY > 0 ? Math.random() * maxOffsetY : 0;
+      }
 
       // Sample from buffer canvas
       ctx.clearRect(0, 0, viewportWidth, viewportHeight);

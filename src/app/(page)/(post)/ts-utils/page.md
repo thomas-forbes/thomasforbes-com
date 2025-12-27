@@ -76,7 +76,7 @@ export function Truthy<T>(value: T): value is Exclude<T, undefined | null> {
 
 const raw = [1, 2, 3, null, undefined, 4, 5, 6];
 const result1: number[] = raw.map(Truthy);
-const result2: (number | null | undefined)[] = raw.map(Boolean);
+const result2: (number | null | undefined)[] = raw.map(Boolean); // doesn't type guard
 ```
 
 **Setter:**
