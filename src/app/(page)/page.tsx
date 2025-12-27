@@ -1,5 +1,5 @@
 import { GitHubContributions } from '@/app/(page)/contributions';
-import { Quotes } from '@/app/(page)/Quotes';
+import { Quotes } from '@/app/(page)/quotes';
 import { PhotoPreview } from '@/components/photo-preview';
 import { Button } from '@/components/ui/button';
 import {
@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
-import { getPhotos } from '@/lib/getPhotos';
+import { getPhotos } from '@/lib/get-photos';
 import { fetchAllFavorites } from '@/lib/quotes';
 import { COLORS, MAILTO_URL } from '@/lib/types';
 import type { ReactNode } from 'react';

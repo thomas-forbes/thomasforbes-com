@@ -1,6 +1,6 @@
 import { PhotoGrid } from '@/app/(page)/photos/PhotoGrid';
 import { Section } from '@/components/ui/section';
-import { getPhotos } from '@/lib/getPhotos';
+import { getPhotos } from '@/lib/get-photos';
 
 export default async function Photos() {
   const photos = await getPhotos();
