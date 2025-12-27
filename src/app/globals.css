@@ -235,7 +235,7 @@
 }
 
 .quote-fade-in {
-  animation: quote-fade-in 1s ease;
+  animation: quote-fade-in 0.3s ease;
   will-change: opacity, transform;
 }
 
