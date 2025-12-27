@@ -12,7 +12,7 @@ import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
 import { getPhotos } from '@/lib/getPhotos';
 import { fetchAllFavorites } from '@/lib/quotes';
-import { MAILTO_URL } from '@/lib/types';
+import { COLORS, MAILTO_URL } from '@/lib/types';
 import type { ReactNode } from 'react';
 
 export default function Home() {
@@ -27,7 +27,27 @@ export default function Home() {
         <Contact />
       </div>
       <hr />
-      <Previously />
+      {[
+        {
+          title: 'Projects',
+          titleClassName: COLORS.orange.text,
+          items: PROJECTS_ITEMS,
+        },
+        {
+          title: 'Previously',
+          titleClassName: COLORS.emerald.text,
+          items: PREVIOUSLY_ITEMS,
+        },
+        {
+          title: 'Awards',
+          titleClassName: COLORS.rose.text,
+          items: AWARDS_ITEMS,
+        },
+      ].map(({ title, titleClassName, items }) => (
+        <Section key={title} title={title} titleClassName={titleClassName}>
+          {ItemList(items)}
+        </Section>
+      ))}
     </>
   );
 }
@@ -60,17 +80,13 @@ function Header() {
   );
 }
 
-const PREVIOUSLY_ITEMS: {
+type Item = {
   title: ReactNode;
   description?: ReactNode;
   content?: ReactNode | ReactNode[];
-}[] = [
-  {
-    title: 'Email app',
-    description: 'releasing soon...',
-    content:
-      "Current email apps aren't excellent. I didn't like that so I am building my own for fun.",
-  },
+};
+
+const PREVIOUSLY_ITEMS: Item[] = [
   {
     title: <>Student at Georgetown University</>,
     description: '2024/08 -> 2025/05 in DC',
@@ -107,6 +123,18 @@ const PREVIOUSLY_ITEMS: {
       </>,
     ],
   },
+];
+
+const PROJECTS_ITEMS: Item[] = [
+  {
+    title: 'Email app',
+    description: 'releasing soon...',
+    content:
+      "Current email apps aren't excellent. I didn't like that so I am building my own for fun.",
+  },
+];
+
+const AWARDS_ITEMS: Item[] = [
   {
     title: (
       <Link href="https://aipo.ucc.ie/" target="_blank">
@@ -151,37 +179,35 @@ const PREVIOUSLY_ITEMS: {
   },
 ];
 
-function Previously() {
+function ItemList(items: Item[]) {
   return (
-    <Section title="Previously">
-      <div className="flex flex-col gap-4">
-        {PREVIOUSLY_ITEMS.map(({ title, description, content }, index) => (
-          <Card key={index}>
-            <CardHeader>
-              <CardTitle>{title}</CardTitle>
-              {description && (
-                <CardDescription className="font-mono">
-                  {description}
-                </CardDescription>
-              )}
-            </CardHeader>
-            {content && (
-              <CardContent>
-                {Array.isArray(content) ? (
-                  <ul className="list-inside list-disc">
-                    {content.map((item, index) => (
-                      <li key={index}>{item}</li>
-                    ))}
-                  </ul>
-                ) : (
-                  content
-                )}
-              </CardContent>
+    <div className="flex flex-col gap-4">
+      {items.map(({ title, description, content }, index) => (
+        <Card key={index}>
+          <CardHeader>
+            <CardTitle>{title}</CardTitle>
+            {description && (
+              <CardDescription className="font-mono">
+                {description}
+              </CardDescription>
             )}
-          </Card>
-        ))}
-      </div>
-    </Section>
+          </CardHeader>
+          {content && (
+            <CardContent>
+              {Array.isArray(content) ? (
+                <ul className="list-inside list-disc">
+                  {content.map((item, index) => (
+                    <li key={index}>{item}</li>
+                  ))}
+                </ul>
+              ) : (
+                content
+              )}
+            </CardContent>
+          )}
+        </Card>
+      ))}
+    </div>
   );
 }
 

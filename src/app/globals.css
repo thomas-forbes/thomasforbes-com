@@ -195,7 +195,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 selection:text-secondary duration-200 selection:bg-transparent;
+    @apply border-border outline-ring/50 selection:!text-card selection:bg-card-foreground duration-200;
   }
   body {
     @apply bg-background text-foreground;
@@ -215,8 +215,7 @@
   background-size: 400% 400%;
   background-position: 0% 50%;
   background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;
   animation: title-gradient-cycle 8s ease-in-out infinite;
 }
 

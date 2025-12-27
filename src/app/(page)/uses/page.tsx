@@ -1,5 +1,6 @@
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
+import { COLORS } from '@/lib/types';
 
 const uses: {
   category: string;
@@ -8,6 +9,7 @@ const uses: {
 }[] = [
   {
     category: 'General Software',
+    className: COLORS.stone.text,
     items: [
       { label: 'texts.com', href: 'https://texts.com/' },
       { label: 'Overcast (podcasts)' },
@@ -17,7 +19,7 @@ const uses: {
   },
   {
     category: 'Dev Tools',
-    className: 'text-cyan-600 dark:text-cyan-400',
+    className: COLORS.yellow.text,
     items: [
       { label: 'Cursor (+ vim extension)' },
       { label: 'Lazygit', href: 'https://github.com/jesseduffield/lazygit' },
@@ -25,7 +27,7 @@ const uses: {
   },
   {
     category: 'Productivity',
-    className: 'text-amber-600 dark:text-amber-400',
+    className: COLORS.orange.text,
     items: [
       { label: 'Drafts (better apple notes)' },
       { label: 'Linear (personal task management)' },
@@ -34,7 +36,7 @@ const uses: {
   },
   {
     category: 'Electronics',
-    className: 'text-indigo-700 dark:text-indigo-400',
+    className: COLORS.teal.text,
     items: [
       { label: 'M2 15in Macbook Air' },
       { label: 'iPhone 15 pro' },
@@ -44,7 +46,7 @@ const uses: {
   },
   {
     category: 'Consumables',
-    className: 'text-rose-600 dark:text-rose-400',
+    className: COLORS.rose.text,
     items: [
       { label: 'Creatine' },
       { label: 'High dose Omega 3' },
@@ -54,7 +56,7 @@ const uses: {
   },
   {
     category: 'Things',
-    className: 'italic text-emerald-600 dark:text-emerald-400',
+    className: `italic ${COLORS.emerald.text}`,
     items: [
       {
         label: 'Patagonia Black Hole 32L backpack (love this thing)',
