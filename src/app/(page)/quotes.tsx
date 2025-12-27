@@ -93,10 +93,7 @@ function QuoteCard({
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <div
-          key={index}
-          className="quote-fade-in flex h-full w-full flex-1 flex-col items-stretch gap-1.5"
-        >
+        <div className="flex h-full w-full flex-1 flex-col items-stretch gap-1.5">
           <div
             className={cn(
               'markdown min-h-28 flex-1 space-y-2 overflow-hidden',
