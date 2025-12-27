@@ -1,9 +1,11 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
 
-@custom-variant dark (&:is(.dark *));
+@custom-variant dark (&:is([data-theme='dark'] *));
 
-:root {
+:root,
+[data-theme='light'] {
+  color-scheme: light;
   --font-sans:
     Geist, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
     Arial, 'Apple Color Emoji', 'Segoe UI Emoji';
@@ -68,7 +70,8 @@
   --spacing: 0.25rem;
 }
 
-.dark {
+[data-theme='dark'] {
+  color-scheme: dark;
   --background: var(--color-slate-950);
   /* --background: #26262d; */
   --foreground: #e8e5f0;
@@ -195,7 +198,7 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 selection:!text-card selection:bg-card-foreground duration-200;
+    @apply border-border outline-ring/50 selection:!text-card selection:bg-card-foreground;
   }
   body {
     @apply bg-background text-foreground;

@@ -1,7 +1,7 @@
-import { ThemeProvider } from '@/components/themes-provider';
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
+import { ThemeProvider } from 'next-themes';
 import { Fira_Code, Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
 
@@ -43,7 +43,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider
-          attribute="class"
+          attribute="data-theme"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange

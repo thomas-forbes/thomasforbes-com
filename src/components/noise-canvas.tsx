@@ -41,14 +41,23 @@ const DARK_SETTINGS: Settings = {
 const BUFFER_WIDTH = 3840; // 4K width
 const BUFFER_HEIGHT = 2160; // 4K height
 
-export function NoiseCanvas() {
+export function NoiseCanvas({
+  forcedTheme,
+  position = 'fixed',
+}: {
+  forcedTheme?: 'light' | 'dark';
+  position?: 'fixed' | 'absolute';
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const bufferCanvasRef = useRef<HTMLCanvasElement | null>(null);
   const offsetXRef = useRef(0);
   const offsetYRef = useRef(0);
   const [visible, setVisible] = useState(false);
   const { resolvedTheme } = useTheme();
-  const isDarkMode = useMemo(() => resolvedTheme === 'dark', [resolvedTheme]);
+  const isDarkMode = useMemo(
+    () => (forcedTheme ? forcedTheme === 'dark' : resolvedTheme === 'dark'),
+    [forcedTheme, resolvedTheme],
+  );
 
   // Generate noise buffer - only when dark mode changes
   useEffect(() => {
@@ -186,7 +195,7 @@ export function NoiseCanvas() {
     <canvas
       ref={canvasRef}
       className={cn(
-        'pointer-events-none fixed inset-0 duration-1000',
+        `pointer-events-none ${position} inset-0 duration-1000`,
         visible ? 'opacity-100' : 'opacity-0',
       )}
       style={{ mixBlendMode: 'normal' }}
