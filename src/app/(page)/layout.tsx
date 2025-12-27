@@ -1,3 +1,4 @@
+import { ThemeButton } from '@/app/(page)/theme-button';
 import Navbar from '@/components/navbar';
 import { NoiseCanvas } from '@/components/noise-canvas';
 
@@ -13,6 +14,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Footer />
         </div>
       </div>
+      <ThemeButton />
     </>
   );
 }

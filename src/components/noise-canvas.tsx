@@ -1,7 +1,8 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import { useEffect, useRef, useState } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 type Settings = {
   noiseDensity: number;
@@ -46,36 +47,8 @@ export function NoiseCanvas() {
   const offsetXRef = useRef(0);
   const offsetYRef = useRef(0);
   const [visible, setVisible] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
-
-  // Detect dark mode
-  useEffect(() => {
-    const checkDarkMode = () => {
-      const isDark =
-        document.documentElement.classList.contains('dark') ||
-        window.matchMedia('(prefers-color-scheme: dark)').matches;
-      setIsDarkMode(isDark);
-    };
-
-    // Check initially
-    checkDarkMode();
-
-    // Watch for class changes on html element
-    const observer = new MutationObserver(checkDarkMode);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ['class'],
-    });
-
-    // Watch for media query changes
-    const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-    mediaQuery.addEventListener('change', checkDarkMode);
-
-    return () => {
-      observer.disconnect();
-      mediaQuery.removeEventListener('change', checkDarkMode);
-    };
-  }, []);
+  const { resolvedTheme } = useTheme();
+  const isDarkMode = useMemo(() => resolvedTheme === 'dark', [resolvedTheme]);
 
   // Generate noise buffer - only when dark mode changes
   useEffect(() => {
