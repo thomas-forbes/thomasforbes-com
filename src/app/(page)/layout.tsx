@@ -21,7 +21,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             </div>
           </div>
         </ThemeWipeLayers>
-        <ThemeToggleButton />
       </ThemeWipeProvider>
     </>
   );
@@ -80,6 +79,7 @@ function ThemeWipeLayers({ children }: { children: React.ReactNode }) {
             </div>
           </motion.div>
         ) : null}
+        <ThemeToggleButton />
       </AnimatePresence>
     </>
   );

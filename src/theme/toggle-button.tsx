@@ -7,18 +7,20 @@ import { useTheme } from 'next-themes';
 
 export function ThemeToggleButton() {
   const { resolvedTheme } = useTheme();
-  const { isTransitioning, toggleThemeWithWipe } = useThemeWipe();
+  const { toTheme, toggleThemeWithWipe } = useThemeWipe();
+
+  const theme = toTheme ?? resolvedTheme;
 
   return (
-    <div className="fixed top-2 right-2">
+    <div className="fixed top-2 right-2 z-[51]" data-theme={theme}>
       <Button
         variant="ghost-circle"
         size="icon"
-        disabled={isTransitioning}
+        className="text-foreground"
         onClick={toggleThemeWithWipe}
         suppressHydrationWarning
       >
-        {resolvedTheme === 'dark' ? (
+        {theme === 'dark' ? (
           <SunIcon className="size-4" />
         ) : (
           <MoonIcon className="size-4" />
