@@ -1,12 +1,14 @@
 'use client';
 
+import { randomYearOfContributions } from '@/lib/random-contributions';
 import { useThemeWipe } from '@/theme/wipe';
 import { useQuery } from '@tanstack/react-query';
 import { differenceInCalendarWeeks } from 'date-fns';
-import { cloneElement, useMemo, type ReactElement } from 'react';
+import { cloneElement, useMemo, useState, type ReactElement } from 'react';
 import { ActivityCalendar } from 'react-activity-calendar';
+import { useInterval } from 'react-use';
 
-type ContributionResponse = {
+export type ContributionResponse = {
   total: Record<string, number>;
   // contributions: Record<
   //   string /* year */,
@@ -28,24 +30,28 @@ const fetchContributions = async () => {
 };
 
 export function GitHubContributions() {
-  const {
-    data: queryData,
-    error,
-    isLoading,
-  } = useQuery({
+  const { data: queryData } = useQuery({
     queryKey: ['github-contributions'],
     queryFn: fetchContributions,
   });
 
+  const [randomData, setRandomData] = useState<
+    ContributionResponse['contributions']
+  >([]);
+  useInterval(
+    () => setRandomData(randomYearOfContributions()),
+    !queryData ? 300 : null,
+  );
+
   const data = useMemo(() => {
-    if (!queryData) return [];
+    if (!queryData) return randomData;
 
     return queryData.contributions
       .filter((item) => differenceInCalendarWeeks(new Date(), item.date) <= 52)
       .toSorted(
         (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
       );
-  }, [queryData]);
+  }, [queryData, randomData]);
 
   const totalCount = useMemo(() => {
     return data.reduce((acc, item) => acc + item.count, 0);
@@ -57,18 +63,15 @@ export function GitHubContributions() {
   return (
     <div className="z-10 flex flex-col items-center">
       <ActivityCalendar
-        // tooltips={{
-        //   activity: {
-        //     text: (item) =>
-        //       `${item.count} contributions on ${format(new Date(item.date), 'MMMM d, yyyy')}`,
-        //   },
-        // }}
         data={data}
         colorScheme={resolvedTheme}
         blockSize={10}
         blockMargin={4}
         renderBlock={(block) =>
-          cloneElement(block, { style: { strokeWidth: 0 } })
+          cloneElement(block, {
+            style: { strokeWidth: 0 },
+            className: 'transition-all duration-300',
+          })
         }
         renderColorLegend={(block) =>
           cloneElement(block, {
@@ -88,7 +91,11 @@ export function GitHubContributions() {
             ),
           })
         }
-        labels={{ totalCount: `${totalCount} contributions past 12 months` }}
+        labels={{
+          totalCount: queryData
+            ? `${totalCount} contributions past 12 months`
+            : 'Loading contributions...',
+        }}
         theme={{
           light: [
             'transparent',
