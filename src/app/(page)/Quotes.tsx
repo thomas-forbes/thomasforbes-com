@@ -92,45 +92,44 @@ function QuoteCard({
           </Link>
         </CardDescription>
       </CardHeader>
-      <CardContent className="px-1.5">
+      <CardContent>
         <div
+          key={index}
           className={cn(
-            'flex h-full min-h-30 w-full flex-1 flex-row items-center gap-1.5',
-            !isZoomed && 'h-30',
+            'quote-fade-in flex h-full w-full flex-1 flex-col items-stretch gap-1.5',
           )}
         >
-          <Button variant="ghost" size="icon" onClick={previous}>
-            <ChevronLeft />
-          </Button>
           <div
-            key={index}
             className={cn(
-              'quote-fade-in flex min-h-0 w-full flex-auto flex-col gap-2 self-stretch',
-              !isZoomed && 'hover:cursor-zoom-in',
+              'markdown min-h-30 flex-1 space-y-2 overflow-hidden',
+              !isZoomed && 'h-30 hover:cursor-zoom-in',
             )}
             onClick={() => !isZoomed && setIsZoomed(true)}
           >
             <ReactMarkdown
-              className={cn(
-                'markdown min-h-0 flex-1 space-y-2 overflow-hidden',
-              )}
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSanitize]}
               components={quoteMarkdownComponents}
             >
               {quote.h.text}
             </ReactMarkdown>
+          </div>
+          <div className="flex flex-row items-center justify-between gap-2">
+            <Button variant="ghost" size="icon" onClick={previous}>
+              <ChevronLeft />
+            </Button>
             <ReactMarkdown
+              className="truncate"
               remarkPlugins={[remarkGfm]}
               rehypePlugins={[rehypeSanitize]}
               components={attributionMarkdownComponents}
             >
               {attributionMarkdown}
             </ReactMarkdown>
+            <Button variant="ghost" size="icon" onClick={next}>
+              <ChevronRight />
+            </Button>
           </div>
-          <Button variant="ghost" size="icon" onClick={next}>
-            <ChevronRight />
-          </Button>
         </div>
       </CardContent>
     </Card>
