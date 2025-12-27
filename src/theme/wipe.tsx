@@ -12,6 +12,7 @@ import React, {
 type ThemeName = 'light' | 'dark';
 
 type ThemeWipeContextValue = {
+  resolvedTheme: ThemeName;
   isTransitioning: boolean;
   toTheme: ThemeName | null;
   scrollY: number;
@@ -59,6 +60,7 @@ export function ThemeWipeProvider({ children }: { children: React.ReactNode }) {
 
   const value = useMemo<ThemeWipeContextValue>(
     () => ({
+      resolvedTheme: toTheme ?? (resolvedTheme as ThemeName) ?? 'dark',
       toTheme,
       isTransitioning,
       scrollY,

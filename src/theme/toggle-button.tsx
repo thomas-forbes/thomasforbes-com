@@ -12,7 +12,11 @@ export function ThemeToggleButton() {
   const theme = toTheme ?? resolvedTheme;
 
   return (
-    <div className="fixed top-2 right-2 z-[51]" data-theme={theme}>
+    <div
+      className="fixed top-2 right-2 z-[51] hidden sm:block"
+      data-theme={theme}
+      suppressHydrationWarning
+    >
       <Button
         variant="ghost-circle"
         size="icon"

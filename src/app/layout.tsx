@@ -4,6 +4,7 @@ import type { Metadata } from 'next';
 import { ThemeProvider } from 'next-themes';
 import { Fira_Code, Geist, Geist_Mono } from 'next/font/google';
 import './globals.css';
+import { ReactQueryProvider } from './query-provider';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -48,7 +49,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </ThemeProvider>
         <SpeedInsights />
         <Analytics />

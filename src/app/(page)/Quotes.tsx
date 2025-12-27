@@ -73,7 +73,7 @@ function QuoteCard({
   );
 
   const attributionMarkdown = useMemo(
-    () => `– ${quote.book.title} by ${quote.book.author}`,
+    () => `${quote.book.title} by ${quote.book.author}`,
     [quote.book.author, quote.book.title],
   );
 
@@ -95,14 +95,12 @@ function QuoteCard({
       <CardContent>
         <div
           key={index}
-          className={cn(
-            'quote-fade-in flex h-full w-full flex-1 flex-col items-stretch gap-1.5',
-          )}
+          className="quote-fade-in flex h-full w-full flex-1 flex-col items-stretch gap-1.5"
         >
           <div
             className={cn(
-              'markdown min-h-30 flex-1 space-y-2 overflow-hidden',
-              !isZoomed && 'h-30 hover:cursor-zoom-in',
+              'markdown min-h-28 flex-1 space-y-2 overflow-hidden',
+              !isZoomed && 'max-h-24 hover:cursor-zoom-in',
             )}
             onClick={() => !isZoomed && setIsZoomed(true)}
           >
@@ -147,15 +145,17 @@ export function Quotes({
   const previous = () => setIndex((index - 1 + quotes.length) % quotes.length);
   return (
     <>
-      <QuoteCard
-        quote={quotes[index]}
-        numQuotes={quotes.length}
-        index={index}
-        isZoomed={false}
-        next={next}
-        previous={previous}
-        setIsZoomed={setIsZoomed}
-      />
+      <div className="md:col-span-3">
+        <QuoteCard
+          quote={quotes[index]}
+          numQuotes={quotes.length}
+          index={index}
+          isZoomed={false}
+          next={next}
+          previous={previous}
+          setIsZoomed={setIsZoomed}
+        />
+      </div>
       {isZoomed && (
         <div
           className={cn(

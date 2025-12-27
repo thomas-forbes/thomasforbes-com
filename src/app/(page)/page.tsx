@@ -1,3 +1,4 @@
+import { GitHubContributions } from '@/app/(page)/contributions';
 import { Quotes } from '@/app/(page)/Quotes';
 import { PhotoPreview } from '@/components/photo-preview';
 import { Button } from '@/components/ui/button';
@@ -22,7 +23,9 @@ export default function Home() {
       <hr />
       <Photos />
       <hr />
-      <div className="grid gap-8 md:grid-cols-2">
+      <GitHubContributions />
+      <hr />
+      <div className="grid gap-8 md:grid-cols-5">
         <QuotesWrapper />
         <Contact />
       </div>
@@ -240,7 +243,7 @@ async function QuotesWrapper() {
 
 function Contact() {
   return (
-    <Card>
+    <Card className="max-w-full min-w-0 md:col-span-2">
       <CardHeader>
         <CardTitle>🚨 Warning</CardTitle>
       </CardHeader>
