@@ -98,6 +98,28 @@ function ComponentB({ value, setValue }: { value: number; setValue: Setter<numbe
 }
 ```
 
+**Format Time:**
+
+```typescript
+import { format, isToday, isYesterday, subDays } from 'date-fns';
+
+export function formatDateTime(date: Date, short: boolean = false) {
+  if (isToday(date)) {
+    return `${!short ? 'Today' : ''} ${format(date, 'HH:mm')}`;
+  } else if (isYesterday(date)) {
+    return `Yesterday ${!short ? format(date, 'HH:mm') : ''}`.trim();
+  } else if (subDays(new Date(), 6) < date) {
+    return `${format(date, 'EEEE')} ${!short ? format(date, 'HH:mm') : ''}`.trim();
+  }
+  return `${format(date, 'yyyy/MM/dd')} ${!short ? format(date, 'HH:mm') : ''}`.trim();
+}
+
+console.log(formatDateTime(new Date())); // Today 13:00
+console.log(formatDateTime(subDays(new Date(), 1), true)); // Yesterday
+console.log(formatDateTime(subDays(new Date(), 2))); // Friday 13:00
+console.log(formatDateTime(subDays(new Date(), 10)), true); // 2025/12/18
+```
+
 **Log Wrapper:**
 
 ```typescript
