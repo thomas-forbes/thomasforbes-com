@@ -5,7 +5,7 @@ import { Section } from '@/components/ui/section';
 import { randomYearOfContributions } from '@/lib/random-contributions';
 import { useThemeWipe } from '@/theme/wipe';
 import { useQuery } from '@tanstack/react-query';
-import { differenceInCalendarWeeks } from 'date-fns';
+import { differenceInCalendarWeeks, differenceInDays } from 'date-fns';
 import { cloneElement, useMemo, useState, type ReactElement } from 'react';
 import { ActivityCalendar } from 'react-activity-calendar';
 import { useInterval } from 'react-use';
@@ -49,7 +49,11 @@ export function Contributions() {
     if (!queryData) return randomData;
 
     return queryData.contributions
-      .filter((item) => differenceInCalendarWeeks(new Date(), item.date) <= 52)
+      .filter(
+        (item) =>
+          differenceInCalendarWeeks(new Date(), item.date) <= 52 &&
+          differenceInDays(new Date(), item.date) >= 0,
+      )
       .toSorted(
         (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime(),
       );
