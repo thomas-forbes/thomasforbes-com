@@ -22,7 +22,7 @@ export function Link({
     <NextLink
       {...props}
       className={cn(
-        'text-primary relative inline-block leading-none no-underline transition-all duration-200 hover:opacity-70 active:scale-[0.97]',
+        'text-primary relative leading-none no-underline transition-all duration-200 hover:opacity-70 active:scale-[0.97]',
         selected && 'text-pink-500',
         !hideVisited && 'visited:text-secondary',
         className,

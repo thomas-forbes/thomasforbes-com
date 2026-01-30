@@ -11,18 +11,29 @@ const uses: {
     category: 'General Software',
     className: COLORS.stone.text,
     items: [
-      { label: 'texts.com', href: 'https://texts.com/' },
+      {
+        label: 'Beeper (all messaging platforms in one app)',
+        href: 'https://www.beeper.com',
+      },
       { label: 'Overcast (podcasts)' },
-      { label: 'Zen (browser)' },
+      { label: 'Helium (browser)', href: 'https://helium.computer' },
       { label: 'State (meditation app)', href: 'https://www.shiftstate.io/' },
     ],
   },
   {
-    category: 'Dev Tools',
+    category: 'Neat Utilities',
     className: COLORS.yellow.text,
     items: [
-      { label: 'Cursor (+ vim extension)' },
-      { label: 'Lazygit', href: 'https://github.com/jesseduffield/lazygit' },
+      {
+        label: 'Ice (macos menu bar manager)',
+        href: 'https://icemenubar.app/',
+      },
+      {
+        label: 'Karabiner (swap backspace and \\ keys)',
+        href: 'https://karabiner-elements.pqrs.org/',
+      },
+      // { label: 'Cursor (+ vim extension)' },
+      // { label: 'Lazygit', href: 'https://github.com/jesseduffield/lazygit' },
     ],
   },
   {
@@ -93,7 +104,7 @@ export default function Uses() {
             className="gap-2"
             titleClassName={use.className}
           >
-            <ul className="text-muted-foreground list-inside list-disc font-mono">
+            <ul className="text-muted-foreground list-outside list-disc pl-5 font-mono">
               {use.items.map((item) => (
                 <li key={item.label}>
                   {item.href ? (
