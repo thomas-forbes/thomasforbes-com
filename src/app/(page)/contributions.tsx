@@ -1,14 +1,14 @@
 'use client';
 
+import { useQuery } from '@tanstack/react-query';
+import { differenceInCalendarWeeks, differenceInDays } from 'date-fns';
+import { cloneElement, type ReactElement, useMemo, useState } from 'react';
+import { ActivityCalendar } from 'react-activity-calendar';
+import { useInterval } from 'react-use';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
 import { randomYearOfContributions } from '@/lib/random-contributions';
 import { useThemeWipe } from '@/theme/wipe';
-import { useQuery } from '@tanstack/react-query';
-import { differenceInCalendarWeeks, differenceInDays } from 'date-fns';
-import { cloneElement, useMemo, useState, type ReactElement } from 'react';
-import { ActivityCalendar } from 'react-activity-calendar';
-import { useInterval } from 'react-use';
 
 export type ContributionResponse = {
   total: Record<string, number>;
@@ -87,6 +87,7 @@ export function Contributions() {
           cloneElement(block, {
             style: { strokeWidth: 0 },
             className: 'transition-all duration-300',
+            suppressHydrationWarning: true,
           })
         }
         renderColorLegend={(block) =>
@@ -95,7 +96,7 @@ export function Contributions() {
             children: cloneElement(
               block.props.children as ReactElement<SVGElement>,
               {
-                // @ts-ignore
+                // @ts-expect-error
                 y: 1,
                 height: 10,
                 width: 10,

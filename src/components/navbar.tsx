@@ -1,8 +1,8 @@
 'use client';
 
+import { usePathname } from 'next/navigation';
 import { Link } from '@/components/ui/link';
 import { MAILTO_URL } from '@/lib/types';
-import { usePathname } from 'next/navigation';
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -30,6 +30,11 @@ export default function Navbar() {
         {
           label: '^github',
           href: 'https://github.com/thomas-forbes',
+          target: '_blank',
+        },
+        {
+          label: '^linkedin',
+          href: 'https://www.linkedin.com/in/thomas-forbes',
           target: '_blank',
         },
       ].map(({ label, href, target }) => (
