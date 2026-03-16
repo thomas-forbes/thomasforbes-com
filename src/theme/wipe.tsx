@@ -16,7 +16,7 @@ type ThemeWipeContextValue = {
   isTransitioning: boolean;
   toTheme: ThemeName | null;
   scrollY: number;
-  toggleThemeWithWipe: () => void;
+  toggleThemeWithWipe: (overrideTheme?: 'system') => void;
   completeWipe: () => void;
 };
 
@@ -30,20 +30,27 @@ export function useThemeWipe() {
 }
 
 export function ThemeWipeProvider({ children }: { children: React.ReactNode }) {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { resolvedTheme, setTheme, systemTheme } = useTheme();
   const [isTransitioning, setIsTransitioning] = useState(false);
   const [toTheme, setToTheme] = useState<ThemeName | null>(null);
   const [scrollY, setScrollY] = useState(0);
 
-  const toggleThemeWithWipe = useCallback(() => {
-    if (isTransitioning) return;
-    if (resolvedTheme !== 'light' && resolvedTheme !== 'dark') return;
+  const toggleThemeWithWipe = useCallback(
+    (overrideTheme?: 'system') => {
+      if (isTransitioning) return;
 
-    const next: ThemeName = resolvedTheme === 'dark' ? 'light' : 'dark';
-    setToTheme(next);
-    setScrollY(typeof window !== 'undefined' ? window.scrollY : 0);
-    setIsTransitioning(true);
-  }, [isTransitioning, resolvedTheme]);
+      const next: ThemeName =
+        overrideTheme === 'system'
+          ? (systemTheme ?? 'dark')
+          : resolvedTheme === 'dark'
+            ? 'light'
+            : 'dark';
+      setToTheme(next);
+      setScrollY(typeof window !== 'undefined' ? window.scrollY : 0);
+      setIsTransitioning(true);
+    },
+    [isTransitioning, resolvedTheme, systemTheme],
+  );
 
   const completeWipe = useCallback(() => {
     if (!toTheme) {
