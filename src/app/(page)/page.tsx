@@ -38,9 +38,9 @@ export default function Home() {
           items: PROJECTS_ITEMS,
         },
         {
-          title: 'Previously',
+          title: 'Experience',
           titleClassName: COLORS.emerald.text,
-          items: PREVIOUSLY_ITEMS,
+          items: EXPERIENCE_ITEMS,
         },
         {
           title: 'Awards',
@@ -62,15 +62,16 @@ function Header() {
       <Card>
         <CardContent className="space-y-3">
           <p>
-            Taking a gap semester from Georgetown to deal with health issues and
-            work on personal projects.
+            Currently working at Evalyn and on personal projects. I took leave
+            from Georgetown for my health and decided to keep working instead of
+            going back.
           </p>
           <p>
-            Previously, I dropped out of my final year of high school to work at{' '}
+            Previously, I left high school to work at{' '}
             <Link href="https://www.bestever.ai" target="_blank">
               bestever.ai
             </Link>{' '}
-            in sf.
+            in sf, and finished my high school coursework in my freetime.
           </p>
           <p>
             My favorite feeling is finishing a long day of work and having
@@ -90,7 +91,17 @@ type Item = {
   content?: ReactNode | ReactNode[];
 };
 
-const PREVIOUSLY_ITEMS: Item[] = [
+const EXPERIENCE_ITEMS: Item[] = [
+  {
+    title: 'Full Stack Software Engineer at Evalyn',
+    description: '2025/09 -> present (contract)',
+    content: [
+      'Built the web app from scratch as the primary engineer. It supports sales agent evaluations across 20 regional divisions of a national homebuilder.',
+      'Worked directly with clients and editors to shape the dashboard and make reviewing audio less tedious.',
+      'Moved the app from Firestore to Convex, including the schema, API layer, and tooling to migrate and verify the data.',
+      'Rebuilt the AI evaluation pipeline with automatic retries, resumable workflows, and failure reporting.',
+    ],
+  },
   {
     title: <>Student at Georgetown University</>,
     description: '2024/08 -> 2025/05 in DC',
