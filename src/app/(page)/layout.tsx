@@ -1,18 +1,18 @@
 'use client';
 
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect } from 'react';
 import Navbar from '@/components/navbar';
 import { NoiseCanvas } from '@/components/noise-canvas';
 import { ThemeToggleButton } from '@/theme/toggle-button';
 import { ThemeWipeProvider, useThemeWipe } from '@/theme/wipe';
-import { AnimatePresence, motion } from 'motion/react';
-import { useEffect } from 'react';
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
       <ThemeWipeProvider>
         <ThemeWipeLayers>
-          <div className="bg-background text-foreground flex h-full min-h-dvh w-screen flex-col items-center px-5 pt-10 pb-5">
+          <div className="flex h-full min-h-dvh w-screen flex-col items-center bg-background px-5 pt-10 pb-5 text-foreground">
             <div className="flex h-full w-full max-w-3xl flex-1 flex-col gap-8">
               <Navbar />
               {children}
@@ -28,7 +28,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
 function Footer() {
   return (
-    <div className="text-accent flex flex-col items-center font-mono">
+    <div className="flex flex-col items-center font-mono text-accent">
       <p className="text-xs">Don&apos;t forget to sleep well tonight</p>
       <p className="text-sm">© {new Date().getFullYear()} Thomas Forbes</p>
     </div>

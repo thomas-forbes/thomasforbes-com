@@ -1,9 +1,9 @@
 'use client';
 
-import { Switch } from '@/components/animation';
-import { Button } from '@/components/ui/button';
 import { CheckIcon, CopyIcon } from 'lucide-react';
 import { type ReactNode, useRef, useState } from 'react';
+import { Switch } from '@/components/animation';
+import { Button } from '@/components/ui/button';
 
 export function CodeBlock({
   children,
@@ -34,7 +34,7 @@ export function CodeBlock({
   return (
     <pre
       ref={preRef}
-      className="bg-card relative overflow-x-auto rounded-xl border p-3 text-sm [&>code]:block [&>code]:overflow-x-auto"
+      className="relative overflow-x-auto rounded-xl border bg-card p-3 text-sm [&>code]:block [&>code]:overflow-x-auto"
       {...props}
     >
       <Button

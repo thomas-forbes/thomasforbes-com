@@ -1,7 +1,7 @@
 'use client';
 
 import { AnimatePresence, motion } from 'motion/react';
-import { useId, type ReactNode } from 'react';
+import { type ReactNode, useId } from 'react';
 
 const defaultVariants = {
   hidden: { opacity: 0, blur: 2, scale: 0.9 },
@@ -33,7 +33,7 @@ export function Switch({
   const variants = isFirefox ? firefoxVariants : defaultVariants;
   return (
     <AnimatePresence mode="wait" initial={false}>
-      {condition && !!a ? (
+      {condition && a ? (
         <motion.div
           id={id + 'a'}
           key={id + 'a'}
@@ -46,7 +46,7 @@ export function Switch({
         >
           {a}
         </motion.div>
-      ) : !condition && !!b ? (
+      ) : !condition && b ? (
         <motion.div
           id={id + 'b'}
           key={id + 'b'}

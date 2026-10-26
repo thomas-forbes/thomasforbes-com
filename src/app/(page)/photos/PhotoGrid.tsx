@@ -1,7 +1,7 @@
 'use client';
 
-import { PhotoPreview } from '@/components/photo-preview';
 import { useWindowSize } from 'react-use';
+import { PhotoPreview } from '@/components/photo-preview';
 
 export function PhotoGrid({ photos }: { photos: string[] }) {
   const { width } = useWindowSize();

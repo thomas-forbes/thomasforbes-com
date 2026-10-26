@@ -1,10 +1,10 @@
 'use client';
 
-import { cn } from '@/lib/utils';
 import { motion } from 'motion/react';
 import NextLink, { type LinkProps } from 'next/link';
 import type { AnchorHTMLAttributes } from 'react';
 import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export function Link({
   hideVisited,
@@ -22,7 +22,7 @@ export function Link({
     <NextLink
       {...props}
       className={cn(
-        'text-primary relative leading-none no-underline transition-all duration-200 hover:opacity-70 active:scale-[0.97]',
+        'relative text-primary leading-none no-underline transition-all duration-200 hover:opacity-70 active:scale-[0.97]',
         selected && 'text-pink-500',
         !hideVisited && 'visited:text-secondary',
         className,

@@ -20,6 +20,16 @@ You can start editing the page by modifying `app/page.tsx`. The page auto-update
 
 This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
+## Code quality
+
+Run `bun run lint` to check formatting, imports, and lint rules with Biome.
+Run `bun run format` to apply formatting, organize imports, and apply safe lint
+fixes, including Tailwind class sorting. Markdown content is not formatted by
+these commands.
+
+The existing quote-card click handlers retain the accessibility rule exceptions
+used by the reference Biome setup; other files keep those checks enabled.
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:

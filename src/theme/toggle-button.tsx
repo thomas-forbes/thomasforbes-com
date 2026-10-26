@@ -1,9 +1,9 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import { useThemeWipe } from '@/theme/wipe';
 import { LaptopMinimal, MoonIcon, SunIcon } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { Button } from '@/components/ui/button';
+import { useThemeWipe } from '@/theme/wipe';
 
 export function ThemeToggleButton() {
   const { resolvedTheme } = useTheme();
@@ -21,7 +21,7 @@ export function ThemeToggleButton() {
         <Button
           variant="ghost-circle"
           size="icon"
-          className="text-foreground pointer-events-none translate-x-3 opacity-70 transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
+          className="pointer-events-none translate-x-3 text-foreground opacity-70 transition-all duration-200 ease-out group-hover:pointer-events-auto group-hover:translate-x-0 group-hover:opacity-100"
           onClick={() => toggleThemeWithWipe('system')}
         >
           <LaptopMinimal className="size-4" />

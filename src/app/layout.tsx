@@ -1,8 +1,8 @@
 import { Analytics } from '@vercel/analytics/next';
 import { SpeedInsights } from '@vercel/speed-insights/next';
 import type { Metadata } from 'next';
-import { ThemeProvider } from 'next-themes';
 import { Fira_Code, Geist, Geist_Mono } from 'next/font/google';
+import { ThemeProvider } from 'next-themes';
 import './globals.css';
 import { ReactQueryProvider } from './query-provider';
 

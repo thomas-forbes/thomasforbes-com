@@ -43,7 +43,7 @@ export default function Navbar() {
           href={href}
           target={target}
           selected={pathname === href}
-          className="font-mono text-nowrap"
+          className="text-nowrap font-mono"
           hideVisited
         >
           {label}

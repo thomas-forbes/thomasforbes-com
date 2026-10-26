@@ -104,7 +104,7 @@ export default function Uses() {
             className="gap-2"
             titleClassName={use.className}
           >
-            <ul className="text-muted-foreground list-outside list-disc pl-5 font-mono">
+            <ul className="list-outside list-disc pl-5 font-mono text-muted-foreground">
               {use.items.map((item) => (
                 <li key={item.label}>
                   {item.href ? (

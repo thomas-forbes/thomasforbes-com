@@ -1,5 +1,11 @@
 'use client';
 
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { type HTMLAttributes, useMemo, useState } from 'react';
+import type { Components as ReactMarkdownComponents } from 'react-markdown';
+import ReactMarkdown from 'react-markdown';
+import rehypeSanitize from 'rehype-sanitize';
+import remarkGfm from 'remark-gfm';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -9,15 +15,9 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
-import { fetchAllFavorites } from '@/lib/quotes';
+import type { fetchAllFavorites } from '@/lib/quotes';
 import { cn } from '@/lib/utils';
 import { markdownComponents } from '@/mdx-components';
-import { ChevronLeft, ChevronRight } from 'lucide-react';
-import { useMemo, useState, type HTMLAttributes } from 'react';
-import type { Components as ReactMarkdownComponents } from 'react-markdown';
-import ReactMarkdown from 'react-markdown';
-import rehypeSanitize from 'rehype-sanitize';
-import remarkGfm from 'remark-gfm';
 
 function QuoteCard({
   quote,

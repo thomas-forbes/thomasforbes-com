@@ -1,8 +1,8 @@
+import type { MDXComponents } from 'mdx/types';
+import type { ReactNode } from 'react';
 import { CodeBlock } from '@/components/code-block';
 import { Link } from '@/components/ui/link';
 import { cn } from '@/lib/utils';
-import type { MDXComponents } from 'mdx/types';
-import { type ReactNode } from 'react';
 
 const markdownComponents: MDXComponents = {
   a: ({ children, href }) => (
@@ -13,9 +13,9 @@ const markdownComponents: MDXComponents = {
       {children}
     </Link>
   ),
-  h1: ({ children }) => <h1 className="text-5xl font-bold">{children}</h1>,
-  h2: ({ children }) => <h2 className="pt-4 text-4xl font-bold">{children}</h2>,
-  h3: ({ children }) => <h3 className="pt-2 text-3xl font-bold">{children}</h3>,
+  h1: ({ children }) => <h1 className="font-bold text-5xl">{children}</h1>,
+  h2: ({ children }) => <h2 className="pt-4 font-bold text-4xl">{children}</h2>,
+  h3: ({ children }) => <h3 className="pt-2 font-bold text-3xl">{children}</h3>,
   p: ({ children }) => <p>{children}</p>,
   ul: ({ children }) => <ul className="list-inside list-disc">{children}</ul>,
   ol: ({ children }) => (
