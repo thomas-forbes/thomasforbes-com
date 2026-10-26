@@ -31,11 +31,11 @@ export default function Home() {
 			</div>
 			<hr />
 			{[
-				{
-					title: "Projects",
-					titleClassName: COLORS.orange.text,
-					items: PROJECTS_ITEMS,
-				},
+				// {
+				// 	title: "Projects",
+				// 	titleClassName: COLORS.orange.text,
+				// 	items: PROJECTS_ITEMS,
+				// },
 				{
 					title: "Experience",
 					titleClassName: COLORS.emerald.text,
@@ -135,14 +135,14 @@ const EXPERIENCE_ITEMS: Item[] = [
 	},
 ];
 
-const PROJECTS_ITEMS: Item[] = [
-	{
-		title: "Email app",
-		description: "releasing soon...",
-		content:
-			"Current email apps aren't excellent. I didn't like that so I am building my own for fun.",
-	},
-];
+// const PROJECTS_ITEMS: Item[] = [
+// 	{
+// 		title: "Email app",
+// 		description: "releasing soon...",
+// 		content:
+// 			"Current email apps aren't excellent. I didn't like that so I am building my own for fun.",
+// 	},
+// ];
 
 const AWARDS_ITEMS: Item[] = [
 	{
