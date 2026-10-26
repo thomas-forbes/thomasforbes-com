@@ -12,7 +12,7 @@ import {
 } from '@/components/ui/card';
 import { Link } from '@/components/ui/link';
 import { Section } from '@/components/ui/section';
-import { getPhotos } from '@/lib/get-photos';
+import { PHOTOS } from '@/lib/photos';
 import { fetchAllFavorites } from '@/lib/quotes';
 import { COLORS, MAILTO_URL } from '@/lib/types';
 
@@ -222,8 +222,15 @@ function ItemList(items: Item[]) {
   );
 }
 
-async function Photos() {
-  const photos = await getPhotos();
+const HOME_PHOTOS = [
+  '2025-08-skydive.webp',
+  '2026-forest-road-trip.webp',
+  '2024-02-shipping.webp',
+]
+  .map((file) => PHOTOS.find((photo) => photo.file === file))
+  .filter((photo) => photo !== undefined);
+
+function Photos() {
   return (
     <Section
       title="Photos"
@@ -235,8 +242,8 @@ async function Photos() {
     >
       <div className="flex flex-col gap-4">
         <div className="grid grid-cols-3 gap-4">
-          {photos.slice(0, 3).map((file) => (
-            <PhotoPreview key={file} file={file} />
+          {HOME_PHOTOS.map((photo) => (
+            <PhotoPreview key={photo.file} photo={photo} />
           ))}
         </div>
       </div>
